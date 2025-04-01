@@ -1,0 +1,113 @@
+/* src/components/Navbar.css */
+
+.navbar {
+  margin-top: 20px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left */
+  opacity: 0; /* Start with invisible navbar */
+  animation: fadeIn 2s ease-in-out forwards; /* Slow down the fade-in animation */
+}
+
+/* Fade-in effect for each item with a delay */
+.navbar .nav-item {
+  position: relative;
+  text-align: left;  /* Align text to the left */
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  opacity: 0; /* Initially hidden */
+  animation: itemFadeIn 1s ease forwards; /* Apply individual fade-in animation */
+}
+
+/* Create a delay for each item */
+.navbar .nav-item:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.navbar .nav-item:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.navbar .nav-item:nth-child(3) {
+  animation-delay: 0.9s;
+}
+.navbar .nav-item:nth-child(4) {
+  animation-delay: 1.2s;
+}
+
+/* The horizontal line (indicator) before the text */
+.navbar .nav-item .nav-indicator {
+  position: absolute;
+  left: -50px; /* Keep it fixed to the left */
+  top: 50%;
+  transform: translateY(-50%);
+  height: 2px;
+  width: 50px; /* Initial width of the line */
+  background-color: #2f3b4a; /* Line color */
+  z-index: 0; /* Line should be below the text */
+  transition: width 0.3s ease, background-color 0.3s ease; /* Smooth transition for width */
+}
+
+/* Hover effect: only expand the line to the right */
+.navbar .nav-item:hover .nav-indicator {
+  width: 100px; /* Expand the width of the line to the full width */
+  background-color: #3498db;
+}
+
+.navbar .nav-item:hover a {
+  transform: translateX(50px); /* Shift the text 50px to the right */
+  color: white;
+}
+
+.navbar .nav-item a {
+  text-decoration: none;
+  color: #3a495c;
+  display: inline-block;
+  padding: 10px;
+  position: relative;
+  z-index: 1; /* Ensure the text stays above the line */
+  transition: transform 0.3s ease; /* Smooth transition for text */
+}
+
+/* Fade-in animation for each item */
+@keyframes itemFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in animation for the entire navbar */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .name {
+    font-size: 3rem;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+  }
+
+  .resume-btn {
+    padding: 10px 25px;
+  }
+}

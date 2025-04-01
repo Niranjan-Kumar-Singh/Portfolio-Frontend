@@ -1,0 +1,100 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0a192f;
+  color: white;
+  overflow: hidden;
+}
+
+/* Main Layout */
+.app-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar (Left) */
+.sidebar {
+  width: 45%; /* Adjust width as needed */
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(10, 25, 47, 0.95);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+/* Content Wrapper (Right Side) */
+.content-wrapper {
+  margin-left: 45%; /* Same width as sidebar */
+  width: 55%; /* Adjust width */
+  height: 100vh;
+  overflow: hidden; /* Prevent extra spacing */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollable Main Content */
+.content {
+  flex-grow: 1;
+  padding: 50px;
+  overflow-y: auto; /* Enable scrolling only in this section */
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background-color: #112240;
+  color: #8892b0;
+}
+
+/* Header and Resume Button */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+/* Resume Button */
+.resume-btn button {
+  background-color: #112240;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.resume-btn button:hover {
+  background-color: #8892b0;
+}
+
+/* Scroll Animation */
+@keyframes scrollEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.content-wrapper {
+  opacity: 0;
+  animation: scrollEffect 1s ease-out forwards;
+}

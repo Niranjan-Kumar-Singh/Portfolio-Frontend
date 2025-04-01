@@ -1,0 +1,83 @@
+/* src/styles/header.css */
+
+.header {
+  background: url('../assets/images/Header.jpg') center center/cover no-repeat;
+  /* Set your background image */
+  height: 100vh;
+  /* Full screen height */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 10000px rgba(0, 0, 0, 0.4);
+  /* Glass effect */
+}
+
+.container {
+  max-width: 1200px;
+  padding: 20px;
+  width: 100%;
+  position: relative;
+}
+
+.name {
+  font-size: 4rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.resume-btn {
+  font-size: 1.2rem;
+  padding: 12px 30px;
+  background-color: #4f82f5;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.resume-btn:hover {
+  background-color: #3c70d1;
+  transform: scale(1.05);
+}
+
+/* Adjust navbar layout */
+.navbar-container {
+  display: flex;
+  justify-content: flex-start;
+  /* Align the navbar to the left */
+  width: 100%;
+}
+
+.navbar {
+  margin-left: -300px;
+  /* Add a little space from the left */
+}
+
+@media (max-width: 768px) {
+  .name {
+    font-size: 3rem;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+  }
+
+  .resume-btn {
+    padding: 10px 25px;
+  }
+}

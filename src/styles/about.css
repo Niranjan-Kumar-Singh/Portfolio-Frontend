@@ -1,0 +1,77 @@
+/* src/styles/About.css */
+
+.about {
+    padding: 80px 0;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .intro {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .skills {
+    margin-top: 40px;
+  }
+  
+  .skills-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .skills-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .skills-list li {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px;
+  }
+  
+  .resume-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 25px;
+    background-color: #646cff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .resume-btn:hover {
+    background-color: #535bf2;
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 768px) {
+    .skills-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
