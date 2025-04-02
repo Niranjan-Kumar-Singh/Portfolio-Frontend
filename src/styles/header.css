@@ -42,17 +42,52 @@
 .resume-btn {
   font-size: 1.2rem;
   padding: 12px 30px;
-  background-color: #4f82f5;
+  background: linear-gradient(135deg, #4f82f5, #1e3fa4); /* Deep blue gradient */
   color: #fff;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 8px;
   font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: 2px solid transparent;
+  display: inline-block;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 4px 15px rgba(79, 130, 245, 0.5); /* Soft glow effect */
+}
+
+/* Button Hover Effect */
+.resume-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.6s ease-in-out;
+  transform: translate(-50%, -50%) rotate(45deg);
+  opacity: 0;
+}
+
+.resume-btn:hover::before {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
 }
 
 .resume-btn:hover {
-  background-color: #3c70d1;
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #3c70d1, #0f2b88); /* Slightly darker blue */
+  transform: scale(1.08);
+  border-color: #fff;
+  color: #fff;
+  box-shadow: 0px 6px 20px rgba(79, 130, 245, 0.6);
+}
+
+/* Ensuring Text Visibility During Animation */
+.resume-btn:hover span {
+  color: white;
+  font-weight: bold;
+  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8); /* Glow effect for visibility */
 }
 
 /* Adjust navbar layout */
