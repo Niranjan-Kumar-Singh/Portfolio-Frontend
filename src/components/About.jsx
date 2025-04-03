@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import '../styles/About.css';
+import '../styles/about.css';
 import Typed from 'typed.js';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';

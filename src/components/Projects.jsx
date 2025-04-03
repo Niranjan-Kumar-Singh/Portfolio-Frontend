@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Projects.css';
+import '../styles/projects.css';
 import { FaReact, FaNodeJs, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { SiMongodb, SiExpress, SiHtml5, SiCss3, SiJavascript } from 'react-icons/si';
 
