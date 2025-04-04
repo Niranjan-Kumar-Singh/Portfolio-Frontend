@@ -1,38 +1,57 @@
-/* src/styles/Footer.css */
+.left-footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 40px;
+  width: 100%;
+  background: transparent;
+  position: relative;
+  margin-top: 40px;
+  animation: slideInUp 1s ease forwards;
+  opacity: 0;
+}
 
-.footer {
-    background-color: #333;
-    color: #fff;
-    padding: 30px 20px;
-    text-align: center;
+/* Slide-in animation from bottom */
+@keyframes slideInUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
   }
-  
-  .footer .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  .footer p {
-    font-size: 1rem;
-    margin-bottom: 15px;
+}
+
+.footer-horizontal {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  padding-left: 0;
+  margin: 0;
+  margin-left: -2.5vw; /* Shift icons slightly to the left like navbar */
+}
+
+.footer-icon {
+  color: #fff;
+  font-size: 1.7rem;
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.footer-icon:hover {
+  transform: scale(1.2);
+  color: #64ffda;
+  text-shadow: 0 0 10px #64ffda, 0 0 20px #64ffda, 0 0 30px #64ffda;
+}
+
+@media (max-width: 768px) {
+  .left-footer {
+    justify-content: center;
+    padding: 10px;
   }
-  
-  .footer .social-links a {
-    color: #fff;
-    margin: 0 10px;
-    font-size: 1.1rem;
-    text-decoration: none;
-    transition: color 0.3s ease;
+
+  .footer-horizontal {
+    justify-content: center;
+    margin-left: 0; /* Reset on mobile */
   }
-  
-  .footer .social-links a:hover {
-    color: #4f82f5; /* Light blue on hover */
-  }
-  
-  @media (max-width: 768px) {
-    .footer .social-links a {
-      font-size: 1rem;
-      margin: 5px;
-    }
-  }
-  
+}

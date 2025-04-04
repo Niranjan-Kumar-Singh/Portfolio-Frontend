@@ -53,20 +53,19 @@ const About = () => {
 
         <div className="skills">
           <h3 className="skills-title">Technical Skills</h3>
-          <div className="skills-list">
-            <div className="skill-item"><FaReact className="skill-icon" /><span>React.js</span></div>
-            <div className="skill-item"><FaNodeJs className="skill-icon" /><span>Node.js</span></div>
-            <div className="skill-item"><SiMongodb className="skill-icon" /><span>MongoDB</span></div>
-            <div className="skill-item"><SiExpress className="skill-icon" /><span>Express.js</span></div>
-            <div className="skill-item"><FaJs className="skill-icon" /><span>JavaScript (ES6+)</span></div>
-            <div className="skill-item"><SiRedux className="skill-icon" /><span>Redux</span></div>
-            <div className="skill-item"><FaGithub className="skill-icon" /><span>Git & GitHub</span></div>
-            <div className="skill-item"><FaCloud className="skill-icon" /><span>Cloud Deployment</span></div>
-            <div className="skill-item"><SiTailwindcss className="skill-icon" /><span>Tailwind CSS</span></div>
-            <div className="skill-item"><FaCss3Alt className="skill-icon" /><span>CSS3</span></div>
+          <div className="skills-grid">
+            <div className="skill-card"><FaReact className="skill-icon" /><span>React.js</span></div>
+            <div className="skill-card"><FaNodeJs className="skill-icon" /><span>Node.js</span></div>
+            <div className="skill-card"><SiExpress className="skill-icon" /><span>Express.js</span></div>
+            <div className="skill-card"><SiMongodb className="skill-icon" /><span>MongoDB</span></div>
+            <div className="skill-card"><FaJs className="skill-icon" /><span>JavaScript</span></div>
+            <div className="skill-card"><SiRedux className="skill-icon" /><span>Redux</span></div>
+            <div className="skill-card"><FaGithub className="skill-icon" /><span>Git & GitHub</span></div>
+            <div className="skill-card"><SiTailwindcss className="skill-icon" /><span>Tailwind CSS</span></div>
+            <div className="skill-card"><FaCss3Alt className="skill-icon" /><span>CSS3</span></div>
+            <div className="skill-card"><FaCloud className="skill-icon" /><span>Cloud Deployment</span></div>
           </div>
         </div>
-
         <a href="path_to_resume.pdf" className="resume-btn">Download Resume</a>
       </div>
     </section>

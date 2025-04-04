@@ -1,60 +1,106 @@
-/* Navbar styles */
+/* Reusable padding for layout alignment */
+.shared-padding {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* Scroll Progress Bar */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: #3498db;
+  z-index: 999;
+  transition: width 0.2s ease-out;
+}
+
+/* Navbar base */
 .navbar {
-  margin-top: 20px;
+  animation: slideInLeft 1s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .navbar ul {
-  list-style-type: none;
-  padding: 0;
+  list-style: none;
   margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  gap: 20px;
+  margin-left: -2.5vw; /* Shift everything slightly to the left */
 }
 
-/* Default style for nav items */
-.navbar .nav-item {
-  position: relative;
-  text-align: left;
-  font-size: 1.2rem;
-  color: white;
-  cursor: pointer;
+/* Nav Item */
+.nav-item {
   display: flex;
   align-items: center;
-  transition: color 0.3s ease;
+  gap: 20px;
+  cursor: pointer;
 }
 
-/* Indicator line before text */
-.navbar .nav-item .nav-indicator {
-  position: absolute;
-  left: -50px;
-  top: 50%;
-  transform: translateY(-50%);
+/* Indicator Line */
+.nav-indicator {
   height: 2px;
   width: 50px;
   background-color: #2f3b4a;
   transition: width 0.3s ease, background-color 0.3s ease;
+  flex-shrink: 0;
 }
 
-/* Hover effect */
-.navbar .nav-item:hover .nav-indicator,
-.navbar .nav-item.active .nav-indicator {  /* Active section effect */
+.nav-item:hover .nav-indicator,
+.nav-item.active .nav-indicator {
   width: 100px;
   background-color: #3498db;
 }
 
-.navbar .nav-item:hover a,
-.navbar .nav-item.active a {  /* Active section text effect */
-  color: white;
-  transform: translateX(50px);
+/* Nav Link */
+.nav-item a {
+  text-decoration: none;
+  color: #b0bec5; /* Improved contrast */
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.navbar .nav-item a {
-  text-decoration: none;
-  color: #2f3b4a;
-  display: inline-block;
-  padding: 10px;
-  position: relative;
-  z-index: 1;
-  transition: transform 0.3s ease, color 0.3s ease;
+.nav-item:hover a,
+.nav-item.active a {
+  color: white;
+  transform: translateX(10px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    animation: none;
+    opacity: 1;
+    padding: 0 20px;
+  }
+
+  .navbar ul {
+    align-items: center;
+    margin-left: 0; /* Reset for mobile */
+  }
+
+  .nav-item {
+    justify-content: center;
+  }
+
+  .nav-indicator {
+    width: 30px;
+  }
+
+  .nav-item:hover a {
+    transform: none;
+  }
 }

@@ -39,19 +39,16 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", updateScrollProgress);
   }, []);
 
-  // Smooth Scrolling Function
+  // Smooth Scrolling
   const scrollToSection = (e, id) => {
     e.preventDefault();
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
-      {/* Progress Bar */}
       <div className="progress-bar" style={{ width: `${scrollProgress}%` }}></div>
-
-      {/* Navbar */}
-      <nav className="navbar">
+      <nav className="navbar shared-padding">
         <ul>
           {["about", "projects", "contact"].map((section) => (
             <li key={section} className={`nav-item ${activeSection === section ? "active" : ""}`}>

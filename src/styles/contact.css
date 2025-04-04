@@ -1,61 +1,110 @@
-/* src/styles/Contact.css */
+/* src/styles/contact.css */
 
-.contact {
-    padding: 50px 20px;
-    background-color: #f4f4f4;
-  }
-  
-  .contact h2 {
-    text-align: center;
+.contact-section {
+  /* background: radial-gradient(circle, #0a0a0a, #060606); */
+  min-height: 50vh;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.particles-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.contact-heading {
+  font-size: 3rem;
+  color: #0ff;
+  margin-bottom: 40px;
+  text-align: center;
+  z-index: 1;
+}
+
+.glass-form {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
+  z-index: 1;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.input-box input,
+.input-box textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #555;
+  color: #fff;
+  font-size: 1rem;
+  padding: 10px 0;
+  transition: border-color 0.3s;
+}
+
+.input-box input:focus,
+.input-box textarea:focus {
+  border-bottom: 2px solid #0ff;
+  outline: none;
+}
+
+.input-box label {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  color: #aaa;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label,
+.input-box textarea:focus ~ label,
+.input-box textarea:valid ~ label {
+  top: -20px;
+  color: #0ff;
+  font-size: 0.85rem;
+}
+
+.neon-button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  background: #0ff;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 20px #0ff;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.neon-button:hover {
+  background: #00ffffcc;
+  box-shadow: 0 0 30px #0ff;
+}
+
+@media (max-width: 768px) {
+  .contact-heading {
     font-size: 2rem;
-    margin-bottom: 40px;
-    color: #333;
   }
-  
-  form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  .glass-form {
+    padding: 25px;
   }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-group label {
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  .form-group textarea {
-    height: 150px;
-  }
-  
-  .submit-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #4f82f5;
-    color: white;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submit-btn:hover {
-    background-color: #2a4ad3;
-  }
-  
+}

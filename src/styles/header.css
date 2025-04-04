@@ -2,26 +2,42 @@
 
 .header {
   background: url('../assets/images/Header.jpg') center center/cover no-repeat;
-  /* Set your background image */
   height: 100vh;
-  /* Full screen height */
   color: #fff;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   position: relative;
-  background-size: cover;
-  background-position: center;
   box-shadow: inset 0 0 0 10000px rgba(0, 0, 0, 0.4);
-  /* Glass effect */
 }
 
-.container {
-  max-width: 1200px;
-  padding: 20px;
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 40px;
   width: 100%;
-  position: relative;
+  box-sizing: border-box;
+}
+
+.header-content {
+  max-width: 1200px;
+  padding-top: 80px;
+  padding-bottom: 20px;
+  width: 100%;
+  animation: slideInLeft 1s ease forwards;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .name {
@@ -37,12 +53,13 @@
   font-weight: 300;
   margin-bottom: 20px;
   opacity: 0.8;
+  animation: slideInLeft 1.3s ease forwards;
 }
 
 .resume-btn {
   font-size: 1.2rem;
   padding: 12px 30px;
-  background: linear-gradient(135deg, #4f82f5, #1e3fa4); /* Deep blue gradient */
+  background: linear-gradient(135deg, #4f82f5, #1e3fa4);
   color: #fff;
   text-decoration: none;
   border-radius: 8px;
@@ -52,10 +69,10 @@
   transition: all 0.4s ease-in-out;
   position: relative;
   overflow: hidden;
-  box-shadow: 0px 4px 15px rgba(79, 130, 245, 0.5); /* Soft glow effect */
+  box-shadow: 0px 4px 15px rgba(79, 130, 245, 0.5);
+  animation: slideInLeft 1.6s ease forwards;
 }
 
-/* Button Hover Effect */
 .resume-btn::before {
   content: "";
   position: absolute;
@@ -76,34 +93,66 @@
 }
 
 .resume-btn:hover {
-  background: linear-gradient(135deg, #3c70d1, #0f2b88); /* Slightly darker blue */
+  background: linear-gradient(135deg, #3c70d1, #0f2b88);
   transform: scale(1.08);
   border-color: #fff;
   color: #fff;
   box-shadow: 0px 6px 20px rgba(79, 130, 245, 0.6);
 }
 
-/* Ensuring Text Visibility During Animation */
 .resume-btn:hover span {
   color: white;
   font-weight: bold;
-  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8); /* Glow effect for visibility */
+  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
 }
 
-/* Adjust navbar layout */
-.navbar-container {
-  display: flex;
-  justify-content: flex-start;
-  /* Align the navbar to the left */
+/* Navbar wrapper inside header */
+.navbar-wrapper {
   width: 100%;
+  margin-top: 40px;
 }
 
-.navbar {
-  margin-left: -300px;
-  /* Add a little space from the left */
+/* Particles background canvas */
+#tsparticles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
+/* Make header content appear on top of particles */
+.header-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Glowing name text */
+.glow-text {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(100, 255, 218, 0.8),
+               0 0 16px rgba(100, 255, 218, 0.5);
+}
+
+/* Optional 3D tilt resume button hover (already animated in JSX too) */
+.tilt-btn {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+
+/* Responsive */
 @media (max-width: 768px) {
+  .header-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+  }
+
+  .header-content {
+    padding-top: 60px;
+    text-align: center;
+  }
+
   .name {
     font-size: 3rem;
   }
@@ -114,5 +163,6 @@
 
   .resume-btn {
     padding: 10px 25px;
+    font-size: 1rem;
   }
 }
