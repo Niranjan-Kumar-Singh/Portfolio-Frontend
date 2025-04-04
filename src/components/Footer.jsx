@@ -8,7 +8,7 @@ const Footer = () => {
     <div className="left-footer">
       <div className="footer-horizontal">
         <a
-          href="https://github.com/yourusername"
+          href="https://github.com/Niranjan-Kumar-Singh"
           target="_blank"
           rel="noopener noreferrer"
           className="footer-icon"
@@ -16,7 +16,7 @@ const Footer = () => {
           <FaGithub />
         </a>
         <a
-          href="https://linkedin.com/in/yourusername"
+          href="https://www.linkedin.com/in/niranjan-kumar-singh/"
           target="_blank"
           rel="noopener noreferrer"
           className="footer-icon"
@@ -24,7 +24,7 @@ const Footer = () => {
           <FaLinkedin />
         </a>
         <a
-          href="https://instagram.com/yourusername"
+          href="https://www.instagram.com/niranjan._23/"
           target="_blank"
           rel="noopener noreferrer"
           className="footer-icon"

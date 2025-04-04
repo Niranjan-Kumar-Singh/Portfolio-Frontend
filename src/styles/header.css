@@ -23,7 +23,7 @@
 
 .header-content {
   max-width: 1200px;
-  padding-top: 80px;
+  padding-top: 50px;
   padding-bottom: 20px;
   width: 100%;
   animation: slideInLeft 1s ease forwards;
@@ -41,24 +41,24 @@
 }
 
 .name {
-  font-size: 4rem;
+  font-size: 2.8rem;
   font-weight: bold;
   letter-spacing: 2px;
   text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .tagline {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 300;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   opacity: 0.8;
   animation: slideInLeft 1.3s ease forwards;
 }
 
 .resume-btn {
-  font-size: 1.2rem;
-  padding: 12px 30px;
+  font-size: 1rem;
+  padding: 10px 24px;
   background: linear-gradient(135deg, #4f82f5, #1e3fa4);
   color: #fff;
   text-decoration: none;
@@ -109,7 +109,7 @@
 /* Navbar wrapper inside header */
 .navbar-wrapper {
   width: 100%;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 /* Particles background canvas */
@@ -154,15 +154,15 @@
   }
 
   .name {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
 
   .tagline {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .resume-btn {
-    padding: 10px 25px;
-    font-size: 1rem;
+    padding: 9px 20px;
+    font-size: 0.95rem;
   }
 }

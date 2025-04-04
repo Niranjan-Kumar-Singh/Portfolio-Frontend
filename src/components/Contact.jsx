@@ -1,6 +1,7 @@
 // src/components/Contact.jsx
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import "../styles/contact.css";
+import axios from "axios";
 import { motion } from "framer-motion";
 import toast, { Toaster } from "react-hot-toast";
 import Particles from "react-tsparticles";
@@ -15,13 +16,29 @@ const Contact = () => {
   };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    toast.success("Message sent successfully!");
-    setFormData({ name: "", email: "", message: "" });
+
+    const API_BASE = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
+    
+    try {
+      const response = await axios.post(`${API_BASE}/api/contact`, formData);
+      if (response.data.success) {
+        toast.success("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.error("Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Something went wrong!");
+    }
   };
 
   return (
@@ -30,9 +47,7 @@ const Contact = () => {
         id="tsparticles"
         init={handleParticlesInit}
         options={{
-          background: {
-            color: { value: "transparent" }
-          },
+          background: { color: { value: "transparent" } },
           fullScreen: { enable: false },
           fpsLimit: 60,
           interactivity: {

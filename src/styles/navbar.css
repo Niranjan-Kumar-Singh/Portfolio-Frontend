@@ -9,7 +9,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 4px;
+  height: 3px;
   background: #3498db;
   z-index: 999;
   transition: width 0.2s ease-out;
@@ -38,7 +38,7 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
   margin-left: -2.5vw; /* Shift everything slightly to the left */
 }
 
@@ -46,14 +46,14 @@
 .nav-item {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
   cursor: pointer;
 }
 
 /* Indicator Line */
 .nav-indicator {
   height: 2px;
-  width: 50px;
+  width: 40px;
   background-color: #2f3b4a;
   transition: width 0.3s ease, background-color 0.3s ease;
   flex-shrink: 0;
@@ -61,7 +61,7 @@
 
 .nav-item:hover .nav-indicator,
 .nav-item.active .nav-indicator {
-  width: 100px;
+  width: 80px;
   background-color: #3498db;
 }
 
@@ -69,7 +69,7 @@
 .nav-item a {
   text-decoration: none;
   color: #b0bec5; /* Improved contrast */
-  font-size: 1.2rem;
+  font-size: 1rem;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
@@ -90,6 +90,7 @@
   .navbar ul {
     align-items: center;
     margin-left: 0; /* Reset for mobile */
+    gap: 10px; /* Adjust gap for mobile */
   }
 
   .nav-item {
@@ -97,7 +98,11 @@
   }
 
   .nav-indicator {
-    width: 30px;
+    width: 20px;
+  }
+
+  .nav-item a {
+    font-size: 0.95rem;
   }
 
   .nav-item:hover a {

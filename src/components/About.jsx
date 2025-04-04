@@ -10,16 +10,10 @@ const About = () => {
   useEffect(() => {
     const typed = new Typed(".typed-text", {
       strings: ["About Me"],
-      typeSpeed: 80, // Slow speed a little bit
+      typeSpeed: 80, 
       backSpeed: 40,
-      showCursor: true,
-      cursorChar: "|", // Custom cursor character
-      loop: false,
-      onComplete: (self) => {
-        setTimeout(() => {
-          self.cursor.style.display = "none"; // Remove cursor after text is fully typed
-        }, 500);
-      }
+      showCursor: false, // Cursor will disappear automatically
+      loop: false
     });
   
     return () => typed.destroy();
@@ -37,9 +31,10 @@ const About = () => {
         options={{
           background: { color: "#0d0d0d" },
           particles: {
-            number: { value: 100 },
-            size: { value: 3 },
-            move: { enable: true, speed: 2 }
+            number: { value: 80 },
+            size: { value: 2 },
+            move: { enable: true, speed: 1.5 },
+            detectRetina: true
           }
         }}
       />

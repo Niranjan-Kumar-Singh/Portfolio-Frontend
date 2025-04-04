@@ -25,7 +25,7 @@
 
 /* Typing Animation Title */
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
@@ -38,11 +38,12 @@
 
 /* Intro Paragraph */
 .intro {
-  font-size: 1.2rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
   font-weight: 500;
+  text-align: left; /* 👈 Added this line */
 }
 
 /* Skills Section */
@@ -51,7 +52,7 @@
 }
 
 .skills-title {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
@@ -72,7 +73,7 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(100, 255, 218, 0.2);
   border-radius: 12px;
-  padding: 20px;
+  padding: 15px;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 15px rgba(0, 255, 200, 0.05);
   color: #64ffda;
@@ -84,49 +85,54 @@
 
 /* Skill Icon Styling */
 .skill-card .skill-icon {
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
   display: block;
 }
 
 /* Hover Effects */
 .skill-card:hover {
-  transform: translateY(-5px) scale(1.03);
+  transform: translateY(-5px) scale(1.05);
   border: 1px solid #64ffda;
-  box-shadow: 0 0 15px #64ffda66, 0 0 25px #64ffda33;
-}
-
-/* Skill Text */
-.skill-card span {
-  font-size: 1rem;
-  font-weight: 500;
+  box-shadow: 0 0 20px #64ffda99, 0 0 30px #64ffda55;
 }
 
 /* Resume Button */
 .resume-btn {
   display: inline-block;
   margin-top: 40px;
-  padding: 12px 25px;
+  padding: 10px 20px;
   background-color: #112240;
   color: #64ffda;
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-align: center;
   transition: all 0.3s ease-in-out;
   border: 2px solid #64ffda;
 }
 
-/* Resume Button Hover */
 .resume-btn:hover {
-  transform: perspective(500px) rotateX(5deg);
-  box-shadow: 0px 0px 15px #64ffda;
-  background-color: rgba(100, 255, 218, 0.1);
+  transform: perspective(500px) rotateX(8deg);
+  box-shadow: 0px 0px 20px #64ffda;
+  background-color: rgba(100, 255, 218, 0.2);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .intro {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .skills-title {
+    font-size: 1.2rem;
+  }
   .skills-grid {
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   }
