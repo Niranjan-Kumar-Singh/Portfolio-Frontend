@@ -1,19 +1,18 @@
 // src/components/Contact.jsx
-import React, { useState, useRef } from "react";
+import React, { useState, useCallback } from "react";
 import "../styles/contact.css";
 import axios from "axios";
 import { motion } from "framer-motion";
 import toast, { Toaster } from "react-hot-toast";
-import Particles from "react-tsparticles";
+import Particles from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const particlesInit = useRef(null);
 
-  const handleParticlesInit = async (main) => {
-    await loadFull(main);
-  };
+  const particlesInit = useCallback(async (engine) => {
+    await loadFull(engine);
+  }, []);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -25,8 +24,8 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const API_BASE = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
-    
+    const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+
     try {
       const response = await axios.post(`${API_BASE}/api/contact`, formData);
       if (response.data.success) {
@@ -45,7 +44,7 @@ const Contact = () => {
     <section className="contact-section" id="contact">
       <Particles
         id="tsparticles"
-        init={handleParticlesInit}
+        init={particlesInit}
         options={{
           background: { color: { value: "transparent" } },
           fullScreen: { enable: false },
@@ -54,12 +53,12 @@ const Contact = () => {
             events: {
               onClick: { enable: true, mode: "push" },
               onHover: { enable: true, mode: "repulse" },
-              resize: true
+              resize: true,
             },
             modes: {
               push: { quantity: 4 },
-              repulse: { distance: 100, duration: 0.4 }
-            }
+              repulse: { distance: 100, duration: 0.4 },
+            },
           },
           particles: {
             color: { value: "#0ff" },
@@ -68,7 +67,7 @@ const Contact = () => {
               distance: 150,
               enable: true,
               opacity: 0.3,
-              width: 1
+              width: 1,
             },
             collisions: { enable: true },
             move: {
@@ -77,17 +76,17 @@ const Contact = () => {
               outModes: "bounce",
               random: false,
               speed: 1,
-              straight: false
+              straight: false,
             },
             number: {
               density: { enable: true, area: 800 },
-              value: 40
+              value: 40,
             },
             opacity: { value: 0.4 },
             shape: { type: "circle" },
-            size: { value: { min: 1, max: 4 } }
+            size: { value: { min: 1, max: 4 } },
           },
-          detectRetina: true
+          detectRetina: true,
         }}
         className="particles-background"
       />

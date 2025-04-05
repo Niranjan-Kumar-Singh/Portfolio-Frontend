@@ -1,6 +1,6 @@
 // File: src/App.jsx
 import React from "react";
-import Particles from "react-tsparticles";
+import Particles from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 import Header from "./components/Header";
 import About from "./components/About";

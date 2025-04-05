@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import '../styles/about.css';
 import Typed from 'typed.js';
-import Particles from 'react-tsparticles';
-import { loadFull } from 'tsparticles';
+import Particles from "@tsparticles/react";
+import { loadFull } from "tsparticles";
 import { FaReact, FaNodeJs, FaDatabase, FaGithub, FaCloud, FaJs, FaCss3Alt } from 'react-icons/fa';
 import { SiMongodb, SiExpress, SiRedux, SiTailwindcss } from 'react-icons/si';
 

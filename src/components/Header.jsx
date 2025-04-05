@@ -2,8 +2,8 @@ import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import '../styles/header.css';
-import Particles from 'react-tsparticles';
-import { loadFull } from 'tsparticles';
+import Particles from "@tsparticles/react";
+import { loadFull } from "tsparticles";
 import { motion } from 'framer-motion';
 
 const Header = () => {
