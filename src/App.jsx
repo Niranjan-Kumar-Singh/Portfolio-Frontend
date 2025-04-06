@@ -1,64 +1,22 @@
-// File: src/App.jsx
-import React from "react";
-import Particles from "@tsparticles/react";
-import { loadFull } from "tsparticles";
+// src/App.jsx
+import React, { useEffect } from "react";
 import Header from "./components/Header";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import ParticlesBackground from "./components/ParticlesBackground";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./styles/App.css";
 
 const App = () => {
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   return (
-    <div className="app-container">
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        className="particles-bg"
-        options={{
-          fullScreen: { enable: false },
-          background: { color: "#0a192f" },
-          fpsLimit: 60,
-          interactivity: {
-            events: {
-              onHover: { enable: true, mode: "repulse" },
-              resize: true,
-            },
-            modes: {
-              repulse: { distance: 100, duration: 0.4 },
-            },
-          },
-          particles: {
-            color: { value: "#4af" },
-            links: {
-              color: "#4af",
-              distance: 150,
-              enable: true,
-              opacity: 0.4,
-              width: 1,
-            },
-            collisions: { enable: true },
-            move: {
-              direction: "none",
-              enable: true,
-              outModes: { default: "bounce" },
-              speed: 2,
-            },
-            number: {
-              value: 60,
-              density: { enable: true, area: 800 },
-            },
-            opacity: { value: 0.5 },
-            shape: { type: "circle" },
-            size: { value: { min: 1, max: 4 } },
-          },
-          detectRetina: true,
-        }}
-      />
+    <div className="app-container relative w-full h-full overflow-hidden">
+      <ParticlesBackground />
 
       <aside className="sidebar">
         <Header />

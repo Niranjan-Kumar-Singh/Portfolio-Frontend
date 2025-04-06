@@ -1,76 +1,99 @@
 /* src/styles/App.css */
 
-/* Reset default styles */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Global Layout */
+html,
 body {
-  font-family: Arial, sans-serif;
-  background-color: #0a192f;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
   color: white;
-  overflow: hidden;
-}
-
-/* Main Layout */
-.app-container {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* Particle Background */
 .particles-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+
+canvas {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  pointer-events: none;
+}
+
+/* Cursor Trail */
+#cursorTrail {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -5;
 }
 
-/* Sidebar (Left) */
+/* App Container */
+.app-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  background-color: var(--bg-dark);
+  overflow: hidden;
+}
+
+/* Sidebar */
 .sidebar {
   width: 45%;
   height: 100vh;
   position: fixed;
   left: 0;
   top: 0;
-  background-color: rgba(10, 25, 47, 0.95);
+  /* background-color: rgba(10, 25, 47, 0.95); */
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* 💡 This pushes footer to bottom */
-  z-index: 10;
+  justify-content: space-between;
+  z-index: 0;
 }
 
-/* Content Wrapper (Right Side) */
+/* Right Content */
 .content-wrapper {
   margin-left: 45%;
   width: 55%;
   height: 100vh;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  z-index: 5;
   opacity: 0;
   animation: fadeIn 1s ease-out forwards;
   animation-delay: 0.4s;
 }
 
-/* Scrollable Main Content */
 .content {
   flex-grow: 1;
   padding: 50px;
   overflow-y: auto;
   position: relative;
-  z-index: 2;
+  z-index: 0;
 }
 
-/* Footer */
+/* Footer Right (Rotated Text) */
 .footer-right {
   text-align: center;
   font-size: 0.8rem;
@@ -89,7 +112,7 @@ body {
   align-items: center;
 }
 
-/* Header and Resume Button */
+/* Header Section */
 .header {
   display: flex;
   flex-direction: column;
@@ -107,14 +130,17 @@ body {
   cursor: pointer;
   font-size: 1.2rem;
   margin-bottom: 20px;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .resume-btn button:hover {
-  background-color: #8892b0;
+  background-color: #00f7ff;
+  color: #0a192f;
+  box-shadow: 0 0 15px #00f7ff;
+  transform: scale(1.05);
 }
 
-/* Scroll Animation */
+/* Fade In Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -122,6 +148,6 @@ body {
   }
   to {
     opacity: 1;
-    transform: translate(0);
+    transform: translateY(0);
   }
 }

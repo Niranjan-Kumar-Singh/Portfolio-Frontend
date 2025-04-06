@@ -4,7 +4,7 @@
   align-items: center;
   padding: 10px 40px;
   width: 100%;
-  background: transparent;
+  /* background: transparent; */
   position: relative;
   margin-top: 250px;
   animation: slideInUp 1s ease forwards;
