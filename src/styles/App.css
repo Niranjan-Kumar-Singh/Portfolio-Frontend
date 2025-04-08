@@ -11,7 +11,7 @@
 html,
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--bg-dark);
+  background: radial-gradient(circle at top left, #0a192f 0%, #020c1b 100%);
   color: white;
   height: 100%;
   overflow-x: hidden;

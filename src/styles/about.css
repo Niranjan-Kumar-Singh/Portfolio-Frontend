@@ -62,17 +62,16 @@
 
 /* Individual Skill Card */
 .skill-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(20, 33, 61, 0.7); /* deep navy with high opacity */
   border: 1px solid rgba(100, 255, 218, 0.2);
   border-radius: 12px;
   padding: 15px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0, 255, 200, 0.05);
   color: #64ffda;
   text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 255, 200, 0.08);
+  z-index: 2;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
   position: relative;
-  z-index: 1;
 }
 
 .skill-card .skill-icon {
@@ -83,9 +82,9 @@
 
 /* Hover Effects */
 .skill-card:hover {
-  transform: translateY(-5px) scale(1.05);
+  /* transform: translateY(-5px) scale(1.05); */
   border: 1px solid #64ffda;
-  box-shadow: 0 0 20px #64ffda99, 0 0 30px #64ffda55;
+  box-shadow: 0 0 10px #64ffda99, 0 0 10px #64ffda55;
 }
 
 .skill-card:hover .skill-icon {

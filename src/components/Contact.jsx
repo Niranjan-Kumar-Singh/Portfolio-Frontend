@@ -107,7 +107,7 @@ const Contact = () => {
         <motion.button
           type="submit"
           className={`neon-button ${isSubmitting ? "loading" : ""}`}
-          whileHover={!isSubmitting ? { scale: 1.05 } : {}}
+          whileHover={!isSubmitting ? { scale: 1.03 } : {}}
           disabled={isSubmitting}
         >
           {isSubmitting ? "Sending..." : "🚀 Send"}

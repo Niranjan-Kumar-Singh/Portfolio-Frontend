@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/projects.css';
 import { FaReact, FaNodeJs, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { SiMongodb, SiExpress, SiHtml5, SiCss3, SiJavascript } from 'react-icons/si';
+import { FaArrowRight } from 'react-icons/fa';
 
 const projectData = [
   {
@@ -46,13 +47,10 @@ const Projects = () => {
           <div key={index} className="project-card">
             <div className="project-left">
               <p className="project-date">{project.demoDate}</p>
-              <div className="project-image-container">
-                <img src={project.imageUrl} alt={project.title} className="project-image" />
-              </div>
             </div>
             <div className="project-right">
-              <h3 className="project-title">
-                {project.title}
+              <h3>
+                <span className="project-title">{project.title}</span>
                 <span style={{ marginRight: '10px' }}></span>
                 <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="icon-link">
                   <FaGithub />
@@ -73,6 +71,13 @@ const Projects = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* More Projects Button with Arrow */}
+      <div className="more-projects-container">
+        <button className="more-projects-button">
+          More Projects <span className="arrow-icon"><FaArrowRight /></span>
+        </button>
       </div>
     </section>
   );

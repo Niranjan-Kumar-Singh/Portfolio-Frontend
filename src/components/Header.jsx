@@ -17,30 +17,32 @@ const Header = () => {
           <h1 className="name glow-text">Niranjan Kumar Singh</h1>
           <p className="tagline">Building the Future, One Line of Code at a Time</p>
 
-          <motion.div
-            whileHover={{
-              rotateX: 5,
-              rotateY: 5,
-              scale: 1.05,
-            }}
-            transition={{ type: 'spring', stiffness: 150, damping: 12 }}
-            style={{
-              display: 'inline-block',
-              transformStyle: 'preserve-3d',
-              willChange: 'transform',
-              zIndex: 10,
-              position: 'relative',
-            }}
-          >
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="resume-btn"
+          <div style={{ perspective: '800px' }}>
+            <motion.div
+              whileHover={{
+                rotateX: 5,
+                rotateY: 5,
+                scale: 1.05,
+              }}
+              transition={{ type: 'spring', stiffness: 150, damping: 12 }}
+              style={{
+                display: 'inline-block',
+                transformStyle: 'preserve-3d',
+                willChange: 'transform',
+                zIndex: 10,
+                position: 'relative',
+              }}
             >
-              Resume
-            </a>
-          </motion.div>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="resume-btn"
+              >
+                Resume
+              </a>
+            </motion.div>
+          </div>
         </motion.div>
 
         <div className="navbar-wrapper">

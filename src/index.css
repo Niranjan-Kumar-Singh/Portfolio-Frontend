@@ -7,10 +7,10 @@
 
 /* Root style */
 :root {
-  --bg-dark: #0a192f;
+  --bg-dark: #08162c;
   --accent: #64ffda;
   --accent-hover: #00d4ff;
-  --text-light: rgba(255, 255, 255, 0.87);
+  --text-light: #ccd6f6;
   --font-main: 'Inter', system-ui, sans-serif;
   --font-code: 'Fira Code', monospace;
 }
@@ -85,15 +85,46 @@ canvas,
   pointer-events: none;
 }
 
-/* Cursor Trail */
-#cursorTrail {
+/* Cursor Light Effect */
+.cursor-light {
+  position: fixed;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(31, 81, 255, 0.5) 0%, rgba(31, 81, 255, 0.3) 80%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+  mix-blend-mode: difference;
+  filter: blur(120px);
+  transition: transform 0s;
+  will-change: transform;
+}
+
+/* Noise Overlay (optional like Brittany's) */
+body::before {
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  background-image: url('/noise.svg'); /* Add noise.svg to your public folder */
+  opacity: 0.04;
+  z-index: -9;
   pointer-events: none;
-  z-index: -5;
+}
+
+/* Optional: make mouse interactions more crisp */
+* {
+  cursor: default;
+}
+
+/* Sidebar or Header enhancements */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
 }
 
 /* Light Mode Overrides */
@@ -103,11 +134,11 @@ canvas,
     background-color: #ffffff;
   }
 
-  a:hover {
-    color: #747bff;
+  a {
+    color: #0077cc;
   }
 
-  button {
-    background-color: #f9f9f9;
+  a:hover {
+    color: #005fa3;
   }
 }

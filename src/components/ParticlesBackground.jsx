@@ -13,74 +13,19 @@ const ParticlesBackground = () => {
       init={particlesInit}
       options={{
         preset: "links",
+        fullScreen: { enable: false },
         background: {
-          color: {
-            value: "transparent",
-          },
-        },
-        fullScreen: {
-          enable: false,
-        },
-        interactivity: {
-          detectsOn: "canvas",
-          events: {
-            onHover: {
-              enable: true,
-              mode: ["repulse", "trail"],
-            },
-            onClick: {
-              enable: true,
-              mode: "push",
-            },
-            resize: true,
-          },
-          modes: {
-            repulse: {
-              distance: 100,
-              duration: 0.4,
-            },
-            trail: {
-              delay: 0.005,
-              quantity: 3,
-              particles: {
-                color: {
-                  value: "#ffffff",
-                },
-                move: {
-                  speed: 2,
-                  direction: "none",
-                  outModes: {
-                    default: "destroy",
-                  },
-                },
-              },
-            },
-            push: {
-              quantity: 4,
-            },
-          },
+          color: { value: "transparent" },
         },
         particles: {
           number: {
-            value: 80,
+            value: 50,
             density: {
               enable: true,
-              area: 800,
+              area: 800, // More responsive across devices
             },
           },
-          color: {
-            value: "#ffffff",
-          },
-          shape: {
-            type: "circle",
-          },
-          opacity: {
-            value: 0.5,
-          },
-          size: {
-            value: 3,
-            random: true,
-          },
+          color: { value: "#ffffff" },
           links: {
             enable: true,
             distance: 150,
@@ -90,14 +35,27 @@ const ParticlesBackground = () => {
           },
           move: {
             enable: true,
-            speed: 1.5,
+            speed: 1,
             direction: "none",
             outModes: {
               default: "out",
             },
           },
+          opacity: {
+            value: 0.5,
+          },
+          size: {
+            value: { min: 1, max: 3 },
+          },
         },
         detectRetina: true,
+        interactivity: {
+          events: {
+            onHover: { enable: false },
+            onClick: { enable: false },
+            resize: true,
+          },
+        },
       }}
       className="absolute top-0 left-0 w-full h-full z-0"
     />

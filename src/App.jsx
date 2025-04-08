@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import CursorLight from "./components/CursorLight";
 import ParticlesBackground from "./components/ParticlesBackground";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -15,7 +16,8 @@ const App = () => {
   }, []);
 
   return (
-    <div className="app-container relative w-full h-full overflow-hidden">
+    <div className="app-container relative w-full h-full overflow-hidden w-full min-h-screen bg-[var(--bg-dark)]">
+      <CursorLight />
       <ParticlesBackground />
 
       <aside className="sidebar">
