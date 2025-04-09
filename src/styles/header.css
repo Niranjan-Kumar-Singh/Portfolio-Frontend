@@ -1,5 +1,4 @@
 .header {
-  /* background: url('../assets/images/Header.jpg') center center/cover no-repeat; */
   height: 100vh;
   color: #fff;
   display: flex;
@@ -8,7 +7,6 @@
   align-items: flex-start;
   position: relative;
   z-index: 0;
-  /* box-shadow: inset 0 0 0 10000px rgba(0, 0, 0, 0.4); */
 }
 
 .header-inner {
@@ -36,6 +34,7 @@
     transform: translateX(-100px);
     opacity: 0;
   }
+
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -58,33 +57,59 @@
   animation: slideInLeft 1.3s ease forwards;
 }
 
-.resume-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: transparent;
-  color: #64ffda;
+/* ✅ Updated Resume Button Styles */
+.resume-btn.clean {
+  display: inline-flex;
+  margin-top: 40px;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(20, 33, 61, 0.7); /* deep navy tone */
+  color: #cce6ff; /* soft icy blue */
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
-  border: 1.5px solid #64ffda;
-  border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 1.5px solid rgba(100, 149, 237, 0.7); /* subtle blue border */
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+  box-shadow: 0 0 0 transparent;
+  text-shadow: 0 0 4px rgba(204, 230, 255, 0.3);
 }
 
-.resume-btn:hover {
-  background-color: rgba(100, 255, 218, 0.1);
-  color: #64ffda;
+.resume-btn.clean:hover {
+  background: rgba(40, 60, 100, 0.9); /* brighter navy on hover */
+  color: #66f0ff; /* glowing cyan */
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(102, 240, 255, 0.3),
+              0 0 24px rgba(102, 240, 255, 0.2);
 }
 
+/* ✅ Removed gradient before element */
+.resume-btn.clean:before {
+  content: none;
+}
+
+.resume-icon {
+  font-size: 1.2rem;
+  z-index: 2;
+}
+
+/* Navbar container */
 .navbar-wrapper {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .glow-text {
   color: #fff;
   text-shadow: 0 0 8px rgba(100, 255, 218, 0.8),
-               0 0 16px rgba(100, 255, 218, 0.5);
+    0 0 16px rgba(100, 255, 218, 0.5);
 }
 
 /* Responsive Styles */
@@ -108,8 +133,8 @@
     font-size: 1rem;
   }
 
-  .resume-btn {
-    padding: 9px 20px;
+  .resume-btn.clean {
+    padding: 10px 20px;
     font-size: 0.95rem;
   }
 }

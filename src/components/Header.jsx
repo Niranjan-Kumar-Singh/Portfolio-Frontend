@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import '../styles/header.css';
 import { motion } from 'framer-motion';
+import { FiFileText } from 'react-icons/fi';
 
 const Header = () => {
   return (
@@ -17,38 +18,23 @@ const Header = () => {
           <h1 className="name glow-text">Niranjan Kumar Singh</h1>
           <p className="tagline">Building the Future, One Line of Code at a Time</p>
 
-          <div style={{ perspective: '800px' }}>
-            <motion.div
-              whileHover={{
-                rotateX: 5,
-                rotateY: 5,
-                scale: 1.05,
-              }}
-              transition={{ type: 'spring', stiffness: 150, damping: 12 }}
-              style={{
-                display: 'inline-block',
-                transformStyle: 'preserve-3d',
-                willChange: 'transform',
-                zIndex: 10,
-                position: 'relative',
-              }}
-            >
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="resume-btn"
-              >
-                Resume
-              </a>
-            </motion.div>
-          </div>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="resume-btn clean"
+          >
+            <FiFileText className="resume-icon" />
+            Resume
+          </a>
         </motion.div>
 
         <div className="navbar-wrapper">
           <Navbar />
         </div>
-        <Footer />
+        <div className="footer-wrapper">
+          <Footer />
+        </div>
       </div>
     </header>
   );

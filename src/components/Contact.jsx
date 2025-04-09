@@ -44,23 +44,13 @@ const Contact = () => {
     <section className="contact-section" id="contact">
       <Toaster position="top-right" />
 
-      <motion.h2
-        className="contact-heading"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-      >
+      <motion.h2 className="contact-heading">
         Contact Me
       </motion.h2>
 
       <motion.form
         onSubmit={handleSubmit}
         className={`glass-form ${submitted ? "fade-out" : ""}`}
-        initial={{ opacity: 0, scale: 0.85 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
-        viewport={{ once: true }}
       >
         <div className="input-box">
           <input
@@ -104,14 +94,16 @@ const Contact = () => {
           <label htmlFor="message">Message</label>
         </div>
 
-        <motion.button
-          type="submit"
-          className={`neon-button ${isSubmitting ? "loading" : ""}`}
-          whileHover={!isSubmitting ? { scale: 1.03 } : {}}
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? "Sending..." : "🚀 Send"}
-        </motion.button>
+        <div className="button-container">
+          <motion.button
+            type="submit"
+            className={`neon-button ${isSubmitting ? "loading" : ""}`}
+            whileHover={!isSubmitting ? { scale: 1.03 } : {}}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Sending..." : "🚀 Send"}
+          </motion.button>
+        </div>
       </motion.form>
     </section>
   );

@@ -44,11 +44,11 @@ const About = () => {
             <div className="skill-card"><FaGithub className="skill-icon" /><span>Git & GitHub</span></div>
             <div className="skill-card"><SiTailwindcss className="skill-icon" /><span>Tailwind CSS</span></div>
             <div className="skill-card"><FaCss3Alt className="skill-icon" /><span>CSS3</span></div>
-            <div className="skill-card"><FaCloud className="skill-icon" /><span>Cloud Deployment</span></div>
+            <div className="skill-card"><FaDatabase className="skill-icon" /><span>SQL</span></div>
           </div>
         </div>
 
-        <a href="path_to_resume.pdf" className="resume-btn">Download Resume</a>
+        <a href="path_to_resume.pdf" className="resume-btn clean">Download Resume</a>
       </div>
     </section>
   );
