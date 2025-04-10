@@ -6,6 +6,8 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import CursorLight from "./components/CursorLight";
 import ParticlesBackground from "./components/ParticlesBackground";
+import Experience from "./components/Experience";
+import Education from "./components/Education";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./styles/App.css";
@@ -28,6 +30,8 @@ const App = () => {
         <main className="content">
           <About />
           <Projects />
+          <Experience />
+          <Education />
           <Contact />
         </main>
       </div>

@@ -50,7 +50,7 @@ const Navbar = () => {
       <div className="progress-bar" style={{ width: `${scrollProgress}%` }}></div>
       <nav className="navbar shared-padding">
         <ul>
-          {["about", "projects", "contact"].map((section) => (
+          {["about", "projects", "experience", "education", "contact"].map((section) => (
             <li key={section} className={`nav-item ${activeSection === section ? "active" : ""}`}>
               <span className="nav-indicator"></span>
               <a href={`#${section}`} onClick={(e) => scrollToSection(e, section)}>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../styles/projects.css';
 import { FaReact, FaNodeJs, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { SiMongodb, SiExpress, SiHtml5, SiCss3, SiJavascript } from 'react-icons/si';
@@ -7,21 +7,28 @@ import { FaArrowRight } from 'react-icons/fa';
 const projectData = [
   {
     title: 'Spicyy Food',
-    description: 'A food ordering web app with user authentication and real-time updates.',
-    technologies: [FaReact, FaNodeJs, SiMongodb, SiExpress],
-    githubLink: 'https://github.com/yourusername/spicyyfood',
-    liveDemo: 'http://niranjan-singh.netlify.app/',
-    imageUrl: 'https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-souvenirpixels-414612.jpg&fm=jpg',
-    demoDate: 'March 2025',
+    description: 'A comprehensive food ordering web application featuring user authentication and real-time order tracking. The frontend is built with React, while the backend utilizes Node.js, Express, and MongoDB.',
+    technologies: [FaReact, FaNodeJs, SiExpress, SiMongodb],
+    githubFrontend: 'https://github.com/Niranjan-Kumar-Singh/SpicyyFood-Frontend',
+    githubBackend: 'https://github.com/Niranjan-Kumar-Singh/SpicyyFood-Backend',
+    liveDemo: 'https://spicyyfood.netlify.app/',
+    demoDate: 'OCT 2024 – PRESENT',
   },
   {
-    title: 'Portfolio Website',
-    description: 'A personal portfolio showcasing projects and skills with interactive UI.',
-    technologies: [SiHtml5, SiCss3, SiJavascript, FaReact],
-    githubLink: 'https://github.com/yourusername/portfolio',
-    liveDemo: 'http://niranjan-singh.netlify.app/',
-    imageUrl: 'https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-souvenirpixels-414612.jpg&fm=jpg',
-    demoDate: 'April 2025',
+    title: 'Text Counter App',
+    description: 'A React-based application that provides real-time text analysis, including word and character counts, as well as readability scores. It offers a responsive design for optimal user experience across devices.',
+    technologies: [FaReact, SiHtml5, SiCss3, SiJavascript],
+    githubLink: 'https://github.com/Niranjan-Kumar-Singh/Text-App_reactLearning',
+    liveDemo: 'https://textcounterapp.netlify.app/',
+    demoDate: 'JAN – AUG 2024',
+  },
+  {
+    title: 'Weather Forecast App',
+    description: 'A web application that delivers real-time weather updates using the OpenWeatherMap API. Users can search for weather details by city and view data such as temperature, humidity, and wind speed. Built with HTML, CSS, and JavaScript.',
+    technologies: [SiHtml5, SiCss3, SiJavascript],
+    githubLink: 'https://github.com/Niranjan-Kumar-Singh/WeatherForecast',
+    liveDemo: 'https://w-forecasting.netlify.app/',
+    demoDate: 'May 2023',
   },
 ];
 
@@ -52,9 +59,21 @@ const Projects = () => {
               <h3>
                 <span className="project-title">{project.title}</span>
                 <span style={{ marginRight: '10px' }}></span>
-                <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="icon-link">
-                  <FaGithub />
-                </a>
+                {project.githubFrontend ? (
+                  <>
+                    <a href={project.githubFrontend} target="_blank" rel="noopener noreferrer" className="icon-link">
+                      <FaGithub /> Frontend
+                    </a>
+                    <span style={{ marginRight: '10px' }}></span>
+                    <a href={project.githubBackend} target="_blank" rel="noopener noreferrer" className="icon-link">
+                      <FaGithub /> Backend
+                    </a>
+                  </>
+                ) : (
+                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="icon-link">
+                    <FaGithub />
+                  </a>
+                )}
                 <span style={{ marginRight: '10px' }}></span>
                 <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="icon-link">
                   <FaExternalLinkAlt />
@@ -74,11 +93,16 @@ const Projects = () => {
       </div>
 
       {/* More Projects Button with Arrow */}
-      <div className="more-projects-container">
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>
         <button className="more-projects-button">
-          More Projects <span className="arrow-icon"><FaArrowRight /></span>
+          <span className="dot">
+            <FaArrowRight />
+          </span>
+          <span className="button-text">More Projects</span>
         </button>
       </div>
+
+
     </section>
   );
 };

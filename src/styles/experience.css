@@ -1,0 +1,149 @@
+.experience {
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.experience-heading {
+  font-size: 1.6rem;
+  color: #64ffda;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.experience-card {
+  max-width: 750px;
+  width: 100%;
+  padding: 30px 35px;
+  border-radius: 20px;
+  background: rgba(20, 33, 61, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  color: #ffffff;
+}
+
+.experience-card:hover {
+  box-shadow: 0 12px 30px rgba(100, 255, 218, 0.2), 0 0 0 1px rgba(100, 255, 218, 0.3);
+  border-color: rgba(100, 255, 218, 0.4);
+}
+
+.experience-card h3 {
+  color: #64ffda;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.experience-org {
+  font-weight: 600;
+  color: #cccccc;
+  font-size: 0.9rem;
+}
+
+.experience-duration {
+  font-size: 0.8rem;
+  color: #aaaaaa;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.experience-details {
+  list-style-type: disc;
+  padding-left: 22px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #dddddd;
+}
+
+.experience-details li {
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.experience-details strong {
+  color: #00e6e6;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* Tech Icons Section */
+.tech-heading {
+  margin-top: 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #cccccc;
+  letter-spacing: 0.5px;
+}
+
+.exp-tech-icons {
+  margin-top: 20px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.exp-tech-icon {
+  font-size: 1.8rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(30%);
+}
+
+.exp-tech-icon:hover {
+  transform: scale(1.25);
+  filter: grayscale(0%);
+}
+
+/* Tech Icon Colors */
+.exp-tech-icon.html {
+  color: #e44d26;
+}
+
+.exp-tech-icon.css {
+  color: #264de4;
+}
+
+.exp-tech-icon.js {
+  color: #f7df1e;
+}
+
+.exp-tech-icon.react {
+  color: #61dafb;
+}
+
+.exp-tech-icon.bootstrap {
+  color: #7952b3;
+}
+
+.exp-tech-icon.tailwind {
+  color: #38bdf8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .experience-heading {
+    font-size: 2rem;
+  }
+
+  .experience-card {
+    padding: 22px;
+  }
+
+  .experience-details {
+    font-size: 0.95rem;
+  }
+
+  .exp-tech-icon {
+    font-size: 1.6rem;
+  }
+}

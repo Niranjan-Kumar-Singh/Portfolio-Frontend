@@ -1,7 +1,7 @@
 /* About Section */
 .about {
   position: relative;
-  padding: 25px 0;
+  padding: 50px 0;
   color: #ffffff;
   overflow: hidden;
   z-index: 0;
@@ -17,7 +17,7 @@
 
 /* Typing Animation Title */
 .section-title {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
@@ -30,12 +30,37 @@
 
 /* Intro Paragraph */
 .intro {
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
-  font-weight: 500;
+  font-weight: 800;
   text-align: left;
+  color: #c0c0c0;
+}
+
+.intro strong {
+  color: #00e6e6;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.intro strong::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #00e6e6;
+  opacity: 0.4;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.intro strong:hover::after {
+  transform: scaleX(1);
 }
 
 /* Skills Section */
@@ -65,13 +90,17 @@
   background: rgba(20, 33, 61, 0.7); /* deep navy with high opacity */
   border: 1px solid rgba(100, 255, 218, 0.2);
   border-radius: 12px;
-  padding: 15px;
+  padding: 12px;
   color: #64ffda;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 255, 200, 0.08);
   z-index: 2;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
   position: relative;
+}
+
+.skill-card span{
+  font-size: 0.9rem;
 }
 
 .skill-card .skill-icon {

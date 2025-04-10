@@ -6,7 +6,7 @@
   width: 100%;
   /* background: transparent; */
   position: relative;
-  margin-top: 250px;
+  margin-top: 150px;
   animation: slideInUp 1s ease forwards;
   opacity: 0;
 }

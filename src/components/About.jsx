@@ -35,16 +35,46 @@ const About = () => {
         <div className="skills">
           <h3 className="skills-title">Technical Skills</h3>
           <div className="skills-grid">
-            <div className="skill-card"><FaReact className="skill-icon" /><span>React.js</span></div>
-            <div className="skill-card"><FaNodeJs className="skill-icon" /><span>Node.js</span></div>
-            <div className="skill-card"><SiExpress className="skill-icon" /><span>Express.js</span></div>
-            <div className="skill-card"><SiMongodb className="skill-icon" /><span>MongoDB</span></div>
-            <div className="skill-card"><FaJs className="skill-icon" /><span>JavaScript</span></div>
-            <div className="skill-card"><SiRedux className="skill-icon" /><span>Redux</span></div>
-            <div className="skill-card"><FaGithub className="skill-icon" /><span>Git & GitHub</span></div>
-            <div className="skill-card"><SiTailwindcss className="skill-icon" /><span>Tailwind CSS</span></div>
-            <div className="skill-card"><FaCss3Alt className="skill-icon" /><span>CSS3</span></div>
-            <div className="skill-card"><FaDatabase className="skill-icon" /><span>SQL</span></div>
+            <div className="skill-card">
+              <FaReact className="skill-icon" style={{ color: '#61DBFB' }} />
+              <span>React.js</span>
+            </div>
+            <div className="skill-card">
+              <FaNodeJs className="skill-icon" style={{ color: '#3C873A' }} />
+              <span>Node.js</span>
+            </div>
+            <div className="skill-card">
+              <SiExpress className="skill-icon" style={{ color: '#ffffff' }} />
+              <span>Express.js</span>
+            </div>
+            <div className="skill-card">
+              <SiMongodb className="skill-icon" style={{ color: '#47A248' }} />
+              <span>MongoDB</span>
+            </div>
+            <div className="skill-card">
+              <FaJs className="skill-icon" style={{ color: '#F0DB4F' }} />
+              <span>JavaScript</span>
+            </div>
+            <div className="skill-card">
+              <SiRedux className="skill-icon" style={{ color: '#764ABC' }} />
+              <span>Redux</span>
+            </div>
+            <div className="skill-card">
+              <FaGithub className="skill-icon" style={{ color: '#ffffff' }} />
+              <span>Git & GitHub</span>
+            </div>
+            <div className="skill-card">
+              <SiTailwindcss className="skill-icon" style={{ color: '#38B2AC' }} />
+              <span>Tailwind CSS</span>
+            </div>
+            <div className="skill-card">
+              <FaCss3Alt className="skill-icon" style={{ color: '#264de4' }} />
+              <span>CSS3</span>
+            </div>
+            <div className="skill-card">
+              <FaDatabase className="skill-icon" style={{ color: '#f29111' }} />
+              <span>SQL</span>
+            </div>
           </div>
         </div>
 
