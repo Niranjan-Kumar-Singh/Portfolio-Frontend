@@ -20,7 +20,7 @@ const Experience = () => {
       <div className="experience-card glass-effect">
         <h3>React.js Developer Training</h3>
         <p className="experience-org">Euphoria GenX · Onsite (Hybrid Option)</p>
-        <p className="experience-duration">July 2024 – September 2024</p>
+        <p className="experience-duration">August 2024 – September 2024</p>
         <ul className="experience-details">
           <li><strong>Completed</strong> a 2-month hands-on training focused on frontend development using <strong>React.js</strong>.</li>
           <li><strong>Learned</strong> the fundamentals of <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>, followed by responsive UI development.</li>
