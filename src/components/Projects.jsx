@@ -32,17 +32,15 @@ const projectData = [
   },
 ];
 
-const getTechColor = (icon) => {
-  const colors = {
-    FaReact: "#61DBFB",
-    FaNodeJs: "#83CD29",
-    SiMongodb: "#4DB33D",
-    SiExpress: "#EEE",
-    SiHtml5: "#E34F26",
-    SiCss3: "#1572B6",
-    SiJavascript: "#F7DF1E",
-  };
-  return colors[icon.name] || "#FFF";
+const getTechColor = (TechIcon) => {
+  if (TechIcon === FaReact) return "#61DBFB";
+  if (TechIcon === FaNodeJs) return "#83CD29";
+  if (TechIcon === SiMongodb) return "#4DB33D";
+  if (TechIcon === SiExpress) return "#EEE";
+  if (TechIcon === SiHtml5) return "#E34F26";
+  if (TechIcon === SiCss3) return "#1572B6";
+  if (TechIcon === SiJavascript) return "#F7DF1E";
+  return "#FFF";
 };
 
 const Projects = () => {
