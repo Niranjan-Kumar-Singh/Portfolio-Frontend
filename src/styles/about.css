@@ -5,6 +5,7 @@
   color: #ffffff;
   overflow: hidden;
   z-index: 0;
+  font-family: 'Inter', sans-serif; /* Add Inter font here for the entire about section */
 }
 
 /* Container */
@@ -17,7 +18,9 @@
 
 /* Typing Animation Title */
 .section-title {
+  font-family: 'Orbitron', sans-serif; /* Apply Orbitron to the title */
   font-size: 1.6rem;
+  /* font-weight: 400; */
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
@@ -37,6 +40,7 @@
   font-weight: 800;
   text-align: left;
   color: #c0c0c0;
+  font-family: 'Inter', sans-serif; /* Ensure Inter is used in intro */
 }
 
 .intro strong {
@@ -69,11 +73,13 @@
 }
 
 .skills-title {
+  font-family: 'Fugaz One', sans-serif; /* Apply Fugaz One to skills title */
   font-size: 1.4rem;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
   color: #64ffda;
+  font-weight: 400;
 }
 
 /* Skills Grid */
@@ -87,7 +93,7 @@
 
 /* Individual Skill Card */
 .skill-card {
-  background: rgba(20, 33, 61, 0.7); /* deep navy with high opacity */
+  background: rgba(20, 33, 61, 0.7);
   border: 1px solid rgba(100, 255, 218, 0.2);
   border-radius: 12px;
   padding: 12px;
@@ -111,7 +117,6 @@
 
 /* Hover Effects */
 .skill-card:hover {
-  /* transform: translateY(-5px) scale(1.05); */
   border: 1px solid #64ffda;
   box-shadow: 0 0 10px #64ffda99, 0 0 10px #64ffda55;
 }
@@ -136,12 +141,12 @@
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  background: rgba(20, 33, 61, 0.7); /* deep navy tone */
-  color: #cce6ff; /* soft icy blue */
+  background: rgba(20, 33, 61, 0.7);
+  color: #cce6ff;
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
-  border: 1.5px solid rgba(100, 149, 237, 0.7); /* subtle blue border */
+  border: 1.5px solid rgba(100, 149, 237, 0.7);
   border-radius: 12px;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -155,16 +160,11 @@
 }
 
 .resume-btn.clean:hover {
-  background: rgba(40, 60, 100, 0.9); /* brighter navy on hover */
-  color: #66f0ff; /* glowing cyan */
+  background: rgba(40, 60, 100, 0.9);
+  color: #66f0ff;
   transform: scale(1.05);
   box-shadow: 0 0 12px rgba(102, 240, 255, 0.3),
               0 0 24px rgba(102, 240, 255, 0.2);
-}
-
-/* ✅ Removed gradient before element */
-.resume-btn.clean:before {
-  content: none;
 }
 
 /* Responsive Styles */

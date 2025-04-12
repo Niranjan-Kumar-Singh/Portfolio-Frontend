@@ -3,6 +3,7 @@ import "../styles/contact.css";
 import axios from "axios";
 import { motion } from "framer-motion";
 import toast, { Toaster } from "react-hot-toast";
+import { FiSend } from "react-icons/fi";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -101,7 +102,13 @@ const Contact = () => {
             whileHover={!isSubmitting ? { scale: 1.03 } : {}}
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Sending..." : "🚀 Send"}
+            {isSubmitting ? (
+              "Sending..."
+            ) : (
+              <>
+                Send <FiSend style={{ marginLeft: "4px", transform: "rotate(45deg)" }} />
+              </>
+            )}
           </motion.button>
         </div>
       </motion.form>

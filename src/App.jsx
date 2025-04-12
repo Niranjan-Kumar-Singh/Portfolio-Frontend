@@ -8,6 +8,7 @@ import CursorLight from "./components/CursorLight";
 import ParticlesBackground from "./components/ParticlesBackground";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./styles/App.css";
@@ -34,6 +35,7 @@ const App = () => {
           <Education />
           <Contact />
         </main>
+        <ScrollToTopButton />
       </div>
     </div>
   );

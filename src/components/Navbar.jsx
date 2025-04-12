@@ -26,7 +26,6 @@ const Navbar = () => {
     };
   }, []);
 
-  // Scroll Progress Bar
   useEffect(() => {
     const updateScrollProgress = () => {
       const scrollTop = window.scrollY;
@@ -39,7 +38,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", updateScrollProgress);
   }, []);
 
-  // Smooth Scrolling
   const scrollToSection = (e, id) => {
     e.preventDefault();
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -51,9 +49,13 @@ const Navbar = () => {
       <nav className="navbar shared-padding">
         <ul>
           {["about", "projects", "experience", "education", "contact"].map((section) => (
-            <li key={section} className={`nav-item ${activeSection === section ? "active" : ""}`}>
-              <span className="nav-indicator"></span>
-              <a href={`#${section}`} onClick={(e) => scrollToSection(e, section)}>
+            <li key={section} className="nav-item">
+              <a
+                href={`#${section}`}
+                onClick={(e) => scrollToSection(e, section)}
+                className={activeSection === section ? "active" : ""}
+              >
+                <span className="nav-indicator"></span>
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </a>
             </li>

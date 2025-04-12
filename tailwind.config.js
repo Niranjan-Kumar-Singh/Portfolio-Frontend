@@ -4,8 +4,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        mono: ["Fira Code", "monospace"],
+        sans: ['Inter', 'sans-serif'],
+        code: ['Fira Code', 'monospace'],
+        heading: ['Fugaz One', 'sans-serif'],
+        title: ['Orbitron', 'sans-serif'],
+        cursive: ['Caveat', 'cursive'],
       },
       fontSize: {
         sm: "14px",

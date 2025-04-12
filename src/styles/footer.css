@@ -4,14 +4,12 @@
   align-items: center;
   padding: 10px 40px;
   width: 100%;
-  /* background: transparent; */
   position: relative;
-  margin-top: 150px;
+  margin-top: 145px;
   animation: slideInUp 1s ease forwards;
   opacity: 0;
 }
 
-/* Slide-in animation from bottom */
 @keyframes slideInUp {
   0% {
     transform: translateY(50px);
@@ -25,25 +23,41 @@
 
 .footer-horizontal {
   display: flex;
-  justify-content: flex-start;
   gap: 20px;
+  width: fit-content;
   padding-left: 0;
-  margin: 0;
-  margin-left: -2.5vw; /* Shift icons slightly to the left like navbar */
+  margin-left: -2.4vw;
 }
 
+/* Fixes the pointer issue on SVG areas */
 .footer-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
   color: #fff;
-  font-size: 1.5rem;
   transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
 }
 
-.footer-icon:hover {
+.footer-icon svg {
+  width: 100%;
+  height: 100%;
+  pointer-events: bounding-box; /* Make the entire visible area interactive */
+  cursor: pointer; /* Show pointer across entire icon, not just filled area */
+}
+
+svg path{
+  cursor: pointer;
+}
+
+.footer-icon:hover svg {
   transform: scale(1.2);
   color: #64ffda;
   text-shadow: 0 0 10px #64ffda, 0 0 20px #64ffda, 0 0 30px #64ffda;
 }
 
+/* Responsive Styling */
 @media (max-width: 768px) {
   .left-footer {
     justify-content: center;
@@ -52,6 +66,6 @@
 
   .footer-horizontal {
     justify-content: center;
-    margin-left: 0; /* Reset on mobile */
+    width: 100%;
   }
 }

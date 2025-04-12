@@ -11,7 +11,7 @@ const Experience = () => {
         className="experience-heading"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.4 }}
         viewport={{ once: true }}
       >
         Experience

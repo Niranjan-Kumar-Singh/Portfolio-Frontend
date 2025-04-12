@@ -7,10 +7,11 @@
 }
 
 .projects .section-title {
+  font-family: 'Fugaz One', sans-serif; /* Add Fugaz One */
   text-align: center;
   font-size: 1.6rem;
   margin-bottom: 30px;
-  font-weight: 600;
+  font-weight: 400;
   color: #64ffda;
   line-height: 1.3;
 }
@@ -62,8 +63,9 @@
 }
 
 .project-title {
+  font-family: 'Fugaz One', sans-serif; /* Add Fugaz One */
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 400;
   color: #64ffda;
   line-height: 1.4;
 }

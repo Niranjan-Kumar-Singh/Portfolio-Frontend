@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="left-footer">
+    <footer className="left-footer">
       <div className="footer-horizontal">
         <a
           href="https://github.com/Niranjan-Kumar-Singh"
@@ -32,7 +32,7 @@ const Footer = () => {
           <FaInstagram />
         </a>
       </div>
-    </div>
+    </footer>
   );
 };
 

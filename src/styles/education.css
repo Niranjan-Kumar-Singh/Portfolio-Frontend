@@ -86,7 +86,7 @@
 .edu-institute {
   font-size: 0.95rem;
   font-weight: 500;
-  color: #cccccc;
+  color: #e0e0e0;
 }
 
 .edu-tags {
@@ -97,7 +97,7 @@
 }
 
 .edu-badge {
-  background-color: rgba(100, 255, 218, 0.1);
+  background-color: rgba(100, 255, 218, 0.2);
   color: #64ffda;
   font-size: 0.75rem;
   font-weight: 600;
@@ -108,7 +108,7 @@
 
 .edu-description {
   font-size: 0.9rem;
-  color: #dddddd;
+  color: #eeeeee;
   line-height: 1.6;
   margin-bottom: 10px;
 }

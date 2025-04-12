@@ -1,0 +1,80 @@
+.rocket-btn {
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+  }
+  
+  .rocket-btn.show {
+    opacity: 1;
+  }
+  
+  .rocket-body {
+    position: relative;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .rocket-img {
+    width: 100%;
+    height: auto;
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease;
+  }
+  
+  .fire-flame {
+    position: absolute;
+    bottom: 0; /* Starts from the bottom of the rocket */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 5px;
+    background: radial-gradient(circle, #ff6a00 0%, #ff0000 60%, transparent 80%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.2s ease;
+    filter: blur(2px);
+    transform-origin: top center; /* Flame will expand downward */
+  }
+  
+  .blast .fire-flame {
+    opacity: 1;
+    animation: fireBlast 0.8s ease forwards;
+  }
+  
+  @keyframes fireBlast {
+    0% {
+      height: 5px;
+      width: 8px; /* Initial width */
+      opacity: 1;
+      transform: translateX(-50%) scaleY(0) scaleX(1); /* No height initially, no scale */
+    }
+    25% {
+      height: 15px; /* Flame grows in height */
+      width: 15px; /* Increase the width for a wider flame */
+      opacity: 0.9;
+      transform: translateX(-50%) scaleY(1) scaleX(1.5); /* Flame expands downward and wider */
+    }
+    50% {
+      height: 30px; /* Flame expands significantly downward */
+      width: 20px; /* Further increase the width for a stronger flame */
+      opacity: 0.8;
+      transform: translateX(-50%) scaleY(3) scaleX(2); /* Flame expands more in both directions */
+    }
+    75% {
+      height: 25px; /* Slight reduction in height */
+      width: 15px; /* Slight decrease in width */
+      opacity: 0.5;
+      transform: translateX(-50%) scaleY(2) scaleX(1.8); /* Flame is still large but smaller */
+    }
+    100% {
+      height: 8px; /* Final flame height */
+      width: 10px; /* Final width */
+      opacity: 0;
+      transform: translateX(-50%) scaleY(1) scaleX(1); /* Shrink back to a smaller size */
+    }
+  }
+  
