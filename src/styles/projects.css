@@ -1,6 +1,6 @@
 .projects {
   position: relative;
-  padding: 50px 0;
+  padding: 30px 0;
   color: #ffffff;
   overflow: hidden;
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -29,9 +29,10 @@
   border-radius: 10px;
   display: flex;
   align-items: stretch;
-  padding: 20px;
+  padding: 18px;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .project-card:hover {
@@ -46,6 +47,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  cursor: pointer;
 }
 
 .project-date {
@@ -53,13 +55,19 @@
   color: #ccc;
   margin-top: 8px;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .project-right {
-  width: 80%;
+  width: 76%;
   padding-left: 24px;
   color: #fff;
   text-align: left;
+  cursor: pointer;
+}
+
+.project-right h3{
+  cursor: pointer;
 }
 
 .project-title {
@@ -68,22 +76,32 @@
   font-weight: 400;
   color: #64ffda;
   line-height: 1.4;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.project-title:hover{
+  color: #fff;
 }
 
 .project-description {
   font-size: 0.9rem;
-  color: #bbb;
+  color: #ccc;
   margin: 10px 0 15px;
   line-height: 1.4;
   font-weight: 400;
+  cursor: pointer;
 }
 
 .icon-link {
-  color: #ddd;
-  font-size: 1rem;
-  margin-left: 10px;
-  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  font-family: 'Fira Code', monospace;
   font-weight: 500;
+  letter-spacing: -0.9px;
+  color: #ddd;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .icon-link:hover {
@@ -91,16 +109,27 @@
   color: #64ffda;
 }
 
+.icon-link svg{
+  cursor: pointer;
+  margin-right: 2px;
+}
+
+svg path{
+  cursor: pointer;
+}
+
 .tech-stack {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .tech-icon {
   font-size: 1.4rem;
   transition: transform 0.1s ease-in-out;
+  cursor: pointer;
 }
 
 .tech-icon:hover {
@@ -118,11 +147,10 @@
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  transition: all 0.4s ease;
   font-weight: 600;
   position: relative;
   overflow: hidden;
-  gap: 5px;
+  gap: 2px;
   width: auto;
   max-width: max-content;
   transition:
@@ -142,6 +170,7 @@
 .more-projects-button .dot {
   width: 32px;
   height: 32px;
+  margin-left: -5px;
   border-radius: 50%;
   background-color: transparent;
   display: flex;
@@ -151,6 +180,7 @@
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
   box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  cursor: pointer;
 }
 
 .more-projects-button .dot::before {
@@ -166,12 +196,14 @@
   transition: all 0.5s ease-in-out;
   z-index: 1;
   box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  cursor: pointer;
 }
 
 .more-projects-button:hover .dot::before {
   width: 26px;
   height: 26px;
   background-color: #D3D3D3;
+  cursor: pointer;
 }
 
 .more-projects-button .dot svg {
@@ -182,16 +214,20 @@
   color: #000;
   width: 14px;
   height: 14px;
+  cursor: pointer;
 }
 
 .more-projects-button:hover .dot svg {
   opacity: 1;
   transform: scale(1);
-  color: #000;
 }
 
 .more-projects-button .button-text {
+  font-family: 'Caveat', cursive;
+  font-size: 1.2rem;
   transition: color 0.4s ease;
+  margin-right: 5px;
+  cursor: pointer;
 }
 
 .more-projects-button:focus,

@@ -43,13 +43,28 @@ const getTechColor = (TechIcon) => {
   return "#FFF";
 };
 
+const getTechLabel = (TechIcon) => {
+  if (TechIcon === FaReact) return "React";
+  if (TechIcon === FaNodeJs) return "Node.js";
+  if (TechIcon === SiExpress) return "Express";
+  if (TechIcon === SiMongodb) return "MongoDB";
+  if (TechIcon === SiHtml5) return "HTML5";
+  if (TechIcon === SiCss3) return "CSS3";
+  if (TechIcon === SiJavascript) return "JavaScript";
+  return "Technology";
+};
+
 const Projects = () => {
   return (
     <section id="projects" className="projects">
       <h2 className="section-title">My Projects</h2>
       <div className="projects-grid">
         {projectData.map((project, index) => (
-          <div key={index} className="project-card">
+          <div
+            key={index}
+            className="project-card"
+            onClick={() => window.open(project.liveDemo, '_blank')} // Redirect on click
+          >
             <div className="project-left">
               <p className="project-date">{project.demoDate}</p>
             </div>
@@ -59,29 +74,65 @@ const Projects = () => {
                 <span style={{ marginRight: '10px' }}></span>
                 {project.githubFrontend ? (
                   <>
-                    <a href={project.githubFrontend} target="_blank" rel="noopener noreferrer" className="icon-link">
-                      <FaGithub /> Frontend
+                    <a
+                      href={project.githubFrontend}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="icon-link"
+                      aria-label={`${project.title} GitHub Frontend Repository`}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <FaGithub />Frontend
                     </a>
                     <span style={{ marginRight: '10px' }}></span>
-                    <a href={project.githubBackend} target="_blank" rel="noopener noreferrer" className="icon-link">
-                      <FaGithub /> Backend
+                    <a
+                      href={project.githubBackend}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="icon-link"
+                      aria-label={`${project.title} GitHub Backend Repository`}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <FaGithub />Backend
                     </a>
                   </>
                 ) : (
-                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="icon-link">
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="icon-link"
+                    aria-label={`${project.title} GitHub Repository`}
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     <FaGithub />
                   </a>
                 )}
                 <span style={{ marginRight: '10px' }}></span>
-                <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="icon-link">
+                <a
+                  href={project.liveDemo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="icon-link"
+                  aria-label={`Live demo of ${project.title}`}
+                  onClick={(e) => e.stopPropagation()}
+                >
                   <FaExternalLinkAlt />
                 </a>
               </h3>
               <p className="project-description">{project.description}</p>
               <div className="tech-stack">
                 {project.technologies.map((TechIcon, idx) => (
-                  <span key={idx} className="tech-item">
-                    <TechIcon className="tech-icon" style={{ color: getTechColor(TechIcon) }} />
+                  <span
+                    key={idx}
+                    className="tech-item"
+                    tabIndex={0}
+                    aria-label={getTechLabel(TechIcon)}
+                  >
+                    <TechIcon
+                      className="tech-icon"
+                      style={{ color: getTechColor(TechIcon) }}
+                    />
                   </span>
                 ))}
               </div>
@@ -92,15 +143,21 @@ const Projects = () => {
 
       {/* More Projects Button with Arrow */}
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>
-        <button className="more-projects-button">
-          <span className="dot">
-            <FaArrowRight />
-          </span>
-          <span className="button-text">More Projects</span>
-        </button>
+        <a
+          href="https://github.com/Niranjan-Kumar-Singh?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View more projects on GitHub"
+          style={{ textDecoration: 'none' }}
+        >
+          <button className="more-projects-button">
+            <span className="dot">
+              <FaArrowRight />
+            </span>
+            <span className="button-text">More Projects</span>
+          </button>
+        </a>
       </div>
-
-
     </section>
   );
 };

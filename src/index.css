@@ -34,7 +34,6 @@ body,
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-main);
   font-weight: 600;
 }
 
@@ -58,6 +57,22 @@ a {
 }
 a:hover {
   color: var(--accent-hover);
+}
+
+.orbitron-font {
+  font-family: var(--font-title);
+}
+
+.fugaz-font {
+  font-family: var(--font-section);
+}
+
+.inter-font {
+  font-family: var(--font-main);
+}
+
+.fira-font {
+  font-family: var(--font-code);
 }
 
 code, pre, .code-style {

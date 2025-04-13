@@ -4,7 +4,23 @@
   flex-direction: column;
   align-items: center;
   background: transparent;
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Font Utility Classes */
+.orbitron-font {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.fugaz-font {
+  font-family: 'Fugaz One', cursive;
+}
+
+.caveat-font {
+  font-family: 'Caveat', cursive;
+}
+
+.inter-font {
+  font-family: 'Inter', sans-serif;
 }
 
 .experience-heading {
@@ -15,6 +31,8 @@
   font-weight: 700;
   letter-spacing: 1px;
 }
+
+/* Optional shared style via .section-title can also be used */
 
 .experience-card {
   max-width: 750px;
@@ -27,6 +45,11 @@
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   color: #ffffff;
+  cursor: pointer;
+}
+
+.experience-card * {
+  cursor: inherit;
 }
 
 .experience-card:hover {
@@ -34,7 +57,7 @@
   border-color: rgba(100, 255, 218, 0.4);
 }
 
-.experience-card h3 {
+.experience-role {
   color: #64ffda;
   font-size: 1.2rem;
   margin-bottom: 12px;

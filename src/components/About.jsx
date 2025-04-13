@@ -25,15 +25,15 @@ const About = () => {
   return (
     <section className="about" id="about">
       <div className="container">
-        <h2 className="section-title typed-text"></h2>
-        <p className="intro">
+        <h2 className="section-title typed-text font-orbitron"></h2>
+        <p className="intro font-inter">
           Hi, I'm <strong>Niranjan Kumar Singh</strong>, a dedicated <strong>Software Development Engineer</strong> specializing in the <strong>MERN Stack</strong>.
           With expertise in crafting seamless and scalable web applications, I thrive on solving real-world problems through technology.
           My goal is to build innovative, efficient, and user-centric solutions that make an impact.
         </p>
 
         <div className="skills">
-          <h3 className="skills-title">Technical Skills</h3>
+          <h3 className="skills-title font-fugaz-one">Technical Skills</h3>
           <div className="skills-grid">
             <div className="skill-card">
               <FaReact className="skill-icon" style={{ color: '#61DBFB' }} />
@@ -78,7 +78,7 @@ const About = () => {
           </div>
         </div>
 
-        <a href="path_to_resume.pdf" className="resume-btn clean">Download Resume</a>
+        <a href="path_to_resume.pdf" className="resume-btn clean font-inter">Download Resume</a>
       </div>
     </section>
   );

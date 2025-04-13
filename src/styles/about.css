@@ -5,7 +5,6 @@
   color: #ffffff;
   overflow: hidden;
   z-index: 0;
-  font-family: 'Inter', sans-serif; /* Add Inter font here for the entire about section */
 }
 
 /* Container */
@@ -18,9 +17,7 @@
 
 /* Typing Animation Title */
 .section-title {
-  font-family: 'Orbitron', sans-serif; /* Apply Orbitron to the title */
   font-size: 1.6rem;
-  /* font-weight: 400; */
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
@@ -40,7 +37,7 @@
   font-weight: 800;
   text-align: left;
   color: #c0c0c0;
-  font-family: 'Inter', sans-serif; /* Ensure Inter is used in intro */
+  cursor: text;
 }
 
 .intro strong {
@@ -73,13 +70,11 @@
 }
 
 .skills-title {
-  font-family: 'Fugaz One', sans-serif; /* Apply Fugaz One to skills title */
   font-size: 1.4rem;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
   color: #64ffda;
-  font-weight: 400;
 }
 
 /* Skills Grid */
@@ -103,9 +98,14 @@
   z-index: 2;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
   position: relative;
+  cursor: pointer;
 }
 
-.skill-card span{
+.skill-card * {
+  cursor: pointer;
+}
+
+.skill-card span {
   font-size: 0.9rem;
 }
 
