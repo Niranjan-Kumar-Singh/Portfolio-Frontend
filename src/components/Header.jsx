@@ -16,7 +16,7 @@ const Header = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <h1 className="name glow-text">Niranjan Kumar Singh</h1>
+          <motion.h1 className="name font-orbitron glow-text">Niranjan Kumar Singh</motion.h1>
           <p className="tagline font-cursive">
             <Typewriter
               words={[
@@ -37,7 +37,7 @@ const Header = () => {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="resume-btn clean"
+            className="resume-btn font-inter clean"
           >
             <FiFileText className="resume-icon" />
             Resume

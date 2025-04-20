@@ -8,7 +8,7 @@ const Experience = () => {
   return (
     <section className="experience" id="experience">
       <motion.h2
-        className="experience-heading section-title orbitron-font"
+        className="experience-heading section-title font-audiowide"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
@@ -18,10 +18,10 @@ const Experience = () => {
       </motion.h2>
 
       <div className="experience-card glass-effect">
-        <h3 className="experience-role orbitron-font">React.js Developer Training</h3>
-        <p className="experience-org inter-font">Euphoria GenX · Onsite (Hybrid Option)</p>
-        <p className="experience-duration inter-font">August 2024 – September 2024</p>
-        <ul className="experience-details inter-font">
+        <h3 className="experience-role font-orbitron">React.js Developer Training</h3>
+        <p className="experience-org font-inter">Euphoria GenX · Onsite (Hybrid Option)</p>
+        <p className="experience-duration font-inter">August 2024 – September 2024</p>
+        <ul className="experience-details font-inter">
           <li><strong>Completed</strong> a 2-month hands-on training focused on frontend development using <strong>React.js</strong>.</li>
           <li><strong>Learned</strong> the fundamentals of <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>, followed by responsive UI development.</li>
           <li><strong>Built</strong> mini-projects like login pages, recipe pages, and testimonial sections using core web technologies.</li>
@@ -29,7 +29,7 @@ const Experience = () => {
           <li><strong>Integrated</strong> APIs and practiced real-world data fetching with modern React patterns.</li>
         </ul>
 
-        <p className="tech-heading fugaz-font">Technologies Learned:</p>
+        <p className="tech-heading font-audiowide">Technologies Learned:</p>
         <div className="exp-tech-icons">
           <FaHtml5 title="HTML5" className="exp-tech-icon html" />
           <FaCss3Alt title="CSS3" className="exp-tech-icon css" />

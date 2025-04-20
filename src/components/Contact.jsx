@@ -45,13 +45,33 @@ const Contact = () => {
     <section className="contact-section" id="contact">
       <Toaster position="top-right" />
 
-      <motion.h2 className="contact-heading">
+      <motion.h2
+        className="contact-heading section-title font-audiowide"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
         Contact Me
       </motion.h2>
 
+      <motion.p
+        className="contact-note font-cursive contact-note-class"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        Let’s connect! I’d love to hear from you 😊
+      </motion.p>
+
       <motion.form
         onSubmit={handleSubmit}
-        className={`glass-form ${submitted ? "fade-out" : ""}`}
+        className={`glass-form font-inter ${submitted ? "fade-out" : ""}`}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
       >
         <div className="input-box">
           <input
@@ -98,7 +118,7 @@ const Contact = () => {
         <div className="button-container">
           <motion.button
             type="submit"
-            className={`neon-button ${isSubmitting ? "loading" : ""}`}
+            className={`neon-button font-inter ${isSubmitting ? "loading" : ""}`}
             whileHover={!isSubmitting ? { scale: 1.03 } : {}}
             disabled={isSubmitting}
           >

@@ -6,34 +6,16 @@
   background: transparent;
 }
 
-/* Font Utility Classes */
-.orbitron-font {
-  font-family: 'Orbitron', sans-serif;
-}
-
-.fugaz-font {
-  font-family: 'Fugaz One', cursive;
-}
-
-.caveat-font {
-  font-family: 'Caveat', cursive;
-}
-
-.inter-font {
-  font-family: 'Inter', sans-serif;
-}
-
 .experience-heading {
-  font-size: 1.6rem;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
   color: #64ffda;
   margin-bottom: 40px;
   text-align: center;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 1px;
 }
 
-/* Optional shared style via .section-title can also be used */
-
+/* Experience Card */
 .experience-card {
   max-width: 750px;
   width: 100%;
@@ -57,32 +39,38 @@
   border-color: rgba(100, 255, 218, 0.4);
 }
 
+/* Role Title */
 .experience-role {
   color: #64ffda;
-  font-size: 1.2rem;
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
   margin-bottom: 12px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
+/* Organization */
 .experience-org {
-  font-weight: 600;
+  font-weight: 500;
   color: #cccccc;
   font-size: 0.9rem;
 }
 
+/* Duration */
 .experience-duration {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: #aaaaaa;
   margin-bottom: 20px;
   font-style: italic;
+  font-weight: 400;
 }
 
+/* Description List */
 .experience-details {
   list-style-type: disc;
   padding-left: 22px;
   font-size: 0.9rem;
   line-height: 1.7;
   color: #dddddd;
+  font-weight: 400;
 }
 
 .experience-details li {
@@ -98,15 +86,16 @@
   transition: all 0.3s ease;
 }
 
-/* Tech Icons Section */
+/* Tech Stack Heading */
 .tech-heading {
   margin-top: 28px;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 500;
   color: #cccccc;
   letter-spacing: 0.5px;
 }
 
+/* Tech Icons Container */
 .exp-tech-icons {
   margin-top: 20px;
   display: flex;
@@ -116,8 +105,9 @@
   align-items: center;
 }
 
+/* Individual Icons */
 .exp-tech-icon {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   transition: transform 0.3s ease, filter 0.3s ease;
   filter: grayscale(30%);
 }
@@ -152,10 +142,10 @@
   color: #38bdf8;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
   .experience-heading {
-    font-size: 2rem;
+    font-size: clamp(1.3rem, 4.5vw, 1.55rem);
   }
 
   .experience-card {
@@ -163,10 +153,10 @@
   }
 
   .experience-details {
-    font-size: 0.95rem;
+    font-size: 0.875rem;
   }
 
   .exp-tech-icon {
-    font-size: 1.6rem;
+    font-size: 1.45rem;
   }
 }

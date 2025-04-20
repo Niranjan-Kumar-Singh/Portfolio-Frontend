@@ -1,8 +1,7 @@
 import React from 'react';
 import '../styles/projects.css';
-import { FaReact, FaNodeJs, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaGithub, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 import { SiMongodb, SiExpress, SiHtml5, SiCss3, SiJavascript } from 'react-icons/si';
-import { FaArrowRight } from 'react-icons/fa';
 
 const projectData = [
   {
@@ -57,20 +56,20 @@ const getTechLabel = (TechIcon) => {
 const Projects = () => {
   return (
     <section id="projects" className="projects">
-      <h2 className="section-title">My Projects</h2>
+      <h2 className="section-title font-audiowide">My Projects</h2>
       <div className="projects-grid">
         {projectData.map((project, index) => (
           <div
             key={index}
             className="project-card"
-            onClick={() => window.open(project.liveDemo, '_blank')} // Redirect on click
+            onClick={() => window.open(project.liveDemo, '_blank')}
           >
             <div className="project-left">
-              <p className="project-date">{project.demoDate}</p>
+              <p className="project-date font-inter">{project.demoDate}</p>
             </div>
             <div className="project-right">
               <h3>
-                <span className="project-title">{project.title}</span>
+                <span className="project-title font-orbitron">{project.title}</span>
                 <span style={{ marginRight: '10px' }}></span>
                 {project.githubFrontend ? (
                   <>
@@ -78,7 +77,7 @@ const Projects = () => {
                       href={project.githubFrontend}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="icon-link"
+                      className="icon-link font-fira"
                       aria-label={`${project.title} GitHub Frontend Repository`}
                       onClick={(e) => e.stopPropagation()}
                     >
@@ -89,7 +88,7 @@ const Projects = () => {
                       href={project.githubBackend}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="icon-link"
+                      className="icon-link font-fira"
                       aria-label={`${project.title} GitHub Backend Repository`}
                       onClick={(e) => e.stopPropagation()}
                     >
@@ -101,7 +100,7 @@ const Projects = () => {
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="icon-link"
+                    className="icon-link font-fira"
                     aria-label={`${project.title} GitHub Repository`}
                     onClick={(e) => e.stopPropagation()}
                   >
@@ -113,24 +112,25 @@ const Projects = () => {
                   href={project.liveDemo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="icon-link"
+                  className="icon-link font-fira"
                   aria-label={`Live demo of ${project.title}`}
                   onClick={(e) => e.stopPropagation()}
                 >
                   <FaExternalLinkAlt />
                 </a>
               </h3>
-              <p className="project-description">{project.description}</p>
+              <p className="project-description font-inter">{project.description}</p>
               <div className="tech-stack">
                 {project.technologies.map((TechIcon, idx) => (
                   <span
                     key={idx}
-                    className="tech-item"
+                    className="tech-item font-fira"
                     tabIndex={0}
                     aria-label={getTechLabel(TechIcon)}
                   >
                     <TechIcon
                       className="tech-icon"
+                      title={getTechLabel(TechIcon)}
                       style={{ color: getTechColor(TechIcon) }}
                     />
                   </span>
@@ -150,7 +150,7 @@ const Projects = () => {
           aria-label="View more projects on GitHub"
           style={{ textDecoration: 'none' }}
         >
-          <button className="more-projects-button">
+          <button className="more-projects-button font-fira">
             <span className="dot">
               <FaArrowRight />
             </span>

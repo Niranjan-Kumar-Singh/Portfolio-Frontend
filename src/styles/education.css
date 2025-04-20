@@ -4,19 +4,18 @@
   flex-direction: column;
   align-items: center;
   background: transparent;
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .education-heading {
-  font-size: 2rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
   color: #64ffda;
   margin-bottom: 40px;
   text-align: center;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Timeline */
 .timeline-container {
   width: 100%;
   max-width: 750px;
@@ -48,10 +47,9 @@
   margin-top: 5px;
 }
 
-/* Title & Highlight */
 .edu-title {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  font-weight: 700;
   color: #64ffda;
   margin-bottom: 5px;
   transition: color 0.3s ease, transform 0.3s ease;
@@ -84,7 +82,7 @@
 }
 
 .edu-institute {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: #e0e0e0;
 }
@@ -99,15 +97,16 @@
 .edu-badge {
   background-color: rgba(100, 255, 218, 0.2);
   color: #64ffda;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: 30px;
   border: 1px solid rgba(100, 255, 218, 0.3);
 }
 
 .edu-description {
   font-size: 0.9rem;
+  font-weight: 400;
   color: #eeeeee;
   line-height: 1.6;
   margin-bottom: 10px;
@@ -118,6 +117,7 @@
   padding-left: 20px;
   color: #dddddd;
   font-size: 0.9rem;
+  font-weight: 400;
   line-height: 1.5;
 }
 
@@ -143,15 +143,19 @@
   }
 
   .education-heading {
-    font-size: 1.6rem;
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
   }
 
   .edu-title {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
   }
 
   .edu-description,
   .edu-highlights {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+  }
+
+  .edu-institute {
+    font-size: 0.85rem;
   }
 }

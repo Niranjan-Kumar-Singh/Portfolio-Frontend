@@ -1,5 +1,3 @@
-/* src/styles/App.css */
-
 /* Reset */
 * {
   margin: 0;
@@ -13,9 +11,14 @@ body {
   font-family: 'Inter', sans-serif;
   background: radial-gradient(circle at top left, #0a192f 0%, #020c1b 100%);
   color: white;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden; /* Prevent default scrolling */
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Particle Background */
@@ -55,22 +58,20 @@ canvas {
   min-height: 100vh;
   position: relative;
   z-index: 1;
-  background-color: var(--bg-dark);
-  overflow: hidden;
 }
 
 /* Sidebar */
 .sidebar {
   width: 45%;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   left: 0;
   top: 0;
-  /* background-color: rgba(10, 25, 47, 0.95); */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  z-index: 0;
+  overflow-y: auto; /* allow native scroll */
+  scroll-behavior: smooth;
+  z-index: 2;
 }
 
 /* Right Content */
@@ -78,22 +79,25 @@ canvas {
   margin-left: 45%;
   width: 55%;
   height: 100vh;
+  overflow-y: auto;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  opacity: 0;
-  animation: fadeIn 1s ease-out forwards;
-  animation-delay: 0.4s;
+  position: relative;
+  z-index: 1;
+  opacity: 1; /* Immediately visible */
+  pointer-events: auto; /* Enable interaction right away */
 }
 
+/* Content */
 .content {
   flex-grow: 1;
   padding: 50px;
-  overflow-y: auto;
   position: relative;
-  z-index: 0;
+  z-index: 1;
 }
 
-/* Footer Right (Rotated Text) */
+/* Footer Right */
 .footer-right {
   text-align: center;
   font-size: 0.8rem;
@@ -112,7 +116,7 @@ canvas {
   align-items: center;
 }
 
-/* Header Section */
+/* Header */
 .header {
   display: flex;
   flex-direction: column;
@@ -140,14 +144,18 @@ canvas {
   transform: scale(1.05);
 }
 
-/* Fade In Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Rocket ScrollToTop Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999; /* ✅ ensure it's visible */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  transform: scale(1.2);
 }

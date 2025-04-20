@@ -1,4 +1,3 @@
-// src/components/ScrollToTopButton.jsx
 import React, { useEffect, useState } from "react";
 import "../styles/scrollToTop.css";
 
@@ -7,36 +6,41 @@ const ScrollToTopButton = () => {
   const [isBlasting, setIsBlasting] = useState(false);
 
   useEffect(() => {
-    const content = document.querySelector(".content");
+    const content = document.querySelector(".content-wrapper");
 
     const toggleVisibility = () => {
+      // Show button when user scrolls down more than 100px
       setIsVisible(content.scrollTop > 100);
     };
 
-    content.addEventListener("scroll", toggleVisibility);
-    return () => content.removeEventListener("scroll", toggleVisibility);
+    content?.addEventListener("scroll", toggleVisibility);
+    return () => content?.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   const scrollToTop = () => {
     setIsBlasting(true);
-    document.querySelector(".content").scrollTo({
+    const contentWrapper = document.querySelector(".content-wrapper");
+
+    // Scroll to the top with smooth behavior
+    contentWrapper.scrollTo({
       top: 0,
       behavior: "smooth",
     });
 
+    // Immediately reset the scroll position right after the click
     setTimeout(() => {
-      setIsBlasting(false);
-    }, 800); // Reset animation after scroll
+      contentWrapper.scrollTop = 0;
+      setIsBlasting(false); // Reset blasting animation
+    }, 800); // After the animation is done, reset the scroll
   };
 
   return (
-    <div className={`rocket-btn ${isVisible ? "show" : ""}`} onClick={scrollToTop}>
+    <div
+      className={`rocket-btn ${isVisible ? "show" : ""}`}
+      onClick={scrollToTop}
+    >
       <div className={`rocket-body ${isBlasting ? "blast" : ""}`}>
-        <img
-          src="/rocket-colorful.svg"
-          alt="rocket"
-          className="rocket-img"
-        />
+        <img src="/rocket-colorful.svg" alt="rocket" className="rocket-img" />
         <div className="fire-flame" />
       </div>
     </div>

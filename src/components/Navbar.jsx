@@ -53,7 +53,7 @@ const Navbar = () => {
               <a
                 href={`#${section}`}
                 onClick={(e) => scrollToSection(e, section)}
-                className={activeSection === section ? "active" : ""}
+                className={`font-audiowide ${activeSection === section ? "active" : ""}`}
               >
                 <span className="nav-indicator"></span>
                 {section.charAt(0).toUpperCase() + section.slice(1)}
