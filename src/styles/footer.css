@@ -2,70 +2,83 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 10px 40px;
   width: 100%;
   position: relative;
   margin-top: 145px;
-  animation: slideInUp 1s ease forwards;
-  opacity: 0;
-}
-
-@keyframes slideInUp {
-  0% {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  opacity: 1;
 }
 
 .footer-horizontal {
   display: flex;
   gap: 20px;
   width: fit-content;
-  padding-left: 0;
-  margin-left: -2.4vw;
+  margin-left: 0;
 }
 
-/* Fixes the pointer issue on SVG areas */
 .footer-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 1.6rem;
   height: 1.6rem;
+  background: none;
+  border: none;
+  padding: 0;
   color: #fff;
   transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.footer-icon:focus {
+  outline: none;
 }
 
 .footer-icon svg {
   width: 100%;
   height: 100%;
-  pointer-events: bounding-box; /* Make the entire visible area interactive */
-  cursor: pointer; /* Show pointer across entire icon, not just filled area */
+  pointer-events: bounding-box;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
 
-svg path{
-  cursor: pointer;
-}
-
+/* Hover Animations */
 .footer-icon:hover svg {
   transform: scale(1.2);
-  color: #64ffda;
-  text-shadow: 0 0 10px #64ffda, 0 0 20px #64ffda, 0 0 30px #64ffda;
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+}
+
+/* Color Highlights */
+.footer-icon.github:hover {
+  color: #aaaaaa;
+}
+
+.footer-icon.linkedin:hover {
+  color: #0077b5;
+}
+
+.footer-icon.instagram:hover {
+  color: #e4405f;
 }
 
 /* Responsive Styling */
 @media (max-width: 768px) {
   .left-footer {
-    justify-content: center;
-    padding: 10px;
+    margin-left: 5px;
+    margin-top: 10px;
+    justify-content: flex-start;
+    padding: 0;
   }
 
   .footer-horizontal {
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
+  }
+
+  .footer-icon svg {
+    transform: none !important;
+    text-shadow: none !important;
+  }
+  .footer-icon:hover svg {
+    transform: none !important;
+    text-shadow: none !important;
   }
 }

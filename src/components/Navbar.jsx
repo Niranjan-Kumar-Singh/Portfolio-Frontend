@@ -4,6 +4,19 @@ import "../styles/navbar.css";
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("");
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false); // State to check mobile view
+
+  // Detect mobile view on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Update state based on window width
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Initialize on first render
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
@@ -42,6 +55,11 @@ const Navbar = () => {
     e.preventDefault();
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  // Conditionally render the Navbar based on screen size (isMobile state)
+  if (isMobile) {
+    return null; // Return nothing on mobile view
+  }
 
   return (
     <>

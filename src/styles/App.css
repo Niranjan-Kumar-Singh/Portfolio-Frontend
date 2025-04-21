@@ -69,7 +69,7 @@ canvas {
   top: 0;
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* allow native scroll */
+  overflow-y: auto;
   scroll-behavior: smooth;
   z-index: 2;
 }
@@ -85,8 +85,6 @@ canvas {
   flex-direction: column;
   position: relative;
   z-index: 1;
-  opacity: 1; /* Immediately visible */
-  pointer-events: auto; /* Enable interaction right away */
 }
 
 /* Content */
@@ -149,7 +147,7 @@ canvas {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 999; /* ✅ ensure it's visible */
+  z-index: 999;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -158,4 +156,60 @@ canvas {
 
 .scroll-to-top:hover {
   transform: scale(1.2);
+}
+
+/* --------- Mobile Responsive Layout --------- */
+@media (max-width: 768px) {
+  /* Disable Particles Background in Mobile */
+  .particles-bg,
+  canvas {
+    display: none !important;
+  }
+
+  body {
+    background: #0a192f !important;
+    overflow-x: hidden;
+  }
+
+  .app-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+  }
+
+  .content-wrapper {
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    margin-left: 0;
+  }
+
+  .content {
+    padding: 0 20px;
+  }
+
+  .header {
+    padding: 0;
+  }
+
+  .resume-btn button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  .footer-right {
+    display: none;
+  }
+
+  .scroll-to-top {
+    bottom: 10px;
+    right: 10px;
+  }
 }

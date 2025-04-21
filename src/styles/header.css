@@ -27,43 +27,31 @@
   padding-top: 50px;
   padding-bottom: 20px;
   width: 100%;
-  animation: slideInLeft 1s ease forwards;
   perspective: 1000px;
 }
 
-@keyframes slideInLeft {
-  0% {
-    transform: translateX(-100px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
 .name {
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem); /* Reduced min, preferred, and max */
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
   font-family: 'Orbitron', sans-serif;
   font-weight: 600;
   letter-spacing: 1.8px;
   text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
   margin-bottom: 10px;
-  white-space: nowrap; /* Keeps name on one line */
+  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 .tagline {
   font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 400; /* Font weight set to 400 */
+  font-weight: 400;
+  margin-top: 20px;
   margin-bottom: 16px;
   opacity: 0.9;
-  animation: slideInLeft 1.3s ease forwards;
   color: #ccd6f6;
   letter-spacing: 1px;
   line-height: 1.8rem;
   text-shadow: 0 0 8px rgba(100, 255, 218, 0.8),
-               0 0 16px rgba(100, 255, 218, 0.5); /* Enhanced glow */
+               0 0 16px rgba(100, 255, 218, 0.5);
 }
 
 .font-cursive {
@@ -72,43 +60,43 @@
 
 .resume-btn.clean {
   display: inline-flex;
-  margin-top: 40px;
   align-items: center;
   gap: 8px;
-  padding: 8px 12px;
-  background: rgba(20, 33, 61, 0.75);
-  color: #cce6ff;
+  padding: 10px 16px;
+  margin-top: 10px;
+  background: rgba(24, 36, 52, 0.85);
+  color: #dbeafe;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.9rem;
-  border: 1.5px solid rgba(100, 149, 237, 0.7);
+  border: 1.5px solid rgba(100, 149, 237, 0.5);
   border-radius: 12px;
   backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  transition: all 0.4s ease;
+  transition: all 0.3s ease-in-out;
   position: relative;
-  overflow: hidden;
-  z-index: 1;
   cursor: pointer;
-  box-shadow: 0 0 0 transparent;
-  text-shadow: 0 0 4px rgba(204, 230, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-shadow: 0 0 2px rgba(180, 200, 255, 0.2);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
 }
 
 .resume-btn.clean:hover {
-  background: rgba(40, 60, 100, 0.9);
-  color: #66f0ff;
-  transform: scale(1.06);
-  box-shadow: 0 0 15px rgba(102, 240, 255, 0.4),
-              0 0 30px rgba(102, 240, 255, 0.2);
+  background: rgba(34, 50, 78, 0.9);
+  color: #8cd1ff;
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  border-color: rgba(120, 180, 255, 0.3);
 }
 
-.resume-btn.clean:before {
-  content: none;
+.resume-btn.clean:active {
+  transform: scale(0.98);
+  background-color: rgba(24, 36, 52, 0.95);
 }
 
 .resume-icon {
-  font-size: 1.1rem;
-  z-index: 2;
+  font-size: 1.15rem;
 }
 
 .navbar-wrapper {
@@ -122,31 +110,56 @@
                0 0 16px rgba(100, 255, 218, 0.5);
 }
 
+.footer-wrapper {
+  margin-top: auto;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+/* -------- Responsive -------- */
 @media (max-width: 768px) {
+  .header {
+    height: auto;
+    min-height: 30vh;
+    overflow-y: auto;
+  }
+
   .header-inner {
     padding-left: 20px;
     padding-right: 20px;
-    align-items: center;
+    align-items: flex-start;
+    min-height: auto;
   }
 
   .header-content {
     padding-top: 60px;
-    text-align: center;
+    text-align: left;
+    width: 100%;
   }
 
   .name {
-    font-size: 2rem;
-    text-align: center; /* Center text */
+    font-size: clamp(1.85rem, 5.5vw, 2.4rem);
+    text-align: left;
+    letter-spacing: 1px;
+    white-space: normal;
+    margin-bottom: 5px;
+    text-shadow: none;
   }
 
   .tagline {
-    font-size: 1.3rem;
-    line-height: 1.6rem;
-    text-align: center; /* Center text */
+    font-size: 1.2rem;
+    line-height: 1rem;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: -20px;
+    max-width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 3.4rem;
+    text-shadow: none;
   }
 
-  .resume-btn.clean {
-    padding: 10px 20px;
-    font-size: 0.95rem;
+  .navbar-wrapper {
+    display: none;
   }
 }

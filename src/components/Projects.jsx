@@ -70,7 +70,7 @@ const Projects = () => {
             <div className="project-right">
               <h3>
                 <span className="project-title font-orbitron">{project.title}</span>
-                <span style={{ marginRight: '10px' }}></span>
+                <span className="icon-gap"></span>
                 {project.githubFrontend ? (
                   <>
                     <a
@@ -83,7 +83,7 @@ const Projects = () => {
                     >
                       <FaGithub />Frontend
                     </a>
-                    <span style={{ marginRight: '10px' }}></span>
+                    <span className="icon-gap"></span>
                     <a
                       href={project.githubBackend}
                       target="_blank"
@@ -104,10 +104,10 @@ const Projects = () => {
                     aria-label={`${project.title} GitHub Repository`}
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <FaGithub />
+                    <FaGithub /> GitHub
                   </a>
                 )}
-                <span style={{ marginRight: '10px' }}></span>
+                <span className="icon-gap"></span>
                 <a
                   href={project.liveDemo}
                   target="_blank"

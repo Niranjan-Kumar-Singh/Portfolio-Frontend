@@ -2,37 +2,17 @@ import React from "react";
 import { FaUniversity } from "react-icons/fa";
 import { MdSchool } from "react-icons/md";
 import "../styles/education.css";
-import { motion } from "framer-motion";
-
-const fadeIn = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
-};
 
 const Education = () => {
   return (
     <section className="education-section" id="education">
-      <motion.h2
-        className="education-heading font-audiowide"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        variants={fadeIn}
-      >
+      <h2 className="education-heading font-audiowide">
         Education
-      </motion.h2>
+      </h2>
 
       <div className="timeline-container">
         {/* B.Tech Card */}
-        <motion.div
-          className="timeline-item"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          variants={fadeIn}
-        >
+        <div className="timeline-item">
           <div className="timeline-icon">
             <FaUniversity size={24} color="#0ff" aria-label="University Icon" />
           </div>
@@ -58,17 +38,10 @@ const Education = () => {
               <li>Won 2nd prize in a photography competition in 1st year</li>
             </ul>
           </div>
-        </motion.div>
+        </div>
 
         {/* Class 12 Card */}
-        <motion.div
-          className="timeline-item"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          variants={fadeIn}
-        >
+        <div className="timeline-item">
           <div className="timeline-icon">
             <MdSchool size={24} color="#0ff" aria-label="School Icon" />
           </div>
@@ -94,7 +67,7 @@ const Education = () => {
               <li>Introduced to project-based learning from school level</li>
             </ul>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

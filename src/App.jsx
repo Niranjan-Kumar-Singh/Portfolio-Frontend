@@ -8,6 +8,7 @@ import ParticlesBackground from "./components/ParticlesBackground";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import { setScrollTarget, getScrollTarget } from "./utils/scrollManager";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./styles/App.css";
@@ -25,9 +26,9 @@ const App = () => {
   
     const smoothScroll = () => {
       const current = contentWrapper.scrollTop;
-      const distance = scrollTarget - current;
+      const distance = getScrollTarget() - current;
       const step = distance * 0.1;
-  
+    
       if (Math.abs(step) > 0.5) {
         contentWrapper.scrollTop = current + step;
         requestAnimationFrame(smoothScroll);
@@ -37,22 +38,15 @@ const App = () => {
     };
   
     const forwardScroll = (e) => {
-      if (e.deltaX !== 0) {
-        if (e.target === contentWrapper) {
-          e.preventDefault();
-        }
-      }
-    
       if (e.deltaY !== 0 && contentWrapper) {
         e.preventDefault();
     
         if ((e.deltaY > 0 && lastDeltaY < 0) || (e.deltaY < 0 && lastDeltaY > 0)) {
-          scrollTarget = contentWrapper.scrollTop;
+          setScrollTarget(contentWrapper.scrollTop);
         }
     
-        scrollTarget += e.deltaY * 0.7;
-        const maxScroll = contentWrapper.scrollHeight - contentWrapper.clientHeight;
-        scrollTarget = Math.max(0, Math.min(scrollTarget, maxScroll));
+        setScrollTarget(getScrollTarget() + e.deltaY * 0.7);
+        setScrollTarget(Math.max(0, getScrollTarget()));
     
         lastDeltaY = e.deltaY;
     

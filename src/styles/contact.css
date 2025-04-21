@@ -38,10 +38,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-.glass-form.fade-out {
-  opacity: 0.5;
-}
-
 .contact-note-class {
   font-size: 1rem; /* Adjust the font size as per your design */
   font-weight: 400; /* Adjust the font weight as per your design */

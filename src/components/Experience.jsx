@@ -1,24 +1,19 @@
 import React from "react";
 import "../styles/experience.css";
-import { motion } from "framer-motion";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaBootstrap } from "react-icons/fa";
 import { SiTailwindcss } from "react-icons/si";
 
 const Experience = () => {
   return (
     <section className="experience" id="experience">
-      <motion.h2
-        className="experience-heading section-title font-audiowide"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        viewport={{ once: true }}
-      >
+      <h2 className="experience-heading section-title font-audiowide">
         Experience
-      </motion.h2>
+      </h2>
 
       <div className="experience-card glass-effect">
-        <h3 className="experience-role font-orbitron">React.js Developer Training</h3>
+        <h3 className="experience-role font-orbitron">
+          <span className="underline-effect">React.js Developer Training</span>
+        </h3>
         <p className="experience-org font-inter">Euphoria GenX · Onsite (Hybrid Option)</p>
         <p className="experience-duration font-inter">August 2024 – September 2024</p>
         <ul className="experience-details font-inter">

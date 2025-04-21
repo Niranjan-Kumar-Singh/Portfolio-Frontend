@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../styles/contact.css";
 import axios from "axios";
-import { motion } from "framer-motion";
 import toast, { Toaster } from "react-hot-toast";
 import { FiSend } from "react-icons/fi";
 
@@ -45,33 +44,17 @@ const Contact = () => {
     <section className="contact-section" id="contact">
       <Toaster position="top-right" />
 
-      <motion.h2
-        className="contact-heading section-title font-audiowide"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
+      <h2 className="contact-heading section-title font-audiowide">
         Contact Me
-      </motion.h2>
+      </h2>
 
-      <motion.p
-        className="contact-note font-cursive contact-note-class"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-      >
+      <p className="contact-note font-cursive contact-note-class">
         Let’s connect! I’d love to hear from you 😊
-      </motion.p>
+      </p>
 
-      <motion.form
+      <form
         onSubmit={handleSubmit}
-        className={`glass-form font-inter ${submitted ? "fade-out" : ""}`}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        className={`glass-form font-inter`}
       >
         <div className="input-box">
           <input
@@ -116,10 +99,9 @@ const Contact = () => {
         </div>
 
         <div className="button-container">
-          <motion.button
+          <button
             type="submit"
             className={`neon-button font-inter ${isSubmitting ? "loading" : ""}`}
-            whileHover={!isSubmitting ? { scale: 1.03 } : {}}
             disabled={isSubmitting}
           >
             {isSubmitting ? (
@@ -129,9 +111,9 @@ const Contact = () => {
                 Send <FiSend style={{ marginLeft: "4px", transform: "rotate(45deg)" }} />
               </>
             )}
-          </motion.button>
+          </button>
         </div>
-      </motion.form>
+      </form>
     </section>
   );
 };

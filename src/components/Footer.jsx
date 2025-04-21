@@ -9,25 +9,28 @@ const Footer = () => {
       <div className="footer-horizontal">
         <a
           href="https://github.com/Niranjan-Kumar-Singh"
-          target="_blank"
+          target="_self"  // Use _self instead of _blank
           rel="noopener noreferrer"
-          className="footer-icon"
+          className="footer-icon github"
+          aria-label="GitHub"
         >
           <FaGithub />
         </a>
         <a
           href="https://www.linkedin.com/in/niranjan-kumar-singh/"
-          target="_blank"
+          target="_self"  // Use _self instead of _blank
           rel="noopener noreferrer"
-          className="footer-icon"
+          className="footer-icon linkedin"
+          aria-label="LinkedIn"
         >
           <FaLinkedin />
         </a>
         <a
           href="https://www.instagram.com/niranjan._23/"
-          target="_blank"
+          target="_self"  // Use _self instead of _blank
           rel="noopener noreferrer"
-          className="footer-icon"
+          className="footer-icon instagram"
+          aria-label="Instagram"
         >
           <FaInstagram />
         </a>

@@ -9,7 +9,7 @@
   text-align: center;
   font-size: clamp(1.25rem, 2vw, 1.75rem);
   margin-bottom: 30px;
-  font-weight: 500; /* Changed from 400 to 500 */
+  font-weight: 500;
   color: #64ffda;
   line-height: 1.3;
 }
@@ -46,7 +46,6 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  cursor: pointer;
 }
 
 .project-date {
@@ -54,32 +53,29 @@
   color: #ccc;
   margin-top: 8px;
   font-weight: 500;
-  cursor: pointer;
 }
 
 .project-right {
   width: 76%;
   color: #fff;
   text-align: left;
-  cursor: pointer;
-}
-
-.project-right h3 {
-  cursor: pointer;
 }
 
 .project-title {
-  font-size: clamp(1rem, 2.8vw, 1.2rem); /* Optional: For responsiveness */
+  font-size: clamp(1rem, 2.8vw, 1.2rem);
   font-weight: 700;
   color: #00e6e6;
   line-height: 1.4;
   letter-spacing: 0.5px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
 }
 
 .project-title:hover {
   color: #fff;
+}
+
+.icon-gap {
+  margin-right: 10px;
 }
 
 .project-description {
@@ -88,7 +84,6 @@
   margin: 10px 0 15px;
   line-height: 1.4;
   font-weight: 400;
-  cursor: pointer;
 }
 
 .icon-link {
@@ -97,7 +92,6 @@
   color: #ddd;
   font-size: 1rem;
   transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
-  cursor: pointer;
 }
 
 .icon-link:hover {
@@ -106,12 +100,7 @@
 }
 
 .icon-link svg {
-  cursor: pointer;
   margin-right: 2px;
-}
-
-svg path {
-  cursor: pointer;
 }
 
 .tech-stack {
@@ -119,32 +108,29 @@ svg path {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 10px;
-  cursor: pointer;
 }
 
 .tech-item {
-  font-size: 0.85rem; /* Matches the plan */
-  font-weight: 400; /* Matches the plan */
+  font-size: 0.85rem;
+  font-weight: 400;
 }
 
 .tech-icon {
   font-size: 1.3rem;
   transition: transform 0.1s ease-in-out;
-  cursor: pointer;
 }
 
 .tech-icon:hover {
   transform: scale(1.2);
 }
 
-/* More Projects Button */
 .more-projects-button {
   background-color: #f0f0f0;
   color: #000;
   border: none;
   padding: 5px 10px;
   border-radius: 20px;
-  font-size: 0.9rem; /* Changed from 1rem to 0.95rem */
+  font-size: 0.9rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -180,8 +166,6 @@ svg path {
   position: relative;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
-  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
-  cursor: pointer;
 }
 
 .more-projects-button .dot::before {
@@ -196,15 +180,12 @@ svg path {
   border-radius: 50%;
   transition: all 0.5s ease-in-out;
   z-index: 1;
-  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
-  cursor: pointer;
 }
 
 .more-projects-button:hover .dot::before {
   width: 26px;
   height: 26px;
   background-color: #D3D3D3;
-  cursor: pointer;
 }
 
 .more-projects-button .dot svg {
@@ -215,7 +196,6 @@ svg path {
   color: #000;
   width: 14px;
   height: 14px;
-  cursor: pointer;
 }
 
 .more-projects-button:hover .dot svg {
@@ -225,35 +205,141 @@ svg path {
 
 .more-projects-button .button-text {
   font-size: 0.88rem;
-  transition: color 0.4s ease;
   margin-right: 5px;
-  cursor: pointer;
 }
 
-.more-projects-button:focus,
-.more-projects-button .dot:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-/* Responsive */
+/* Responsive Mobile Layout */
+/* Responsive Mobile Layout */
 @media (max-width: 768px) {
+  .projects-grid {
+    gap: 15px;
+  }
+
   .project-card {
     flex-direction: column;
+    gap: 12px;
     padding: 20px;
   }
 
-  .project-left,
+  .project-left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .project-right {
     width: 100%;
-    padding-left: 0;
+    text-align: left;
+  }
+
+  /* Title and Date */
+  .project-title {
+    font-size: 1.2rem;
+    display: block;
+  }
+
+  .project-date {
+    font-size: 0.75rem;
+    margin-top: 8px;
+    font-weight: 500;
+  }
+
+  /* Make Frontend, Backend, Live Demo icons stay on the same line */
+  .icon-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-right: 10px;
+  }
+
+  .tech-stack {
+    justify-content: flex-start;
+    gap: 8px;
+    /* flex-wrap: wrap; */
+    display: inline-block;
+  }
+
+  .tech-item {
+    font-size: 0.85rem;
+    font-weight: 400;
+    /* display: inline-flex; */
+    align-items: center;
+    margin-right: 10px;
+  }
+
+  .tech-icon {
+    font-size: 1.1rem;
+  }
+
+  /* Responsive Project Description */
+  .project-description {
+    font-size: 0.8rem;
+    margin: 10px 0;
+  }
+
+  /* More Projects Button */
+  .more-projects-button {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .icon-gap {
+    margin-right: 0; /* Remove margin on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .project-left {
+    width: 100%;
+  }
+
+  .project-date {
+    font-size: 0.7rem;
   }
 
   .project-title {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.3;
   }
 
   .project-description {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .tech-stack {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .tech-icon {
+    font-size: 1.1rem;
+  }
+
+  .more-projects-button {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    margin-top: 20px;
+  }
+
+  .more-projects-button .dot {
+    width: 30px;
+    height: 30px;
+  }
+
+  .more-projects-button .dot::before {
+    width: 18px;
+    height: 18px;
+  }
+
+  .more-projects-button .button-text {
+    font-size: 0.85rem;
   }
 }

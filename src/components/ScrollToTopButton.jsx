@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { setScrollTarget } from "../utils/scrollManager";
 import "../styles/scrollToTop.css";
 
 const ScrollToTopButton = () => {
@@ -19,19 +20,17 @@ const ScrollToTopButton = () => {
 
   const scrollToTop = () => {
     setIsBlasting(true);
-    const contentWrapper = document.querySelector(".content-wrapper");
-
-    // Scroll to the top with smooth behavior
-    contentWrapper.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-
-    // Immediately reset the scroll position right after the click
+  
+    const content = document.querySelector(".content-wrapper");
+    content.scrollTo({ top: 0, behavior: "smooth" });
+  
+    // Reset scroll target so forwardScroll doesn't snap back
+    setScrollTarget(0);
+  
     setTimeout(() => {
-      contentWrapper.scrollTop = 0;
-      setIsBlasting(false); // Reset blasting animation
-    }, 800); // After the animation is done, reset the scroll
+      setIsBlasting(false);
+      content.scrollTop = 0;
+    }, 800);
   };
 
   return (
