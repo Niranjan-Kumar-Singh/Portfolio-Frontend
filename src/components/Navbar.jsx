@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useLayoutEffect, useState, useEffect } from "react";
 import "../styles/navbar.css";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("");
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [isMobile, setIsMobile] = useState(false); // State to check mobile view
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Detect mobile view on resize
-  useEffect(() => {
+  // Use useLayoutEffect for accurate mobile detection before paint
+  useLayoutEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Update state based on window width
+      setIsMobile(window.innerWidth <= 768);
     };
 
+    handleResize(); // Run once on mount
     window.addEventListener("resize", handleResize);
-    handleResize(); // Initialize on first render
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -56,10 +56,7 @@ const Navbar = () => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Conditionally render the Navbar based on screen size (isMobile state)
-  if (isMobile) {
-    return null; // Return nothing on mobile view
-  }
+  if (isMobile) return null;
 
   return (
     <>

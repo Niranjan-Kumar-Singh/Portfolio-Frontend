@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { FiFileText } from 'react-icons/fi';
 import { Typewriter } from 'react-simple-typewriter';
 import '../styles/header.css';
+
+// ✅ Memoized ResumeButton to prevent re-renders
+const ResumeButton = memo(() => {
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Niranjan_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  return (
+    <button className="resume-btn font-inter clean" onClick={handleDownload}>
+      <FiFileText className="resume-icon" />
+      Download Resume
+    </button>
+  );
+});
 
 const Header = () => {
   return (
@@ -27,20 +46,9 @@ const Header = () => {
               delaySpeed={10000}
             />
           </p>
-          <button
-            className="resume-btn font-inter clean"
-            onClick={() => {
-              const link = document.createElement('a');
-              link.href = '/resume.pdf';
-              link.download = 'Niranjan_Resume.pdf'; // optional rename
-              document.body.appendChild(link);
-              link.click();
-              document.body.removeChild(link);
-            }}
-          >
-            <FiFileText className="resume-icon" />
-            Download Resume
-          </button>
+
+          {/* ✅ Using Memoized Component */}
+          <ResumeButton />
         </div>
 
         <div className="navbar-wrapper">

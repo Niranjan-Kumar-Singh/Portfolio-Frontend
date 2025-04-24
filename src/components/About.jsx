@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../styles/about.css';
-import Typed from 'typed.js';
 import {
   FaReact, FaNodeJs, FaDatabase, FaGithub, FaCloud, FaJs, FaCss3Alt,
 } from 'react-icons/fa';
@@ -9,23 +8,11 @@ import {
 } from 'react-icons/si';
 
 const About = () => {
-  useEffect(() => {
-    const typed = new Typed(".typed-text", {
-      strings: ["About Me"],
-      typeSpeed: 80,
-      backSpeed: 40,
-      showCursor: false,
-      loop: false,
-    });
-
-    return () => typed.destroy();
-  }, []);
-
   return (
     <section className="about" id="about">
       <div className="container">
-        <h2 className="section-title typed-text-wrapper font-audiowide">
-          <span className="typed-text">About Me</span>
+        <h2 className="section-title font-audiowide">
+          About Me
         </h2>
 
         <p className="intro font-inter">

@@ -8,7 +8,6 @@ import ParticlesBackground from "./components/ParticlesBackground";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
 import ScrollToTopButton from "./components/ScrollToTopButton";
-import { setScrollTarget, getScrollTarget } from "./utils/scrollManager";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./styles/App.css";
@@ -16,67 +15,26 @@ import "./styles/App.css";
 const App = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
-  
+
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    if (isMobile) return; // Let mobile use default scroll
+
     const sidebar = document.querySelector(".sidebar");
     const contentWrapper = document.querySelector(".content-wrapper");
-  
-    let scrollTarget = 0;
-    let scrolling = false;
-    let lastDeltaY = 0;
-  
-    const smoothScroll = () => {
-      const current = contentWrapper.scrollTop;
-      const distance = getScrollTarget() - current;
-      const step = distance * 0.1;
-    
-      if (Math.abs(step) > 0.5) {
-        contentWrapper.scrollTop = current + step;
-        requestAnimationFrame(smoothScroll);
-      } else {
-        scrolling = false;
-      }
-    };
-  
-    const forwardScroll = (e) => {
-      if (e.deltaY !== 0 && contentWrapper) {
-        e.preventDefault();
-    
-        if ((e.deltaY > 0 && lastDeltaY < 0) || (e.deltaY < 0 && lastDeltaY > 0)) {
-          setScrollTarget(contentWrapper.scrollTop);
-        }
-    
-        setScrollTarget(getScrollTarget() + e.deltaY * 0.7);
-        setScrollTarget(Math.max(0, getScrollTarget()));
-    
-        lastDeltaY = e.deltaY;
-    
-        if (!scrolling) {
-          scrolling = true;
-          requestAnimationFrame(smoothScroll);
-        }
-      }
-    };
-    
-    // Attach the wheel event listener to both contentWrapper and sidebar
-    if (contentWrapper) {
-      contentWrapper.addEventListener("wheel", forwardScroll, { passive: false });
-    }
-  
-    if (sidebar) {
-      sidebar.addEventListener("wheel", forwardScroll, { passive: false });
-    }
-  
-    return () => {
+
+    const handleSidebarScroll = (e) => {
       if (contentWrapper) {
-        contentWrapper.removeEventListener("wheel", forwardScroll);
+        contentWrapper.scrollTop += e.deltaY;
       }
-  
-      if (sidebar) {
-        sidebar.removeEventListener("wheel", forwardScroll);
-      }
+    };
+
+    sidebar?.addEventListener("wheel", handleSidebarScroll, { passive: false });
+
+    return () => {
+      sidebar?.removeEventListener("wheel", handleSidebarScroll);
     };
   }, []);
-  
+
   return (
     <div className="app-container">
       <CursorLight />
@@ -95,6 +53,7 @@ const App = () => {
           <Contact />
         </main>
       </div>
+
       <ScrollToTopButton />
     </div>
   );

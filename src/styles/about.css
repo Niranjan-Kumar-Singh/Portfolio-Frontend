@@ -166,9 +166,14 @@
     font-size: 0.8rem;
   }
 
+  .skill-card:active {
+    transform: scale(0.97);
+    background-color: rgba(100, 255, 218, 0.05);
+  }
+
   .skill-card .skill-icon {
     font-size: 1.3rem;
-    animation: none;
+    animation: none !important;
   }
 
   .skill-card:hover {
@@ -178,5 +183,18 @@
   
   .skills {
     margin-top: 32px;
+  }
+
+  
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .skill-card:hover .skill-icon {
+    animation: none !important;
+  }
+
+  .skill-card {
+    transition: none !important;
   }
 }
