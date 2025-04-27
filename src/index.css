@@ -29,16 +29,12 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
+  min-height: 100%;
   font-family: var(--font-main);
   background-color: var(--bg-dark);
   overflow-x: hidden;
+  overflow-y: auto;
   scroll-behavior: smooth;
-}
-
-#root {
-  width: 100%;
-  font-family: var(--font-main);
-  background-color: var(--bg-dark);
 }
 
 /* Typography */
@@ -128,9 +124,14 @@ code, pre, .code-style {
   z-index: 50;
 }
 
-/* Light mode block removed to avoid flicker */
-
 /* Optional reset for weird tap highlights (mobile) */
 * {
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Box-sizing reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }

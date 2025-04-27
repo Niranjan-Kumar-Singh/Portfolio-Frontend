@@ -4,11 +4,13 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { FiSend } from "react-icons/fi";
 
+// Contact form component
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  // Handle input field change
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
@@ -16,14 +18,19 @@ const Contact = () => {
     }));
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Get API base URL from environment variables
     const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
     try {
+      // Make the POST request to the backend
       const response = await axios.post(`${API_BASE}/api/contact`, formData);
+
+      // Handle successful submission
       if (response.data.success) {
         toast.success("Message sent successfully!");
         setSubmitted(true);
@@ -42,20 +49,22 @@ const Contact = () => {
 
   return (
     <section className="contact-section" id="contact">
+      {/* Toast notifications */}
       <Toaster position="top-right" />
 
-      <h2 className="contact-heading section-title font-audiowide">
+      {/* Section Title */}
+      <h2 className="contact-heading font-audiowide">
         Contact Me
       </h2>
 
+      {/* Contact Note */}
       <p className="contact-note font-cursive contact-note-class">
         Let’s connect! I’d love to hear from you 😊
       </p>
 
-      <form
-        onSubmit={handleSubmit}
-        className={`glass-form font-inter`}
-      >
+      {/* Contact Form */}
+      <form onSubmit={handleSubmit} className="glass-form font-inter">
+        {/* Name Input */}
         <div className="input-box">
           <input
             type="text"
@@ -70,6 +79,7 @@ const Contact = () => {
           <label htmlFor="name">Name</label>
         </div>
 
+        {/* Email Input */}
         <div className="input-box">
           <input
             type="email"
@@ -84,6 +94,7 @@ const Contact = () => {
           <label htmlFor="email">Email</label>
         </div>
 
+        {/* Message Input */}
         <div className="input-box">
           <textarea
             name="message"
@@ -98,6 +109,7 @@ const Contact = () => {
           <label htmlFor="message">Message</label>
         </div>
 
+        {/* Submit Button */}
         <div className="button-container">
           <button
             type="submit"

@@ -1,3 +1,4 @@
+// src/components/Header.jsx
 import React, { memo } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -5,12 +6,12 @@ import { FiFileText } from 'react-icons/fi';
 import { Typewriter } from 'react-simple-typewriter';
 import '../styles/header.css';
 
-// ✅ Memoized ResumeButton to prevent re-renders
+// Memoized ResumeButton to prevent unnecessary re-renders
 const ResumeButton = memo(() => {
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = '/resume.pdf';
-    link.download = 'Niranjan_Resume.pdf';
+    link.download = 'Niranjan_Resume.pdf'; // Name of the downloaded file
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -30,6 +31,8 @@ const Header = () => {
       <div className="header-inner">
         <div className="header-content">
           <h1 className="name font-orbitron glow-text">Niranjan Kumar Singh</h1>
+
+          {/* Tagline with typewriter effect */}
           <p className="tagline font-cursive">
             <Typewriter
               words={[
@@ -47,10 +50,11 @@ const Header = () => {
             />
           </p>
 
-          {/* ✅ Using Memoized Component */}
+          {/* Memoized Resume Button */}
           <ResumeButton />
         </div>
 
+        {/* Navbar and Footer Components */}
         <div className="navbar-wrapper">
           <Navbar />
         </div>

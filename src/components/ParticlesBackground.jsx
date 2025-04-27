@@ -3,6 +3,7 @@ import Particles from "react-tsparticles";
 import { loadLinksPreset } from "tsparticles-preset-links";
 
 const ParticlesBackground = () => {
+  // Initialize particles with the 'links' preset
   const particlesInit = async (main) => {
     await loadLinksPreset(main);
   };
@@ -12,52 +13,52 @@ const ParticlesBackground = () => {
       id="tsparticles"
       init={particlesInit}
       options={{
-        preset: "links",
-        fullScreen: { enable: false },
+        preset: "links", // Use the 'links' preset for particle connections
+        fullScreen: { enable: false }, // Disable fullscreen for the particle effect
         background: {
-          color: { value: "transparent" },
+          color: { value: "transparent" }, // Transparent background to blend particles with page background
         },
         particles: {
           number: {
-            value: 50,
+            value: 50, // Set the number of particles
             density: {
               enable: true,
-              area: 800, // More responsive across devices
+              area: window.innerWidth <= 768 ? 600 : 800, // Adjust particle density for mobile screens
             },
           },
-          color: { value: "#ffffff" },
+          color: { value: "#ffffff" }, // White particle color
           links: {
-            enable: true,
-            distance: 150,
-            color: "#ffffff",
-            opacity: 0.4,
-            width: 1,
+            enable: true, // Enable particle links
+            distance: 150, // Maximum distance for link visibility
+            color: "#ffffff", // Link color
+            opacity: 0.4, // Link opacity
+            width: 1, // Link width
           },
           move: {
-            enable: true,
-            speed: 1,
-            direction: "none",
+            enable: true, // Enable particle movement
+            speed: 1, // Set particle movement speed
+            direction: "none", // Particles move freely in all directions
             outModes: {
-              default: "out",
+              default: "out", // Particles will exit the screen
             },
           },
           opacity: {
-            value: 0.5,
+            value: 0.5, // Particle opacity
           },
           size: {
-            value: { min: 1, max: 3 },
+            value: { min: 1, max: 3 }, // Particle size range
           },
         },
-        detectRetina: true,
+        detectRetina: true, // Enable retina display support for sharp particles
         interactivity: {
           events: {
-            onHover: { enable: false },
-            onClick: { enable: false },
-            resize: true,
+            onHover: { enable: false }, // Disable hover interaction
+            onClick: { enable: false }, // Disable click interaction
+            resize: true, // Enable particle resizing on window resize
           },
         },
       }}
-      className="absolute top-0 left-0 w-full h-full z-0"
+      className="absolute top-0 left-0 w-full h-full z-0" // Position particles behind other content
     />
   );
 };

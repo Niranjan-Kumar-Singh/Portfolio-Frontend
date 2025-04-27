@@ -1,10 +1,14 @@
-/* Reusable padding for layout alignment */
+/* ===================================
+   Shared Utilities
+=================================== */
+
+/* Common horizontal padding for layout consistency */
 .shared-padding {
   padding-left: 40px;
   padding-right: 40px;
 }
 
-/* Scroll Progress Bar */
+/* Top Scroll Progress Bar */
 .progress-bar {
   position: fixed;
   top: 0;
@@ -15,13 +19,16 @@
   transition: width 0.2s ease-out;
 }
 
-/* Navbar base */
-/* Removed slide-in animation */
+/* ===================================
+   Navbar Styling
+=================================== */
+
+/* Navbar container */
 .navbar {
-  /* animation: slideInLeft 1s ease-out forwards; */
-  opacity: 1; /* Ensure the navbar is visible without animation */
+  opacity: 1; /* Ensure navbar is always visible */
 }
 
+/* Keyframes for optional slide-in animation (currently unused) */
 @keyframes slideInLeft {
   from {
     transform: translateX(-100px);
@@ -33,6 +40,7 @@
   }
 }
 
+/* Navbar list */
 .navbar ul {
   list-style: none;
   margin: 0;
@@ -43,7 +51,7 @@
   margin-left: -2.5vw;
 }
 
-/* Nav Item */
+/* Individual nav item */
 .nav-item {
   display: flex;
   align-items: center;
@@ -51,7 +59,7 @@
   width: fit-content;
 }
 
-/* Nav Link */
+/* Nav links */
 .nav-item a {
   cursor: pointer;
   display: inline-flex;
@@ -60,64 +68,74 @@
   text-decoration: none;
   color: #b0bec5;
   font-size: 0.9rem;
-  transition: color 0.3s ease;
-  width: fit-content;
   padding: 2px 4px;
+  width: fit-content;
   position: relative;
+  transition: color 0.3s ease;
 }
 
-/* Indicator Line */
+/* Small indicator line under nav link */
 .nav-indicator {
   display: block;
   height: 2px;
   width: 40px;
   background-color: #2f3b4a;
-  transition: width 0.3s ease, background-color 0.3s ease;
-  transform-origin: left; /* Ensures expansion starts from the left */
   flex-shrink: 0;
+  transition: width 0.3s ease, background-color 0.3s ease;
+  transform-origin: left;
 }
 
-/* Hover & Active States */
+/* Hover and active state for nav links */
+.nav-item a:hover,
+.nav-item a.active {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+/* Expand indicator on hover/active */
 .nav-item a:hover .nav-indicator,
 .nav-item a.active .nav-indicator {
   width: 80px;
   background-color: #3498db;
 }
 
-.nav-item a:hover,
-.nav-item a.active {
-  color: white;
-  background-color: rgba(0, 0, 0, 0.1); /* Light background for hover */
-  border-radius: 4px;
-}
-
-/* Mobile Responsive */
+/* ===================================
+   Responsive (Mobile) Styling
+=================================== */
 @media (max-width: 768px) {
+  
+  /* Adjust navbar padding and disable animations */
   .navbar {
+    padding: 0 20px;
     animation: none;
     opacity: 1;
-    padding: 0 20px;
   }
 
+  /* Navbar list becomes horizontal */
   .navbar ul {
+    flex-direction: row;
     align-items: center;
     margin-left: 0;
     gap: 10px;
-    flex-direction: row; /* Align items horizontally */
   }
 
+  /* Center nav items */
   .nav-item {
     justify-content: center;
   }
 
+  /* Smaller indicator for mobile */
   .nav-indicator {
     width: 20px;
   }
 
+  /* Slightly larger font for nav links on mobile */
   .nav-item a {
     font-size: 0.95rem;
   }
 
+  /* Disable transform effects on hover */
   .nav-item a:hover {
     transform: none;
   }

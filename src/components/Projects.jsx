@@ -85,7 +85,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="projects">
-      <h2 className="section-title font-audiowide">My Projects</h2>
+      <h2 className="project-section-title font-audiowide">My Projects</h2>
       <div className="projects-grid">
         {projectData.map((project, index) => {
           const CardContent = (
@@ -113,7 +113,7 @@ const Projects = () => {
                           href={project.githubFrontend}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="icon-link font-fira"
+                          className="project-icon-link font-fira"
                         >
                           <FaGithub /> Frontend
                         </a>
@@ -121,7 +121,7 @@ const Projects = () => {
                           href={project.githubBackend}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="icon-link font-fira"
+                          className="project-icon-link font-fira"
                         >
                           <FaGithub /> Backend
                         </a>
@@ -131,7 +131,7 @@ const Projects = () => {
                         href={project.githubLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="icon-link font-fira"
+                        className="project-icon-link font-fira"
                       >
                         <FaGithub /> GitHub
                       </a>
@@ -140,7 +140,7 @@ const Projects = () => {
                       href={project.liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="icon-link font-fira"
+                      className="project-icon-link font-fira"
                     >
                       <FaExternalLinkAlt />
                     </a>
@@ -149,17 +149,17 @@ const Projects = () => {
                 <p className="project-description font-inter">
                   {project.description}
                 </p>
-                <p className="tech-label font-fira">Technologies Used:</p>
-                <div className="tech-stack">
+                <p className="project-tech-label font-fira">Technologies Used:</p>
+                <div className="project-tech-stack">
                   {project.technologies.map((TechIcon, idx) => (
                     <span
                       key={idx}
-                      className="tech-item font-fira"
+                      className="project-tech-item font-fira"
                       tabIndex={0}
                       aria-label={getTechLabel(TechIcon)}
                     >
                       <TechIcon
-                        className="tech-icon"
+                        className="project-tech-icon"
                         title={getTechLabel(TechIcon)}
                         style={{ color: getTechColor(TechIcon) }}
                       />

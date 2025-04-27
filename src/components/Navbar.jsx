@@ -18,6 +18,7 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Track which section is active
   useEffect(() => {
     const sections = document.querySelectorAll("section");
 
@@ -39,6 +40,7 @@ const Navbar = () => {
     };
   }, []);
 
+  // Update scroll progress as the user scrolls
   useEffect(() => {
     const updateScrollProgress = () => {
       const scrollTop = window.scrollY;
@@ -51,11 +53,13 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", updateScrollProgress);
   }, []);
 
+  // Scroll to the specified section
   const scrollToSection = (e, id) => {
     e.preventDefault();
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Conditionally render the navbar and progress bar for mobile
   if (isMobile) return null;
 
   return (

@@ -1,84 +1,91 @@
+/* ===================== Left Footer Container Styling ===================== */
 .left-footer {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: flex-start; /* Align items to the left */
+  align-items: center; /* Center items vertically */
   width: 100%;
   position: relative;
-  margin-top: 145px;
+  margin-top: 145px; /* Space above the footer */
   opacity: 1;
 }
 
+/* ===================== Horizontal Footer Content ===================== */
 .footer-horizontal {
   display: flex;
-  gap: 20px;
-  width: fit-content;
+  gap: 20px; /* Space between icons */
+  width: fit-content; /* Content takes only necessary width */
   margin-left: 0;
 }
 
+/* ===================== Footer Icon Styling ===================== */
 .footer-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.6rem;
+  width: 1.6rem; /* Icon size */
   height: 1.6rem;
-  background: none;
-  border: none;
-  padding: 0;
-  color: #fff;
-  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
-  cursor: pointer;
+  background: none; /* No background for the icon */
+  border: none; /* Remove border */
+  padding: 0; /* Remove padding */
+  color: #fff; /* Default icon color */
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease; /* Smooth transitions */
+  cursor: pointer; /* Pointer cursor for interactivity */
 }
 
 .footer-icon:focus {
-  outline: none;
+  outline: none; /* Remove focus outline */
 }
 
 .footer-icon svg {
-  width: 100%;
+  width: 100%; /* Ensure SVG fills the icon container */
   height: 100%;
-  pointer-events: bounding-box;
-  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  pointer-events: bounding-box; /* Allow clickability only on the icon's box */
+  transition: transform 0.3s ease, text-shadow 0.3s ease; /* Smooth transition for hover effects */
 }
 
-/* Hover Animations */
+/* ===================== Hover Animations for Icons ===================== */
 .footer-icon:hover svg {
-  transform: scale(1.2);
-  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  transform: scale(1.2); /* Scale up icon on hover */
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor; /* Glowing text-shadow */
 }
 
-/* Color Highlights */
+/* ===================== Color Highlights for Different Icons ===================== */
 .footer-icon.github:hover {
-  color: #aaaaaa;
+  color: #aaaaaa; /* GitHub hover color */
 }
 
 .footer-icon.linkedin:hover {
-  color: #0077b5;
+  color: #0077b5; /* LinkedIn hover color */
 }
 
 .footer-icon.instagram:hover {
-  color: #e4405f;
+  color: #e4405f; /* Instagram hover color */
 }
 
-/* Responsive Styling */
+/* ===================== Responsive Design ===================== */
 @media (max-width: 768px) {
+  /* Adjust styles for smaller screens */
   .left-footer {
-    margin-left: 5px;
-    margin-top: 10px;
-    justify-content: flex-start;
+    margin-left: 5px; /* Reduce margin on the left */
+    margin-top: 10px; /* Adjust top margin for smaller screens */
+    justify-content: flex-start; /* Align items to the left */
     padding: 0;
   }
 
+  /* Adjust horizontal footer layout */
   .footer-horizontal {
-    justify-content: flex-start;
-    width: 100%;
+    justify-content: flex-start; /* Align items to the left */
+    width: 100%; /* Make the footer take the full width */
   }
 
+  /* Remove hover effects for mobile for smoother experience */
   .footer-icon svg {
-    transform: none !important;
-    text-shadow: none !important;
+    transform: none !important; /* Disable scaling */
+    text-shadow: none !important; /* Remove text-shadow */
   }
+
   .footer-icon:hover svg {
-    transform: none !important;
-    text-shadow: none !important;
+    transform: none !important; /* Disable hover scale */
+    text-shadow: none !important; /* Remove hover shadow */
   }
 }

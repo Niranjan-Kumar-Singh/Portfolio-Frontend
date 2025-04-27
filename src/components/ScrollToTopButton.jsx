@@ -20,27 +20,28 @@ const ScrollToTopButton = () => {
 
   const scrollToTop = () => {
     setIsBlasting(true);
-  
+
     const content = document.querySelector(".content-wrapper");
     content.scrollTo({ top: 0, behavior: "smooth" });
-  
-    // Reset scroll target so forwardScroll doesn't snap back
+
+    // Reset scroll target to prevent snap-back behavior
     setScrollTarget(0);
-  
+
     setTimeout(() => {
       setIsBlasting(false);
-      content.scrollTop = 0;
+      content.scrollTop = 0; // Ensure content scroll position is reset to top
     }, 800);
   };
 
   return (
     <div
-      className={`rocket-btn ${isVisible ? "show" : ""}`}
+      className={`rocket-btn ${isVisible ? "show" : ""}`} // Button visibility controlled by scroll position
       onClick={scrollToTop}
     >
-      <div className={`rocket-body ${isBlasting ? "blast" : ""}`}>
+      <div className={`rocket-body ${isBlasting ? "blast" : ""}`} // Animation when button is clicked
+      >
         <img src="/rocket-colorful.svg" alt="rocket" className="rocket-img" />
-        <div className="fire-flame" />
+        <div className="fire-flame" /> {/* Fire flame effect on button click */}
       </div>
     </div>
   );
