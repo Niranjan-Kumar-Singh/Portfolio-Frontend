@@ -1,6 +1,7 @@
 # Allow all web crawlers access to everything on the site
 User-agent: *
 Disallow: /admin/
+Allow: /
 
 # Sitemap URL
 Sitemap: https://niranjan-singh.netlify.app/sitemap.xml
