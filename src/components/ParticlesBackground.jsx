@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Particles from "react-tsparticles";
 import { loadLinksPreset } from "tsparticles-preset-links";
 
 const ParticlesBackground = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Function to check if the window is mobile-sized
+    const checkIfMobile = () => {
+      const width = window.innerWidth;
+      setIsMobile(width <= 768); // Assuming 768px is the mobile breakpoint
+    };
+
+    // Run check on initial load
+    checkIfMobile();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", checkIfMobile);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", checkIfMobile);
+    };
+  }, []);
+
+  if (isMobile) return null; // Don't render particles on mobile
+
   // Initialize particles with the 'links' preset
   const particlesInit = async (main) => {
     await loadLinksPreset(main);

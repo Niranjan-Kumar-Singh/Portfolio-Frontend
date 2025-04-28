@@ -170,20 +170,19 @@ const Projects = () => {
             </>
           );
 
-          return isMobile ? (
-            <div key={index} className="project-card">
-              {CardContent}
-            </div>
-          ) : (
-            <a
+          return (
+            <div
               key={index}
-              href={project.liveDemo}
-              target="_blank"
-              rel="noopener noreferrer"
               className="project-card"
+              onClick={() => {
+                if (!isMobile) {
+                  window.open(project.liveDemo, '_blank');
+                }
+              }}
+              style={{ cursor: !isMobile ? 'pointer' : 'default' }}
             >
               {CardContent}
-            </a>
+            </div>
           );
         })}
       </div>

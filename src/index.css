@@ -34,7 +34,12 @@ html, body {
   background-color: var(--bg-dark);
   overflow-x: hidden;
   overflow-y: auto;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Smooth scroll for desktop */
+}
+
+/* Ensure smooth scrolling on mobile as well */
+html {
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
 }
 
 /* Typography */
@@ -91,8 +96,8 @@ canvas,
 /* Cursor Light Effect */
 .cursor-light {
   position: fixed;
-  width: 250px;
-  height: 250px;
+  width: 350px; /* Increased size */
+  height: 350px; /* Increased size */
   background: radial-gradient(circle, rgba(31, 81, 255, 0.5) 0%, rgba(31, 81, 255, 0.3) 80%);
   border-radius: 50%;
   pointer-events: none;
@@ -101,6 +106,7 @@ canvas,
   filter: blur(120px);
   transition: transform 0s;
   will-change: transform;
+  opacity: 0.8;
 }
 
 /* Font Utilities */
