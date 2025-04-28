@@ -9,6 +9,7 @@ import Experience from "./components/Experience";
 import Education from "./components/Education";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import { Analytics } from "@vercel/analytics/react"; // Importing Vercel Analytics
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./styles/App.css";
@@ -63,6 +64,7 @@ const App = () => {
 
       {/* Include Vercel Analytics to track page views */}
       <Analytics />
+      <SpeedInsights />
 
       <aside className="sidebar">
         <Header />
