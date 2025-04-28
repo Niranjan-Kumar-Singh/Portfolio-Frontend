@@ -8,6 +8,7 @@ import ParticlesBackground from "./components/ParticlesBackground";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import { Analytics } from "@vercel/analytics/react"; // Importing Vercel Analytics
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./styles/App.css";
@@ -59,6 +60,9 @@ const App = () => {
           <ParticlesBackground />
         </>
       )}
+
+      {/* Include Vercel Analytics to track page views */}
+      <Analytics />
 
       <aside className="sidebar">
         <Header />
