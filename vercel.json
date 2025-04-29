@@ -46,7 +46,7 @@
       ]
     },
     {
-      "source": "/images/*",
+      "source": "/images/:match*",
       "headers": [
         {
           "key": "Cache-Control",
