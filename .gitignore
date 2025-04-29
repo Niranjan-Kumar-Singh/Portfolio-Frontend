@@ -1,27 +1,45 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Node modules
+node_modules/
 
-node_modules
-dist
-dist-ssr
-*.local
+# Vite build output
+dist/
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
+# Local env files
 .env
 .env.*
+
+# Vercel output folder (optional tweak)
+.vercel/output/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.swp
+
+# Prettier ignore
+.prettierignore
+
+# TypeScript (if added later)
+*.tsbuildinfo
+
+# ESLint cache
+.eslintcache
+
+# Coverage reports (for testing)
+coverage/
+
+# Parcel cache (if used)
+.parcel-cache/
+
+# Miscellaneous
+*.pem

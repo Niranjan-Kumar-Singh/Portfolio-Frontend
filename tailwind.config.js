@@ -3,8 +3,14 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      colors: {
+        'bg-dark': '#08162c',
+        'accent': '#64ffda',
+        'accent-hover': '#00d4ff',
+        'text-light': '#ccd6f6',
+      },
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
+        inter: ['Inter', 'system-ui', 'sans-serif'],
         fira: ['Fira Code', 'monospace'],
         audiowide: ['Audiowide', 'cursive'],
         orbitron: ['Orbitron', 'sans-serif'],
@@ -31,7 +37,20 @@ module.exports = {
         tight: "1.1",
         relaxed: "1.75",
       },
+      blur: {
+        xs: '2px',
+        sm: '4px',
+        md: '8px',
+        lg: '16px',
+        xl: '24px',
+        '2xl': '40px',
+        '3xl': '60px',
+        '4xl': '120px', // For cursor-light
+      },
+      zIndex: {
+        '-10': '-10',
+      }
     },
   },
   plugins: [],
-};
+}

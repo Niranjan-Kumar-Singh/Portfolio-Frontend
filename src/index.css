@@ -34,28 +34,30 @@ html, body {
   background-color: var(--bg-dark);
   overflow-x: hidden;
   overflow-y: auto;
-  scroll-behavior: smooth; /* Smooth scroll for desktop */
+  scroll-behavior: smooth;
 }
 
-/* Ensure smooth scrolling on mobile as well */
 html {
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
+  color: var(--text-light);
 }
 
 p {
   font-size: 1rem;
   font-weight: 400;
+  color: var(--text-light);
 }
 
 a {
   font-weight: 500;
   color: var(--accent);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 a:hover {
   color: var(--accent-hover);
@@ -71,10 +73,11 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background-color 0.25s;
 }
 button:hover {
   border-color: var(--accent);
+  background-color: #0d253f;
 }
 button:focus,
 button:focus-visible {
@@ -96,8 +99,8 @@ canvas,
 /* Cursor Light Effect */
 .cursor-light {
   position: fixed;
-  width: 350px; /* Increased size */
-  height: 350px; /* Increased size */
+  width: 350px;
+  height: 350px;
   background: radial-gradient(circle, rgba(31, 81, 255, 0.5) 0%, rgba(31, 81, 255, 0.3) 80%);
   border-radius: 50%;
   pointer-events: none;
@@ -114,8 +117,7 @@ canvas,
 .font-audiowide { font-family: var(--font-section); }
 .font-inter { font-family: var(--font-main); }
 .font-fira { font-family: var(--font-code); }
-.font-cursive { font-family: var(--font-cursive); }
-.personal-note { font-family: var(--font-cursive); }
+.font-cursive, .personal-note { font-family: var(--font-cursive); }
 
 code, pre, .code-style {
   font-family: var(--font-code);
@@ -130,14 +132,8 @@ code, pre, .code-style {
   z-index: 50;
 }
 
-/* Optional reset for weird tap highlights (mobile) */
-* {
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Box-sizing reset */
-*,
-*::before,
-*::after {
+/* Tap highlight and box-sizing resets */
+*, *::before, *::after {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
