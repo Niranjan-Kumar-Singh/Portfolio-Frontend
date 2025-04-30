@@ -1,4 +1,3 @@
-```markdown
 # 🚀 Niranjan Kumar Singh - Developer Portfolio
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/Niranjan-singh-code/portfolio?style=for-the-badge)](https://github.com/Niranjan-singh-code/portfolio/stargazers)
@@ -6,23 +5,63 @@
 [![GitHub license](https://img.shields.io/github/license/Niranjan-singh-code/portfolio?style=for-the-badge)](https://github.com/Niranjan-singh-code/portfolio/blob/main/LICENSE)
 [![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=niranjankumarsingh&style=for-the-badge)](https://niranjankumarsingh.vercel.app)
 
-> A sleek and responsive **React + Vite** powered single-page portfolio showcasing projects, experience, education, and contact details with custom UI elements like cursor effects, particle backgrounds, and smooth animations via AOS.
+> 🎯 A sleek and responsive **React + Vite** powered single-page portfolio built to showcase my journey, skills, and creations with ✨ custom UI elements like cursor effects, particles, and smooth animations.
 
 🔗 **Live Site**: [https://niranjankumarsingh.vercel.app](https://niranjankumarsingh.vercel.app)
 
 ---
 
-## 🖼️ Preview
+## 📸 Preview
 
-![Portfolio Preview](public/images/homepage.png) <!-- Replace with your actual preview image -->
+![Portfolio Preview](public/images/homepage.png)
 
 ---
 
-## 🛠️ Tech Stack
+## 💫 About Me
 
-| Frontend       | Deployment | Animations | UI Enhancements           | Analytics        |
-|----------------|------------|------------|---------------------------|------------------|
-| React + Vite   | Vercel     | AOS        | Custom cursor & particles | Vercel Analytics |
+👋 Hi, I'm Niranjan — a tech enthusiast currently diving deep into the **MERN Stack**.  
+I'm passionate about building intuitive, dynamic UIs and backend logic that work seamlessly.
+
+---
+
+## 🌐 Connect With Me
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/niranjan-kumar-singh/)
+[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=flat-square&logo=github&logoColor=white)](https://github.com/Niranjan-Kumar-Singh)
+[![Twitter/X](https://img.shields.io/badge/X-%23000000.svg?style=flat-square&logo=X&logoColor=white)](https://x.com/niranjan_s_23)
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/niranjan._23)
+[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=flat-square&logo=Facebook&logoColor=white)](https://facebook.com/niranjan.singh.1419)
+
+---
+
+## 💻 Tech Stack
+
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=plastic&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=plastic&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=plastic&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=plastic&logo=react&logoColor=%2361DAFB)
+![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=plastic&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=plastic&logo=express&logoColor=%2361DAFB)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=plastic&logo=mongodb&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=plastic&logo=tailwind-css&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=plastic&logo=vite&logoColor=white)
+![AOS](https://img.shields.io/badge/AOS-Animation-orange?style=plastic)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=plastic&logo=git&logoColor=white)
+![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=plastic&logo=netlify&logoColor=#00C7B7)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=plastic&logo=vercel&logoColor=white)
+
+---
+
+## 🌟 Features
+
+- ⚡ Blazing fast performance with Vite
+- 📱 Fully responsive design for all screens
+- 🧩 Modular & reusable React components
+- 🎨 Glassmorphism UI + particle background
+- 🧠 Structured experience/education timeline
+- 📄 Resume download support
+- 🕵️ SEO Optimized with sitemap and robots.txt
+- 📊 Integrated Vercel Analytics
 
 ---
 
@@ -48,55 +87,58 @@ portfolio/
 
 ---
 
-## 🌟 Features
+### Run Locally
 
-- ✅ Fully responsive (Desktop & Mobile)
-- 🎯 Clean, component-based code
-- 🌌 Interactive UI with glassmorphism & animations
-- 🔍 SEO-friendly with `sitemap.xml` and `robots.txt`
-- 📊 Vercel analytics integrated
-- 🖱️ Custom animated cursor & particle background
-- 🧠 Structured experience & education timeline
-- 📃 Resume download support
-- ⚡ Fast, optimized load times (thanks to Vite)
+1. **Clone the Repository**:
+
+```bash
+git clone https://github.com/Niranjan-singh-code/portfolio.git
+```
+
+2. **Navigate to the Directory**:
+
+```bash
+cd portfolio
+```
+
+3. **Install dependencies**:
+
+```bash
+npm install
+```
+
+4. **Start development server**:
+
+```bash
+npm run dev
+```
+
+---
+
+## 🚀 Deploy Your Own
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FNiranjan-singh-code%2Fportfolio)
+
+---
+
+## ✍️ Quote of the Day
+
+![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
+
+---
+
+## 📈 Visitor Count
+
+[![](https://visitcount.itsvg.in/api?id=Niranjan-Kumar-Singh&icon=0&color=1)](https://visitcount.itsvg.in)
 
 ---
 
 ## 📬 Contact Me
 
 - 💼 **Niranjan Kumar Singh**  
-- 📧 Email: [niranjankumarsingh.dev@gmail.com](mailto:niranjankumarsingh.dev@gmail.com)  
-- 🔗 [LinkedIn](https://linkedin.com/in/niranjankumarsingh)  
-- 🐱 [GitHub](https://github.com/Niranjan-singh-code)
-
----
-
-## 📌 Deployment
-
-This portfolio is automatically deployed via **Vercel** on every push to the `main` branch.
-
-### Run Locally
-
-```bash
-# Clone
-git clone https://github.com/Niranjan-singh-code/portfolio.git
-cd portfolio
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-```
-
----
-
-## 🚀 Deploy with Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FNiranjan-singh-code%2Fportfolio)
+- 📧 Email: [niranjansingh1419@gmail.com](mailto:niranjansingh1419@gmail.com)  
+- 🔗 [LinkedIn](https://linkedin.com/in/niranjan-kumar-singh/)  
+- 🐱 [GitHub](https://github.com/Niranjan-Kumar-Singh/)
 
 ---
 
@@ -107,8 +149,3 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 > Made with ❤️ by Niranjan Kumar Singh
-```
-
----
-
-You can now copy and paste this entire block into your `README.md` file. Let me know if you'd like to add more badges or further customize the README! 

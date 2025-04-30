@@ -81,7 +81,7 @@ const ParticlesBackground = () => {
           },
         },
       }}
-      className="absolute top-0 left-0 w-full h-full z-0" // Position particles behind other content
+      className="absolute top-0 left-0 w-full min-h-full max-h-screen z-0" // Position particles behind other content
     />
   );
 };

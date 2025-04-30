@@ -1,10 +1,22 @@
 // src/components/Header.jsx
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { FiFileText } from 'react-icons/fi';
 import { Typewriter } from 'react-simple-typewriter';
 import '../styles/header.css';
+
+// Hook to detect if the device is mobile
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  return isMobile;
+};
 
 // Memoized ResumeButton to prevent unnecessary re-renders
 const ResumeButton = memo(() => {
@@ -26,28 +38,32 @@ const ResumeButton = memo(() => {
 });
 
 const Header = () => {
+  const isMobile = useIsMobile();
+
   return (
     <header className="header">
       <div className="header-inner">
         <div className="header-content">
           <h1 className="name font-orbitron glow-text">Niranjan Kumar Singh</h1>
 
-          {/* Tagline with typewriter effect */}
+          {/* Optimized tagline for mobile */}
           <p className="tagline font-cursive">
-            <Typewriter
-              words={[
-                'Building the Future, One Line of Code at a Time',
-                'Passionate Full Stack Developer',
-                'React & Java Enthusiast',
-                'Dreaming in JavaScript and Coffee☕',
-              ]}
-              loop={0}
-              cursor
-              cursorStyle="_"
-              typeSpeed={50}
-              deleteSpeed={30}
-              delaySpeed={10000}
-            />
+            {isMobile ? 'React & Java Enthusiast' : (
+              <Typewriter
+                words={[
+                  'Building the Future, One Line of Code at a Time',
+                  'Passionate Full Stack Developer',
+                  'React & Java Enthusiast',
+                  'Dreaming in JavaScript and Coffee☕',
+                ]}
+                loop={0}
+                cursor
+                cursorStyle="_"
+                typeSpeed={50}
+                deleteSpeed={30}
+                delaySpeed={10000}
+              />
+            )}
           </p>
 
           {/* Memoized Resume Button */}

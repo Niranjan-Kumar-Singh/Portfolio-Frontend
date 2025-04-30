@@ -107,7 +107,6 @@
   margin: 10px 0 15px;
   line-height: 1.4;
   font-weight: 400;
-  cursor: text;
 }
 
 /* Technology Label */
@@ -312,11 +311,11 @@ a, button, .project-icon-link {
   }
 
   .project-description {
-    font-size: 0.8rem;
+    font-size: 0.8.5rem;
     line-height: 1.3;
     margin: 12px 0;
     font-weight: 400;
-    color: #ffffff;
+    color: #dddddd;
   }
 
   .project-icon-link {

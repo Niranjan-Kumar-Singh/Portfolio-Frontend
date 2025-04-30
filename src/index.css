@@ -1,20 +1,127 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;600&family=Audiowide:wght@400;500&display=swap');
+/* Self-Hosted Fonts: Inter - Regular, Medium, SemiBold, Bold */
+
+/* Font Audiowide */
+@font-face {
+  font-family: 'Audiowide';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/audiowide/audiowide-v20-latin-regular.woff2') format('woff2'),
+       url('/fonts/audiowide/audiowide-v20-latin-regular.woff') format('woff')
+}
+
+/* Font Caveat */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/caveat/caveat-v18-latin-regular.woff2') format('woff2'),
+       url('/fonts/caveat/caveat-v18-latin-regular.woff') format('woff')
+}
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/caveat/caveat-v18-latin-700.woff2') format('woff2'),
+       url('/fonts/caveat/caveat-v18-latin-700.woff') format('woff')
+}
+
+/* Font FiraCode */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/fira-code/fira-code-v26-latin-regular.woff2') format('woff2'),
+       url('/fonts/fira-code/fira-code-v26-latin-regular.woff') format('woff')
+}
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/fira-code/fira-code-v26-latin-500.woff2') format('woff2'),
+       url('/fonts/fira-code/fira-code-v26-latin-500.woff') format('woff')
+}
+
+/* Font Inter */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter/inter-v18-latin-regular.woff2') format('woff2'),
+       url('/fonts/inter/inter-v18-latin-regular.woff') format('woff')
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/inter/inter-v18-latin-500.woff2') format('woff2'),
+       url('/fonts/inter/inter-v18-latin-500.woff') format('woff')
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/inter/inter-v18-latin-600.woff2') format('woff2'),
+       url('/fonts/inter/inter-v18-latin-600.woff') format('woff')
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/inter/inter-v18-latin-700.woff2') format('woff2'),
+       url('/fonts/inter/inter-v18-latin-700.woff') format('woff')
+}
+
+/* Font Orbitron */
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/orbitron/orbitron-v31-latin-regular.woff2') format('woff2'),
+       url('/fonts/orbitron/orbitron-v31-latin-regular.woff') format('woff')
+}
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/orbitron/orbitron-v31-latin-500.woff2') format('woff2'),
+       url('/fonts/orbitron/orbitron-v31-latin-500.woff') format('woff')
+}
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/orbitron/orbitron-v31-latin-600.woff2') format('woff2'),
+       url('/fonts/orbitron/orbitron-v31-latin-600.woff') format('woff')
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Properties */
 :root {
   --bg-dark: #08162c;
   --accent: #64ffda;
   --accent-hover: #00d4ff;
   --text-light: #ccd6f6;
 
-  --font-main: 'Inter', system-ui, sans-serif;
-  --font-code: 'Fira Code', monospace;
-  --font-cursive: 'Caveat', cursive;
-  --font-title: 'Orbitron', sans-serif;
-  --font-section: 'Audiowide', cursive;
+  --font-main: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'system-ui', 'sans-serif';
+  --font-code: 'Fira Code', 'Courier New', 'Courier', 'monospace';
+  --font-cursive: 'Caveat', 'Brush Script MT', 'cursive';
+  --font-title: 'Orbitron', 'Eurostile', 'sans-serif';
+  --font-section: 'Audiowide', 'Comic Sans MS', 'cursive';
 
   color: var(--text-light);
   background-color: var(--bg-dark);
@@ -29,15 +136,13 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100%;
+  height: auto;
+  min-height: 100vh;
   font-family: var(--font-main);
   background-color: var(--bg-dark);
   overflow-x: hidden;
   overflow-y: auto;
   scroll-behavior: smooth;
-}
-
-html {
   -webkit-overflow-scrolling: touch;
 }
 
@@ -46,13 +151,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   color: var(--text-light);
 }
-
 p {
   font-size: 1rem;
   font-weight: 400;
   color: var(--text-light);
 }
-
 a {
   font-weight: 500;
   color: var(--accent);
@@ -112,7 +215,7 @@ canvas,
   opacity: 0.8;
 }
 
-/* Font Utilities */
+/* Font Utility Classes */
 .font-orbitron { font-family: var(--font-title); }
 .font-audiowide { font-family: var(--font-section); }
 .font-inter { font-family: var(--font-main); }
@@ -124,7 +227,7 @@ code, pre, .code-style {
   font-size: 0.95rem;
 }
 
-/* Sidebar (fixed position) */
+/* Sidebar */
 .sidebar {
   position: fixed;
   top: 0;
@@ -132,8 +235,15 @@ code, pre, .code-style {
   z-index: 50;
 }
 
-/* Tap highlight and box-sizing resets */
+/* Global Reset */
 *, *::before, *::after {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
+}
+
+
+@media (max-width: 768px) {
+  .cursor-light {
+    display: none !important;
+  }
 }

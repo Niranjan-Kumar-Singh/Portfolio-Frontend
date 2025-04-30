@@ -40,7 +40,7 @@ const ScrollToTopButton = () => {
     >
       <div className={`rocket-body ${isBlasting ? "blast" : ""}`} // Animation when button is clicked
       >
-        <img src="/rocket-colorful.svg" alt="rocket" className="rocket-img" />
+        <img src="/rocket-colorful.svg" alt="rocket" className="rocket-img" width="50" height="50" />
         <div className="fire-flame" /> {/* Fire flame effect on button click */}
       </div>
     </div>

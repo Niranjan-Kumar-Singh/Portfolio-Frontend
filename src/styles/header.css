@@ -148,7 +148,7 @@
 
   /* Content padding and text alignment for mobile */
   .header-content {
-    padding-top: 60px;
+    padding-top: 30px;
     text-align: left;
     width: 100%;
   }
@@ -175,6 +175,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-shadow: none;
+  }
+
+  .glow-text, .tagline {
+    text-shadow: none !important;
   }
 
   /* Hide navbar on mobile */

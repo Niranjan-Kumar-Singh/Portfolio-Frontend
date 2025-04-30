@@ -10,11 +10,11 @@ module.exports = {
         'text-light': '#ccd6f6',
       },
       fontFamily: {
-        inter: ['Inter', 'system-ui', 'sans-serif'],
-        fira: ['Fira Code', 'monospace'],
-        audiowide: ['Audiowide', 'cursive'],
-        orbitron: ['Orbitron', 'sans-serif'],
-        caveat: ['Caveat', 'cursive'],
+        inter: ['Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'system-ui', 'sans-serif'],
+        fira: ['Fira Code', 'Courier New', 'Courier', 'monospace'],
+        audiowide: ['Audiowide', 'Comic Sans MS', 'cursive'],
+        orbitron: ['Orbitron', 'Eurostile', 'sans-serif'],
+        caveat: ['Caveat', 'Brush Script MT', 'cursive'],
       },
       fontSize: {
         sm: "14px",

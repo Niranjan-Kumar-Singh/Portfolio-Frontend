@@ -30,7 +30,6 @@
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15); /* Soft shadow */
   transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
   color: #ffffff;
-  cursor: pointer; /* Pointer cursor for interactivity */
 }
 
 .experience-card * {

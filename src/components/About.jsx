@@ -1,10 +1,10 @@
 import React from 'react';
 import '../styles/about.css';
-import { 
-  FaReact, FaNodeJs, FaDatabase, FaGithub, FaCloud, FaJs, FaCss3Alt 
+import {
+  FaReact, FaNodeJs, FaDatabase, FaGithub, FaCloud, FaJs, FaCss3Alt
 } from 'react-icons/fa';
-import { 
-  SiMongodb, SiExpress, SiRedux, SiTailwindcss 
+import {
+  SiMongodb, SiExpress, SiRedux, SiTailwindcss
 } from 'react-icons/si';
 
 // About section component
@@ -20,9 +20,9 @@ const About = () => {
 
         {/* Introduction Paragraph */}
         <p className="about-intro font-inter">
-          Hi, I'm <strong>Niranjan Kumar Singh</strong>, a dedicated <strong>Software Development Engineer</strong> specializing in the <strong>MERN Stack</strong>.
-          With expertise in crafting seamless and scalable web applications, I thrive on solving real-world problems through technology.
-          My goal is to build innovative, efficient, and user-centric solutions that make an impact.
+          Hi, I'm <strong>Niranjan Kumar Singh</strong>, a passionate final-year Computer Science student and aspiring <strong>Software Development Engineer</strong> specializing in the <strong>MERN Stack</strong>.
+          With a strong foundation in full-stack development and a drive to solve real-world problems, I aim to build efficient, user-centric web applications that create meaningful impact.
+          I'm currently focused on deepening my skills through personal projects and continuously seeking opportunities where I can learn, grow, and contribute to real-world software development teams.
         </p>
 
         {/* Technical Skills Section */}

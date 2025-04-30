@@ -8,17 +8,6 @@
   padding-right: 40px;
 }
 
-/* Top Scroll Progress Bar */
-.progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: #3498db;
-  z-index: 2;
-  transition: width 0.2s ease-out;
-}
-
 /* ===================================
    Navbar Styling
 =================================== */

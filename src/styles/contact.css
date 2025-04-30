@@ -118,7 +118,7 @@
   font-weight: 500;
   border: none;
   border-radius: 10px;
-  background: #007bff;
+  background: #005ecb;
   color: #fff;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4); /* Soft glow effect */
@@ -128,9 +128,14 @@
   box-shadow: 0 0 20px rgba(0, 123, 255, 0.7); /* Intense glow on hover */
 }
 
+.neon-button:focus-visible {
+  outline: 2px dashed #fff;
+  outline-offset: 3px;
+}
+
 .neon-button.loading {
-  background: #00ffffaa; /* Semi-transparent when loading */
-  color: #222;
+  background: #00e0e0; /* More opaque cyan for better visibility */
+  color: #000;         /* Full black for strong contrast */
   cursor: not-allowed;
   box-shadow: 0 0 8px #0ff; /* Neon glow while loading */
 }
@@ -139,7 +144,7 @@
 @media (max-width: 768px) {
   /* Adjust padding and layout for smaller screens */
   .contact-section {
-    padding: 0 0 60px 0;
+    padding: 0;
   }
 
   .glass-form {

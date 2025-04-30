@@ -114,6 +114,7 @@ const Projects = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="project-icon-link font-fira"
+                          aria-label={`Frontend code of ${project.title}`}
                         >
                           <FaGithub /> Frontend
                         </a>
@@ -122,6 +123,7 @@ const Projects = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="project-icon-link font-fira"
+                          aria-label={`Backend code of ${project.title}`}
                         >
                           <FaGithub /> Backend
                         </a>
@@ -132,6 +134,7 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="project-icon-link font-fira"
+                        aria-label={`Code of ${project.title}`}
                       >
                         <FaGithub /> GitHub
                       </a>
@@ -141,6 +144,7 @@ const Projects = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="project-icon-link font-fira"
+                      aria-label={`Live demo of ${project.title}`}
                     >
                       <FaExternalLinkAlt />
                     </a>

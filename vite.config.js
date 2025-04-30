@@ -8,4 +8,8 @@ export default defineConfig({
     port: 5173,
     open: true, // opens browser on server start
   },
+  build: {
+    target: 'es2020', // or 'es2019' / 'esnext'
+    minify: 'esbuild', // this is default and efficient
+  },
 });

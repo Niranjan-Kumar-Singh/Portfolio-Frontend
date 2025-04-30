@@ -64,7 +64,6 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="progress-bar" style={{ width: `${scrollProgress}%` }}></div>
       <nav className="navbar shared-padding">
         <ul>
           {["about", "projects", "experience", "education", "contact"].map((section) => (

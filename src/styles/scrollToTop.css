@@ -84,3 +84,10 @@
     transform: translateX(-50%) scaleY(1) scaleX(1);
   }
 }
+
+/* Hide rocket button on screens smaller than 768px (typical breakpoint for tablets/mobiles) */
+@media (max-width: 767px) {
+  .rocket-btn {
+    display: none !important;
+  }
+}
