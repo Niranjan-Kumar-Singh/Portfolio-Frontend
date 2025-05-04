@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import "../styles/contact.css";
 import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 import { FiSend } from "react-icons/fi";
 
 // Contact form component
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
   // Handle input field change
   const handleChange = (e) => {
@@ -21,26 +20,35 @@ const Contact = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
-    // Get API base URL from environment variables
+    const { name, email, message } = formData;
+
+    // Basic client-side validation
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      toast.error("Please fill out all fields.");
+      return;
+    }
+
+    // Basic email pattern check (optional but helpful)
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    setIsSubmitting(true);
     const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
     try {
-      // Make the POST request to the backend
       const response = await axios.post(`${API_BASE}/api/contact`, formData);
-
-      // Handle successful submission
       if (response.data.success) {
         toast.success("Message sent successfully!");
-        setSubmitted(true);
         setFormData({ name: "", email: "", message: "" });
-        setTimeout(() => setSubmitted(false), 1500);
       } else {
         toast.error("Failed to send message.");
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Contact form submission failed:", error.response?.data || error.message);
       toast.error("Something went wrong!");
     } finally {
       setIsSubmitting(false);
@@ -115,6 +123,7 @@ const Contact = () => {
             type="submit"
             className={`neon-button font-inter ${isSubmitting ? "loading" : ""}`}
             disabled={isSubmitting}
+            aria-busy={isSubmitting}
           >
             {isSubmitting ? (
               "Sending..."

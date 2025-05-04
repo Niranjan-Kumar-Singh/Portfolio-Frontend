@@ -1,87 +1,81 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react"; // Added useMemo for optimization
 import Particles from "react-tsparticles";
 import { loadLinksPreset } from "tsparticles-preset-links";
+
+// Initialization function for particles (no changes here)
+const particlesInit = async (main) => {
+  await loadLinksPreset(main);
+};
 
 const ParticlesBackground = () => {
   const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    // Function to check if the window is mobile-sized
-    const checkIfMobile = () => {
-      const width = window.innerWidth;
-      setIsMobile(width <= 768); // Assuming 768px is the mobile breakpoint
-    };
-
-    // Run check on initial load
-    checkIfMobile();
-
-    // Add event listener for window resize
-    window.addEventListener("resize", checkIfMobile);
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", checkIfMobile);
-    };
+  // Memoizing the checkIfMobile function for optimization (it won't be redefined on each render)
+  const checkIfMobile = useMemo(() => {
+    return () => setIsMobile(window.innerWidth <= 768); // Updates the state based on screen width
   }, []);
 
-  if (isMobile) return null; // Don't render particles on mobile
+  useEffect(() => {
+    // Initial check for mobile state on mount
+    checkIfMobile();
 
-  // Initialize particles with the 'links' preset
-  const particlesInit = async (main) => {
-    await loadLinksPreset(main);
-  };
+    // Handler for resize event
+    const handleResize = () => {
+      clearTimeout(window._resizeTimeout); // Clears previous timeout to prevent rapid firing of checks
+      window._resizeTimeout = setTimeout(checkIfMobile, 150); // Debouncing resize event
+    };
+
+    // Adding resize and orientationchange event listeners
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("orientationchange", handleResize); // Handles orientation change as well
+
+    // Cleanup listeners when component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("orientationchange", handleResize);
+    };
+  }, [checkIfMobile]); // Dependency array ensures that the effect runs when checkIfMobile changes
+
+  // If it's a mobile screen, we prevent rendering of particles
+  if (isMobile) return null;
 
   return (
     <Particles
       id="tsparticles"
       init={particlesInit}
       options={{
-        preset: "links", // Use the 'links' preset for particle connections
-        fullScreen: { enable: false }, // Disable fullscreen for the particle effect
-        background: {
-          color: { value: "transparent" }, // Transparent background to blend particles with page background
-        },
+        preset: "links", // Applying the "links" preset for particles
+        fullScreen: { enable: false }, // Disabling full-screen mode
+        background: { color: { value: "transparent" } }, // Transparent background
         particles: {
-          number: {
-            value: 50, // Set the number of particles
-            density: {
-              enable: true,
-              area: window.innerWidth <= 768 ? 600 : 800, // Adjust particle density for mobile screens
-            },
-          },
-          color: { value: "#ffffff" }, // White particle color
+          number: { value: 50, density: { enable: true, area: 800 } }, // Particle density and count
+          color: { value: "#ffffff" }, // Particle color
           links: {
-            enable: true, // Enable particle links
-            distance: 150, // Maximum distance for link visibility
+            enable: true, // Enable links between particles
+            distance: 150, // Distance for the links to appear
             color: "#ffffff", // Link color
             opacity: 0.4, // Link opacity
             width: 1, // Link width
           },
           move: {
             enable: true, // Enable particle movement
-            speed: 1, // Set particle movement speed
-            direction: "none", // Particles move freely in all directions
-            outModes: {
-              default: "out", // Particles will exit the screen
-            },
+            speed: 1, // Movement speed
+            direction: "none", // No specific direction for movement
+            outModes: { default: "out" }, // Out of bounds particles will be reset
           },
-          opacity: {
-            value: 0.5, // Particle opacity
-          },
-          size: {
-            value: { min: 1, max: 3 }, // Particle size range
-          },
+          opacity: { value: 0.5 }, // Particle opacity
+          size: { value: { min: 1, max: 3 } }, // Particle size range
         },
-        detectRetina: true, // Enable retina display support for sharp particles
+        detectRetina: true, // Ensures particles adapt to high-resolution screens
         interactivity: {
           events: {
-            onHover: { enable: false }, // Disable hover interaction
-            onClick: { enable: false }, // Disable click interaction
-            resize: true, // Enable particle resizing on window resize
+            onHover: { enable: false }, // No hover interaction
+            onClick: { enable: false }, // No click interaction
+            resize: true, // Allow resizing of particles based on the window size
           },
         },
       }}
-      className="absolute top-0 left-0 w-full min-h-full max-h-screen z-0" // Position particles behind other content
+      className="absolute top-0 left-0 w-full min-h-full max-h-screen z-0"
     />
   );
 };

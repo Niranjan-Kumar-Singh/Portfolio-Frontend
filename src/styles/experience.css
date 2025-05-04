@@ -195,6 +195,7 @@
   /* Adjust card padding */
   .experience-card {
     padding: 20px;
+    -webkit-tap-highlight-color: transparent;
   }
 
   /* Ensure text is left-aligned in all text sections */

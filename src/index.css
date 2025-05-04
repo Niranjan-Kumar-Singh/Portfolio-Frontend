@@ -208,7 +208,7 @@ canvas,
   border-radius: 50%;
   pointer-events: none;
   z-index: 999;
-  mix-blend-mode: difference;
+  mix-blend-mode: screen;
   filter: blur(120px);
   transition: transform 0s;
   will-change: transform;

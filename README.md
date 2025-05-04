@@ -1,8 +1,8 @@
 # 🚀 Niranjan Kumar Singh - Developer Portfolio
 
-[![GitHub Repo stars](https://img.shields.io/github/stars/Niranjan-singh-code/portfolio?style=for-the-badge)](https://github.com/Niranjan-singh-code/portfolio/stargazers)
-[![GitHub last commit](https://img.shields.io/github/last-commit/Niranjan-singh-code/portfolio?style=for-the-badge)](https://github.com/Niranjan-singh-code/portfolio/commits)
-[![GitHub license](https://img.shields.io/github/license/Niranjan-singh-code/portfolio?style=for-the-badge)](https://github.com/Niranjan-singh-code/portfolio/blob/main/LICENSE)
+[![GitHub Repo stars](https://img.shields.io/github/stars/Niranjan-Kumar-Singh/Portfolio-Frontend?style=for-the-badge)](https://github.com/Niranjan-Kumar-Singh/Portfolio-Frontend/stargazers)
+[![GitHub last commit](https://img.shields.io/github/last-commit/Niranjan-Kumar-Singh/Portfolio-Frontend?style=for-the-badge)](https://github.com/Niranjan-Kumar-Singh/Portfolio-Frontend/commits)
+[![GitHub license](https://img.shields.io/github/license/Niranjan-Kumar-Singh/Portfolio-Frontend?style=for-the-badge)](https://github.com/Niranjan-Kumar-Singh/Portfolio-Frontend/blob/main/LICENSE)
 [![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=niranjankumarsingh&style=for-the-badge)](https://niranjankumarsingh.vercel.app)
 
 > 🎯 A sleek and responsive **React + Vite** powered single-page portfolio built to showcase my journey, skills, and creations with ✨ custom UI elements like cursor effects, particles, and smooth animations.
@@ -13,14 +13,17 @@
 
 ## 📸 Preview
 
-![Portfolio Preview](public/images/homepage.png)
+![Preview of Niranjan Kumar Singh's Portfolio Website](public/images/homepage.png "MERN Stack Developer Portfolio - Homepage Preview")
 
 ---
 
 ## 💫 About Me
 
-👋 Hi, I'm Niranjan — a tech enthusiast currently diving deep into the **MERN Stack**.  
-I'm passionate about building intuitive, dynamic UIs and backend logic that work seamlessly.
+🎓 I'm **Niranjan Kumar Singh**, a final-year B.Tech CSE student at [Elitte College of Engineering](https://ece.ac.in/) (Graduating June 2025), based in Siliguri, West Bengal.
+
+💻 I'm a passionate **MERN Stack Developer**, actively looking for **Frontend**, **Backend**, or **SDE** roles.
+
+🧰 Skilled in React, Node.js, Express, MongoDB, and building intuitive, performant UIs.
 
 ---
 
@@ -45,7 +48,6 @@ I'm passionate about building intuitive, dynamic UIs and backend logic that work
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=plastic&logo=mongodb&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=plastic&logo=tailwind-css&logoColor=white)
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=plastic&logo=vite&logoColor=white)
-![AOS](https://img.shields.io/badge/AOS-Animation-orange?style=plastic)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=plastic&logo=git&logoColor=white)
 ![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=plastic&logo=netlify&logoColor=#00C7B7)
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=plastic&logo=vercel&logoColor=white)
@@ -62,6 +64,16 @@ I'm passionate about building intuitive, dynamic UIs and backend logic that work
 - 📄 Resume download support
 - 🕵️ SEO Optimized with sitemap and robots.txt
 - 📊 Integrated Vercel Analytics
+
+---
+
+## 🌐 SEO & Accessibility
+
+- ✅ Semantic HTML structure
+- ✅ Open Graph & Twitter metadata
+- ✅ Schema.org structured data (Person)
+- ✅ Mobile-first, responsive layout
+- ✅ Accessibility best practices followed
 
 ---
 
@@ -129,16 +141,17 @@ npm run dev
 
 ## 📈 Visitor Count
 
-[![](https://visitcount.itsvg.in/api?id=Niranjan-Kumar-Singh&icon=0&color=1)](https://visitcount.itsvg.in)
+[![](https://visitcount.itsvg.in/api?id=Niranjan-Kumar-Singh&repo=Portfolio-Frontend&icon=0&color=1)](https://visitcount.itsvg.in)
 
 ---
 
-## 📬 Contact Me
+## 📬 Contact Information
 
-- 💼 **Niranjan Kumar Singh**  
+- 🧑 Name: **Niranjan Kumar Singh**  
 - 📧 Email: [niranjansingh1419@gmail.com](mailto:niranjansingh1419@gmail.com)  
 - 🔗 [LinkedIn](https://linkedin.com/in/niranjan-kumar-singh/)  
 - 🐱 [GitHub](https://github.com/Niranjan-Kumar-Singh/)
+- 📍 Location: Siliguri, West Bengal, India  
 
 ---
 

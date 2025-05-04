@@ -3,12 +3,11 @@ import "../styles/navbar.css";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("");
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   // Use useLayoutEffect for accurate mobile detection before paint
   useLayoutEffect(() => {
-    const handleResize = () => {
+    const handleResize = () => {                                                                                                                                                                    
       setIsMobile(window.innerWidth <= 768);
     };
 
@@ -37,20 +36,8 @@ const Navbar = () => {
 
     return () => {
       sections.forEach((section) => observer.unobserve(section));
+      observer.disconnect();
     };
-  }, []);
-
-  // Update scroll progress as the user scrolls
-  useEffect(() => {
-    const updateScrollProgress = () => {
-      const scrollTop = window.scrollY;
-      const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / windowHeight) * 100;
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener("scroll", updateScrollProgress);
-    return () => window.removeEventListener("scroll", updateScrollProgress);
   }, []);
 
   // Scroll to the specified section

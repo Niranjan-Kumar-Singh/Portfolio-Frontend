@@ -23,20 +23,28 @@
 .glass-form {
   width: 100%;
   max-width: 600px;
-  background: rgba(20, 33, 61, 0.7); /* Semi-transparent background */
-  backdrop-filter: blur(15px); /* Blur effect for the background */
-  border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle border */
+  background: rgba(20, 33, 61, 0.7);
+  /* Semi-transparent background */
+  backdrop-filter: blur(15px);
+  /* Blur effect for the background */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  /* Subtle border */
   border-radius: 20px;
   padding: 40px 30px;
-  transition: all 0.4s ease; /* Smooth hover transition */
-  box-shadow: 0 8px 30px rgba(0, 255, 255, 0.05); /* Light shadow */
+  transition: all 0.4s ease;
+  /* Smooth hover transition */
+  box-shadow: 0 8px 30px rgba(0, 255, 255, 0.05);
+  /* Light shadow */
   z-index: 1;
 }
 
 .glass-form:hover {
-  background: rgba(20, 33, 61, 0.8); /* Darker background on hover */
-  box-shadow: 0 8px 30px rgba(0, 170, 255, 0.3); /* Glowing shadow */
-  border-color: rgba(0, 170, 255, 0.4); /* Border color on hover */
+  background: rgba(20, 33, 61, 0.8);
+  /* Darker background on hover */
+  box-shadow: 0 8px 30px rgba(0, 170, 255, 0.3);
+  /* Glowing shadow */
+  border-color: rgba(0, 170, 255, 0.4);
+  /* Border color on hover */
 }
 
 /* ===================== Contact Note Text ===================== */
@@ -49,7 +57,8 @@
 }
 
 .contact-note-class:hover {
-  color: #0ff; /* Neon effect on hover */
+  color: #0ff;
+  /* Neon effect on hover */
 }
 
 /* ===================== Input Box Styling ===================== */
@@ -63,23 +72,28 @@
   width: 100%;
   background: transparent;
   border: none;
-  border-bottom: 2px solid #555; /* Subtle bottom border */
+  border-bottom: 2px solid #555;
+  /* Subtle bottom border */
   color: #fff;
   font-size: 0.9rem;
   font-weight: 400;
   padding: 8px 0;
-  transition: border-color 0.3s; /* Smooth transition for focus state */
+  transition: border-color 0.3s;
+  /* Smooth transition for focus state */
 }
 
 .input-box input:focus,
 .input-box textarea:focus {
-  border-bottom: 2px solid #0ff; /* Border color when focused */
-  outline: none; /* Remove default focus outline */
+  border-bottom: 2px solid #0ff;
+  /* Border color when focused */
+  outline: none;
+  /* Remove default focus outline */
 }
 
 .input-box input:invalid,
 .input-box textarea:invalid {
-  border-bottom: 2px solid #3498db; /* Border color for invalid input */
+  border-bottom: 2px solid #3498db;
+  /* Border color for invalid input */
 }
 
 .input-box label {
@@ -89,17 +103,29 @@
   color: #aaa;
   font-size: 0.95rem;
   pointer-events: none;
-  transition: 0.3s; /* Transition for label movement */
+  transition: 0.3s;
+  /* Transition for label movement */
 }
 
 /* ===================== Label Focus/Valid State ===================== */
-.input-box input:focus ~ label,
-.input-box input:valid ~ label,
-.input-box textarea:focus ~ label,
-.input-box textarea:valid ~ label {
-  top: -15px; /* Move label up on focus or valid input */
-  color: #0ff; /* Neon effect on label */
-  font-size: 0.9rem; /* Reduce label font size */
+.input-box input:focus~label,
+.input-box input:valid~label,
+.input-box textarea:focus~label,
+.input-box textarea:valid~label {
+  top: -15px;
+  /* Move label up on focus or valid input */
+  color: #0ff;
+  /* Neon effect on label */
+  font-size: 0.9rem;
+  /* Reduce label font size */
+}
+
+/* ===================== Autofill Support for Floating Labels ===================== */
+input:-webkit-autofill~label,
+textarea:-webkit-autofill~label {
+  top: -15px;
+  color: #0ff;
+  font-size: 0.9rem;
 }
 
 /* ===================== Button Container ===================== */
@@ -121,11 +147,13 @@
   background: #005ecb;
   color: #fff;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4); /* Soft glow effect */
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+  /* Soft glow effect */
 }
 
 .neon-button:hover {
-  box-shadow: 0 0 20px rgba(0, 123, 255, 0.7); /* Intense glow on hover */
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.7);
+  /* Intense glow on hover */
 }
 
 .neon-button:focus-visible {
@@ -134,14 +162,18 @@
 }
 
 .neon-button.loading {
-  background: #00e0e0; /* More opaque cyan for better visibility */
-  color: #000;         /* Full black for strong contrast */
+  background: #00e0e0;
+  /* More opaque cyan for better visibility */
+  color: #000;
+  /* Full black for strong contrast */
   cursor: not-allowed;
-  box-shadow: 0 0 8px #0ff; /* Neon glow while loading */
+  box-shadow: 0 0 8px #0ff;
+  /* Neon glow while loading */
 }
 
 /* ===================== Responsive Design ===================== */
 @media (max-width: 768px) {
+
   /* Adjust padding and layout for smaller screens */
   .contact-section {
     padding: 0;

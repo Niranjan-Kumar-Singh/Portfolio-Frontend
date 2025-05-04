@@ -1,89 +1,47 @@
 import React from 'react';
 import '../styles/about.css';
+
 import {
-  FaReact, FaNodeJs, FaDatabase, FaGithub, FaCloud, FaJs, FaCss3Alt
+  FaReact, FaNodeJs, FaDatabase, FaGithub, FaJs, FaCss3Alt
 } from 'react-icons/fa';
 import {
   SiMongodb, SiExpress, SiRedux, SiTailwindcss
 } from 'react-icons/si';
 
-// About section component
 const About = () => {
+  const skills = [
+    { Icon: FaReact, color: '#61DBFB', name: 'React.js' },
+    { Icon: FaNodeJs, color: '#3C873A', name: 'Node.js' },
+    { Icon: SiExpress, color: '#ffffff', name: 'Express.js' },
+    { Icon: SiMongodb, color: '#47A248', name: 'MongoDB' },
+    { Icon: FaJs, color: '#F0DB4F', name: 'JavaScript' },
+    { Icon: SiRedux, color: '#764ABC', name: 'Redux' },
+    { Icon: FaGithub, color: '#ffffff', name: 'Git & GitHub' },
+    { Icon: SiTailwindcss, color: '#38B2AC', name: 'Tailwind CSS' },
+    { Icon: FaCss3Alt, color: '#264de4', name: 'CSS3' },
+    { Icon: FaDatabase, color: '#f29111', name: 'SQL' },
+  ];
+
   return (
     <section className="about" id="about">
       <div className="about-container">
+        <h2 className="about-title font-audiowide">About Me</h2>
 
-        {/* Section Title */}
-        <h2 className="about-title font-audiowide">
-          About Me
-        </h2>
-
-        {/* Introduction Paragraph */}
         <p className="about-intro font-inter">
-          Hi, I'm <strong>Niranjan Kumar Singh</strong>, a passionate final-year Computer Science student and aspiring <strong>Software Development Engineer</strong> specializing in the <strong>MERN Stack</strong>.
-          With a strong foundation in full-stack development and a drive to solve real-world problems, I aim to build efficient, user-centric web applications that create meaningful impact.
-          I'm currently focused on deepening my skills through personal projects and continuously seeking opportunities where I can learn, grow, and contribute to real-world software development teams.
+          Hi, I'm <strong>Niranjan Kumar Singh</strong>, a passionate final-year Computer Science student and aspiring <strong>Software Development Engineer</strong> specializing in the <strong>MERN Stack</strong>. With a strong foundation in full-stack development and a drive to solve real-world problems, I aim to build efficient, user-centric web applications that create meaningful impact.
         </p>
 
-        {/* Technical Skills Section */}
-        <div className="aboout-skills">
+        <div className="about-skills">
           <h3 className="skills-title font-audiowide">Technical Skills</h3>
-
           <div className="skills-grid">
-            {/* Skill Cards */}
-            <div className="about-skill-card">
-              <FaReact className="about-skill-icon" style={{ color: '#61DBFB' }} />
-              <span className="font-inter">React.js</span>
-            </div>
-
-            <div className="about-skill-card">
-              <FaNodeJs className="about-skill-icon" style={{ color: '#3C873A' }} />
-              <span className="font-inter">Node.js</span>
-            </div>
-
-            <div className="about-skill-card">
-              <SiExpress className="about-skill-icon" style={{ color: '#ffffff' }} />
-              <span className="font-inter">Express.js</span>
-            </div>
-
-            <div className="about-skill-card">
-              <SiMongodb className="about-skill-icon" style={{ color: '#47A248' }} />
-              <span className="font-inter">MongoDB</span>
-            </div>
-
-            <div className="about-skill-card">
-              <FaJs className="about-skill-icon" style={{ color: '#F0DB4F' }} />
-              <span className="font-inter">JavaScript</span>
-            </div>
-
-            <div className="about-skill-card">
-              <SiRedux className="about-skill-icon" style={{ color: '#764ABC' }} />
-              <span className="font-inter">Redux</span>
-            </div>
-
-            <div className="about-skill-card">
-              <FaGithub className="about-skill-icon" style={{ color: '#ffffff' }} />
-              <span className="font-inter">Git & GitHub</span>
-            </div>
-
-            <div className="about-skill-card">
-              <SiTailwindcss className="about-skill-icon" style={{ color: '#38B2AC' }} />
-              <span className="font-inter">Tailwind CSS</span>
-            </div>
-
-            <div className="about-skill-card">
-              <FaCss3Alt className="about-skill-icon" style={{ color: '#264de4' }} />
-              <span className="font-inter">CSS3</span>
-            </div>
-
-            <div className="about-skill-card">
-              <FaDatabase className="about-skill-icon" style={{ color: '#f29111' }} />
-              <span className="font-inter">SQL</span>
-            </div>
-
+            {skills.map(({ Icon, color, name }, index) => (
+              <div className="about-skill-card" key={index}>
+                <Icon className="about-skill-icon" style={{ color }} />
+                {name}
+              </div>
+            ))}
           </div>
         </div>
-
       </div>
     </section>
   );

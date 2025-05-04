@@ -17,18 +17,6 @@
   opacity: 1; /* Ensure navbar is always visible */
 }
 
-/* Keyframes for optional slide-in animation (currently unused) */
-@keyframes slideInLeft {
-  from {
-    transform: translateX(-100px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
 /* Navbar list */
 .navbar ul {
   list-style: none;

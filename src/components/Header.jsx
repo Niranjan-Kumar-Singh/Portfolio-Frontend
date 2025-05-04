@@ -1,10 +1,13 @@
 // src/components/Header.jsx
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect, useState, lazy, Suspense } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { FiFileText } from 'react-icons/fi';
-import { Typewriter } from 'react-simple-typewriter';
 import '../styles/header.css';
+
+const LazyTypewriter = lazy(() =>
+  import('react-simple-typewriter').then(mod => ({ default: mod.Typewriter }))
+);
 
 // Hook to detect if the device is mobile
 const useIsMobile = () => {
@@ -18,24 +21,21 @@ const useIsMobile = () => {
   return isMobile;
 };
 
-// Memoized ResumeButton to prevent unnecessary re-renders
-const ResumeButton = memo(() => {
-  const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'Niranjan_Resume.pdf'; // Name of the downloaded file
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+const handleDownload = () => {
+  const link = document.createElement('a');
+  link.href = '/resume.pdf';
+  link.download = 'Niranjan_Resume.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
-  return (
-    <button className="resume-btn font-inter clean" onClick={handleDownload}>
-      <FiFileText className="resume-icon" />
-      Download Resume
-    </button>
-  );
-});
+const ResumeButton = memo(({ label = "Download Resume" }) => (
+  <button className="resume-btn font-inter clean" onClick={handleDownload}>
+    <FiFileText className="resume-icon" />
+    {label}
+  </button>
+));
 
 const Header = () => {
   const isMobile = useIsMobile();
@@ -48,21 +48,25 @@ const Header = () => {
 
           {/* Optimized tagline for mobile */}
           <p className="tagline font-cursive">
-            {isMobile ? 'React & Java Enthusiast' : (
-              <Typewriter
-                words={[
-                  'Building the Future, One Line of Code at a Time',
-                  'Passionate Full Stack Developer',
-                  'React & Java Enthusiast',
-                  'Dreaming in JavaScript and Coffee☕',
-                ]}
-                loop={0}
-                cursor
-                cursorStyle="_"
-                typeSpeed={50}
-                deleteSpeed={30}
-                delaySpeed={10000}
-              />
+            {isMobile ? (
+              'React & Java Enthusiast'
+            ) : (
+              <Suspense fallback={<span>React & Java Enthusiast</span>}>
+                <LazyTypewriter
+                  words={[
+                    'Building the Future, One Line of Code at a Time',
+                    'Passionate Full Stack Developer',
+                    'React & Java Enthusiast',
+                    'Dreaming in JavaScript and Coffee☕',
+                  ]}
+                  loop={0}
+                  cursor
+                  cursorStyle="_"
+                  typeSpeed={50}
+                  deleteSpeed={30}
+                  delaySpeed={10000}
+                />
+              </Suspense>
             )}
           </p>
 

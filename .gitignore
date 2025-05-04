@@ -1,45 +1,59 @@
-# Node modules
+# ----------------------
+# Dependency directories
+# ----------------------
 node_modules/
 
-# Vite build output
+# ----------------------
+# Build output
+# ----------------------
 dist/
+.vercel/output/        # Optional: Vercel build output
 
-# Local env files
+# ----------------------
+# Environment variables
+# ----------------------
 .env
 .env.*
 
-# Vercel output folder (optional tweak)
-.vercel/output/
+# ----------------------
+# Vite and analysis tools
+# ----------------------
+stats.html             # Rollup visualizer output (remove if unused)
+.eslintcache           # ESLint cache
+*.tsbuildinfo          # TypeScript incremental build info (future-proof)
 
-# Log files
+# ----------------------
+# Logs
+# ----------------------
 npm-debug.log*
 yarn-debug.log*
 pnpm-debug.log*
 
-# System files
+# ----------------------
+# System-specific files
+# ----------------------
 .DS_Store
 Thumbs.db
 
-# Editor folders
+# ----------------------
+# Editor-specific files
+# ----------------------
 .vscode/
 !.vscode/extensions.json
 .idea/
 *.swp
 
-# Prettier ignore
+# ----------------------
+# Prettier
+# ----------------------
 .prettierignore
 
-# TypeScript (if added later)
-*.tsbuildinfo
-
-# ESLint cache
-.eslintcache
-
-# Coverage reports (for testing)
+# ----------------------
+# Testing (future)
+# ----------------------
 coverage/
 
-# Parcel cache (if used)
-.parcel-cache/
-
-# Miscellaneous
+# ----------------------
+# SSL or SSH keys (optional security)
+# ----------------------
 *.pem

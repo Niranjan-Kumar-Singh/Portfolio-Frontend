@@ -5,9 +5,9 @@ import { SiTailwindcss } from "react-icons/si";
 
 const Experience = () => {
   return (
-    <section className="experience" id="experience">
+    <section className="experience" id="experience" aria-labelledby="experience-title">
       {/* Experience Section Heading */}
-      <h2 className="experience-heading font-audiowide">Experience</h2>
+      <h2 id="experience-title" className="experience-heading font-audiowide">Experience</h2>
 
       <div className="experience-card glass-effect">
         {/* Role and Organization */}
