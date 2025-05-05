@@ -19,27 +19,50 @@ const Navbar = () => {
 
   // Track which section is active
   useEffect(() => {
-    const sections = document.querySelectorAll("section");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
+    const contentWrapper = document.querySelector(".content-wrapper");
+    let observer = null;
+    let sectionObserverInitialized = false;
+  
+    const setupSectionObserver = () => {
+      const sections = document.querySelectorAll("section");
+      if (!sections.length || !contentWrapper) return;
+  
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(entry.target.id);
+            }
+          });
+        },
+        {
+          root: contentWrapper,
+          threshold: 0.6,
+        }
+      );
+  
+      sections.forEach((section) => observer.observe(section));
+      sectionObserverInitialized = true;
+    };
+  
+    // Watch for DOM mutations until all sections appear
+    const mutationObserver = new MutationObserver(() => {
+      if (!sectionObserverInitialized && document.querySelectorAll("section").length >= 5) {
+        setupSectionObserver();
+      }
+    });
+  
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  
     return () => {
-      sections.forEach((section) => observer.unobserve(section));
-      observer.disconnect();
+      observer?.disconnect();
+      mutationObserver.disconnect();
     };
   }, []);
-
+  
   // Scroll to the specified section
   const scrollToSection = (e, id) => {
     e.preventDefault();

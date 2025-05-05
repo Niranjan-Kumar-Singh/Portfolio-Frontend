@@ -139,12 +139,6 @@ npm run dev
 
 ---
 
-## 📈 Visitor Count
-
-[![](https://visitcount.itsvg.in/api?id=Niranjan-Kumar-Singh&repo=Portfolio-Frontend&icon=0&color=1)](https://visitcount.itsvg.in)
-
----
-
 ## 📬 Contact Information
 
 - 🧑 Name: **Niranjan Kumar Singh**  
