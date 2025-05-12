@@ -19,7 +19,7 @@ const projectData = [
   {
     title: 'Spicyy Food',
     description:
-      'A comprehensive food ordering web application featuring user authentication and real-time order tracking. The frontend is built with React, while the backend utilizes Node.js, Express, and MongoDB.',
+      'A full-stack food ordering system designed to streamline online food ordering, expense management, order tracking, and payments. Each user has a personalized dashboard with authentication. Built using the MERN stack as a college project, development is ongoing.',
     technologies: [FaReact, FaNodeJs, SiExpress, SiMongodb],
     githubFrontend:
       'https://github.com/Niranjan-Kumar-Singh/SpicyyFood-Frontend',
@@ -31,7 +31,7 @@ const projectData = [
   {
     title: 'Text Counter App',
     description:
-      'A React-based application that provides real-time text analysis, including word and character counts, as well as readability scores. It offers a responsive design for optimal user experience across devices.',
+      'A React-based text utility web app that enables users to analyze text, convert case (uppercase/lowercase), clear text, and view real-time word/character counts along with estimated reading time. Features include a live preview and dark mode toggle.',
     technologies: [FaReact, SiHtml5, SiCss3, SiJavascript],
     githubLink:
       'https://github.com/Niranjan-Kumar-Singh/Text-App_reactLearning',
@@ -39,13 +39,12 @@ const projectData = [
     demoDate: 'JAN – AUG 2024',
   },
   {
-    title: 'Weather Forecast App',
+    title: 'NoteBook',
     description:
-      'A web application that delivers real-time weather updates using the OpenWeatherMap API. Users can search for weather details by city and view data such as temperature, humidity, and wind speed. Built with HTML, CSS, and JavaScript.',
-    technologies: [SiHtml5, SiCss3, SiJavascript],
-    githubLink: 'https://github.com/Niranjan-Kumar-Singh/WeatherForecast',
-    liveDemo: 'https://w-forecasting.netlify.app/',
-    demoDate: 'May 2023',
+      'A secure note management web application allowing users to register, log in, and manage their notes. Built with React, Node.js, Express, and MongoDB (local via Compass). Backend APIs handle note CRUD operations. Not hosted due to local database setup.',
+    technologies: [FaReact, FaNodeJs, SiExpress, SiMongodb],
+    githubLink: 'https://github.com/Niranjan-Kumar-Singh/NoteBook_ReactJS',
+    demoDate: 'FEB – APR 2024',
   },
 ];
 
@@ -98,7 +97,7 @@ const Projects = () => {
                   <span
                     className="project-title"
                     onClick={(e) => {
-                      if (isMobile) {
+                      if (isMobile && project.liveDemo) {
                         e.stopPropagation();
                         window.open(project.liveDemo, '_blank');
                       }
@@ -139,15 +138,17 @@ const Projects = () => {
                         <FaGithub /> GitHub
                       </a>
                     )}
-                    <a
-                      href={project.liveDemo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-icon-link font-fira"
-                      aria-label={`Live demo of ${project.title}`}
-                    >
-                      <FaExternalLinkAlt />
-                    </a>
+                    {project.liveDemo && (
+                      <a
+                        href={project.liveDemo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-icon-link font-fira"
+                        aria-label={`Live demo of ${project.title}`}
+                      >
+                        <FaExternalLinkAlt />
+                      </a>
+                    )}
                   </div>
                 </h3>
                 <p className="project-description font-inter">
@@ -179,11 +180,11 @@ const Projects = () => {
               key={index}
               className="project-card"
               onClick={() => {
-                if (!isMobile) {
+                if (!isMobile && project.liveDemo) {
                   window.open(project.liveDemo, '_blank');
                 }
               }}
-              style={{ cursor: !isMobile ? 'pointer' : 'default' }}
+              style={{ cursor: project.liveDemo && !isMobile ? 'pointer' : 'default' }}
             >
               {CardContent}
             </div>
