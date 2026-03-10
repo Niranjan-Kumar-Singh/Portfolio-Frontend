@@ -4,51 +4,39 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'bg-dark': '#08162c',
-        'accent': '#64ffda',
-        'accent-hover': '#00d4ff',
-        'text-light': '#ccd6f6',
+        primary: 'var(--theme-primary)',
+        secondary: 'var(--theme-secondary)',
+        accent: 'var(--theme-accent)',
+        background: '#030712', // Matches index.css Deep Gray 950
+        surface: '#111827',
+        surfaceLight: '#1f2937',
+        textMain: '#f8fafc',
+        textMuted: '#94a3b8',
       },
       fontFamily: {
-        inter: ['Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'system-ui', 'sans-serif'],
-        fira: ['Fira Code', 'Courier New', 'Courier', 'monospace'],
-        audiowide: ['Audiowide', 'Comic Sans MS', 'cursive'],
-        orbitron: ['Orbitron', 'Eurostile', 'sans-serif'],
-        caveat: ['Caveat', 'Brush Script MT', 'cursive'],
+        sans: ['Inter', 'sans-serif'],
+        heading: ['Outfit', 'sans-serif'],
+        mono: ['Fira Code', 'monospace'],
       },
-      fontSize: {
-        sm: "14px",
-        base: "16px",
-        md: "18px",
-        lg: "20px",
-        xl: "24px",
-        "2xl": "30px",
-        "3xl": "36px",
-        "4xl": "48px",
-        "5xl": "60px",
-        "6xl": "72px",
-        "7xl": "80px",
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-premium': 'linear-gradient(to right, #3b82f6, #8b5cf6, #06b6d4)',
       },
-      letterSpacing: {
-        tighter: "-0.05em",
-        widest: "0.2em",
+      animation: {
+        'blob': 'blob 7s infinite',
+        'float': 'float 6s ease-in-out infinite',
       },
-      lineHeight: {
-        tight: "1.1",
-        relaxed: "1.75",
-      },
-      blur: {
-        xs: '2px',
-        sm: '4px',
-        md: '8px',
-        lg: '16px',
-        xl: '24px',
-        '2xl': '40px',
-        '3xl': '60px',
-        '4xl': '120px', // For cursor-light
-      },
-      zIndex: {
-        '-10': '-10',
+      keyframes: {
+        blob: {
+          '0%': { transform: 'translate(0px, 0px) scale(1)' },
+          '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+          '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+          '100%': { transform: 'translate(0px, 0px) scale(1)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        }
       }
     },
   },

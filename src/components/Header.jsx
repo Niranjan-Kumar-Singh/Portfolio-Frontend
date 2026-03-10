@@ -1,89 +1,251 @@
-// src/components/Header.jsx
-import React, { memo, useEffect, useState, lazy, Suspense } from 'react';
+import React, { useRef, useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { FiFileText, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { Typewriter } from 'react-simple-typewriter';
 import Navbar from './Navbar';
-import Footer from './Footer';
-import { FiFileText } from 'react-icons/fi';
-import '../styles/header.css';
 
-const LazyTypewriter = lazy(() =>
-  import('react-simple-typewriter').then(mod => ({ default: mod.Typewriter }))
-);
+const MagneticButton = ({ children, className, href, target, rel, onClick }) => {
+  const ref = useRef(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
 
-// Hook to detect if the device is mobile
-const useIsMobile = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-  return isMobile;
-};
+  const handleMouse = (e) => {
+    const { clientX, clientY } = e;
+    const { height, width, left, top } = ref.current.getBoundingClientRect();
+    const middleX = clientX - (left + width / 2);
+    const middleY = clientY - (top + height / 2);
+    setPosition({ x: middleX * 0.2, y: middleY * 0.2 });
+  };
 
-const handleDownload = () => {
-  const link = document.createElement('a');
-  link.href = '/resume.pdf';
-  link.download = 'Niranjan_Resume.pdf';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
+  const reset = () => {
+    setPosition({ x: 0, y: 0 });
+  };
 
-const ResumeButton = memo(({ label = "Download Resume" }) => (
-  <button className="resume-btn font-inter clean" onClick={handleDownload}>
-    <FiFileText className="resume-icon" />
-    {label}
-  </button>
-));
-
-const Header = () => {
-  const isMobile = useIsMobile();
+  const { x, y } = position;
 
   return (
-    <header className="header">
-      <div className="header-inner">
-        <div className="header-content">
-          <h1 className="name font-orbitron glow-text">Niranjan Kumar Singh</h1>
+    <motion.a
+      href={href}
+      target={target}
+      rel={rel}
+      onClick={onClick}
+      ref={ref}
+      onMouseMove={handleMouse}
+      onMouseLeave={reset}
+      animate={{ x, y }}
+      transition={{ type: "spring", stiffness: 300, damping: 20, mass: 0.5 }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className={className}
+    >
+      {children}
+    </motion.a>
+  );
+};
 
-          {/* Optimized tagline for mobile */}
-          <p className="tagline font-cursive">
-            {isMobile ? (
-              'React & Java Enthusiast'
-            ) : (
-              <Suspense fallback={<span>React & Java Enthusiast</span>}>
-                <LazyTypewriter
-                  words={[
-                    'Building the Future, One Line of Code at a Time',
-                    'Passionate Full Stack Developer',
-                    'React & Java Enthusiast',
-                    'Dreaming in JavaScript and Coffee☕',
-                  ]}
-                  loop={0}
-                  cursor
-                  cursorStyle="_"
-                  typeSpeed={50}
-                  deleteSpeed={30}
-                  delaySpeed={10000}
-                />
-              </Suspense>
-            )}
-          </p>
+const Header = () => {
+  const { scrollY } = useScroll();
+  const yShapesBg = useTransform(scrollY, [0, 500], [0, 100]);
+  const yShapesFg = useTransform(scrollY, [0, 500], [0, -100]);
 
-          {/* Memoized Resume Button */}
-          <ResumeButton />
+  return (
+    <>
+      <Navbar />
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-12 md:pt-20">
+        {/* Futuristic Technical Background HUD - Clean & Sharp */}
+        <motion.div style={{ y: yShapesBg, willChange: "transform" }} className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center opacity-30">
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+            className="absolute w-[30rem] h-[30rem] rounded-full border border-primary/40"
+            style={{ borderStyle: 'dashed', borderWidth: '1px', borderDasharray: '4 12' }}
+          />
+          <motion.div
+            animate={{ rotate: -360 }}
+            transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
+            className="absolute w-[45rem] h-[45rem] rounded-full border border-secondary/30"
+            style={{ borderStyle: 'dotted', borderWidth: '2px' }}
+          />
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+            className="absolute w-[60rem] h-[60rem] rounded-full border border-white/10"
+          />
+          {/* Subtle scanning line effect */}
+          <motion.div
+            className="absolute w-[45rem] h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+          />
+        </motion.div>
+
+        {/* Cyberpunk Decorative Corner Data */}
+        <div className="absolute top-32 left-8 md:flex flex-col gap-1 hidden pointer-events-none opacity-40 font-mono text-[10px] text-primary">
+          <span>SYS.CORE // {new Date().getFullYear()}</span>
+          <span>LAT: 40.7128</span>
+          <span>LNG: -74.0060</span>
+          <motion.span animate={{ opacity: [1, 0, 1] }} transition={{ duration: 2, repeat: Infinity }}>
+            STATUS: ONLINE
+          </motion.span>
+        </div>
+        <div className="absolute bottom-32 right-8 md:flex flex-col gap-1 hidden pointer-events-none opacity-40 font-mono text-[10px] text-secondary text-right">
+          <span>MEM: O.K.</span>
+          <span>UPLINK: ACTIVE</span>
+          <motion.span animate={{ opacity: [0, 1, 0] }} transition={{ duration: 0.8, repeat: Infinity }}>
+            {`>_ PROCESSING`}
+          </motion.span>
         </div>
 
-        {/* Navbar and Footer Components */}
-        <div className="navbar-wrapper">
-          <Navbar />
-        </div>
+        <motion.div
+          style={{ willChange: "transform" }}
+          className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center text-center"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-8 inline-block"
+          >
+            <div className="flex items-center gap-3 font-mono text-sm uppercase tracking-[0.3em] text-primary">
+              <span className="w-8 h-[1px] bg-primary/50"></span>
+              <span>System Initialization</span>
+              <span className="w-8 h-[1px] bg-primary/50"></span>
+            </div>
+          </motion.div>
 
-        <div className="footer-wrapper">
-          <Footer />
-        </div>
-      </div>
-    </header>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-6xl md:text-8xl lg:text-9xl font-bold font-heading mb-6 leading-tight tracking-tighter"
+          >
+            <span className="text-white">Niranjan</span><br />
+            <motion.span
+              className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent inline-block"
+              animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+              style={{ backgroundSize: "200% auto" }}
+            >
+              Kumar Singh
+            </motion.span>
+          </motion.h1>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl md:text-3xl text-textMuted font-mono font-light mb-8 h-10"
+          >
+            {'>'} <span className="text-white">
+              <Typewriter
+                words={['Software_Developer', 'Full_Stack_Engineer', 'Problem_Solver']}
+                loop={true}
+                cursor
+                cursorStyle='_'
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={2000}
+              />
+            </span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="max-w-2xl text-base md:text-lg text-textMuted mb-8 leading-relaxed"
+          >
+            I architect <span className="text-white font-mono">scalable digital systems</span>, translating immense complexity into flawless geometry. From raw backend data architecture to pixel-perfect interface execution.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-6 mb-8 md:mb-0"
+          >
+            <MagneticButton
+              href="#projects"
+              className="px-8 py-4 bg-transparent border border-primary text-primary hover:bg-primary hover:text-white rounded-none font-mono uppercase tracking-widest text-sm transition-all shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:shadow-[0_0_25px_rgba(59,130,246,0.6)]"
+            >
+              View Projects
+            </MagneticButton>
+            <MagneticButton
+              href="/resume.pdf"
+              target="_blank"
+              className="px-8 py-4 bg-transparent border border-white/20 hover:border-white text-textMain hover:text-white rounded-none font-mono uppercase tracking-widest text-sm transition-all flex items-center justify-center gap-3 group shadow-[0_0_10px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+            >
+              <FiFileText className="group-hover:-translate-y-1 transition-transform" /> Download Resume
+            </MagneticButton>
+          </motion.div>
+
+          {/* Mobile Only Social Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="flex md:hidden gap-6 mt-4"
+          >
+            <a href="https://github.com/Niranjan-Kumar-Singh" target="_blank" rel="noreferrer" className="text-textMuted hover:text-primary transition-colors hover:-translate-y-1 transform duration-300">
+              <FiGithub size={24} />
+            </a>
+            <a href="https://www.linkedin.com/in/niranjan-kumar-singh/" target="_blank" rel="noreferrer" className="text-textMuted hover:text-primary transition-colors hover:-translate-y-1 transform duration-300">
+              <FiLinkedin size={24} />
+            </a>
+            <a href="#contact" className="text-textMuted hover:text-primary transition-colors hover:-translate-y-1 transform duration-300">
+              <FiMail size={24} />
+            </a>
+          </motion.div>
+        </motion.div>
+
+        {/* Left Flank - Social Arch */}
+        <motion.div
+          className="absolute bottom-0 left-16 lg:left-32 flex-col items-center gap-6 hidden md:flex z-20"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+        >
+          <a href="https://github.com/Niranjan-Kumar-Singh" target="_blank" rel="noreferrer" className="text-textMuted hover:text-primary transition-colors hover:-translate-y-2 transform duration-300">
+            <FiGithub size={20} />
+          </a>
+          <a href="https://www.linkedin.com/in/niranjan-kumar-singh/" target="_blank" rel="noreferrer" className="text-textMuted hover:text-primary transition-colors hover:-translate-y-2 transform duration-300">
+            <FiLinkedin size={20} />
+          </a>
+          <a href="#contact" className="text-textMuted hover:text-primary transition-colors hover:-translate-y-2 transform duration-300">
+            <FiMail size={20} />
+          </a>
+          <div className="w-[1px] h-24 bg-white/10 relative overflow-hidden mt-2 group-hover:bg-primary/30 transition-colors">
+            <motion.div
+              className="w-full h-1/2 bg-gradient-to-b from-transparent via-primary to-transparent"
+              animate={{ y: ['-100%', '200%'] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+            />
+          </div>
+        </motion.div>
+
+        {/* Right Flank - Scroll Arch */}
+        <motion.a
+          href="#about"
+          className="absolute bottom-0 right-16 lg:right-32 flex-col items-center gap-4 hidden md:flex z-20 cursor-pointer group"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+        >
+          <span
+            className="text-[10px] font-mono text-textMuted uppercase tracking-widest group-hover:text-primary transition-colors"
+            style={{ writingMode: 'vertical-rl' }}
+          >
+            Scroll
+          </span>
+          <div className="w-[1px] h-24 bg-white/10 relative overflow-hidden group-hover:bg-primary/30 transition-colors">
+            <motion.div
+              className="w-full h-1/2 bg-gradient-to-b from-transparent via-primary to-transparent"
+              animate={{ y: ['-100%', '200%'] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+            />
+          </div>
+        </motion.a>
+      </section>
+    </>
   );
 };
 

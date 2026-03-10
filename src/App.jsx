@@ -1,115 +1,69 @@
-import React, { useEffect, useState, lazy, Suspense } from "react";
-import Header from "./components/Header";
-import About from "./components/About";
-import ScrollToTopButton from "./components/ScrollToTopButton";
-import { Analytics } from "@vercel/analytics/react";
-import "./styles/App.css";
+import React, { useState, useEffect, Suspense, lazy } from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Background from './components/Background';
+import Cursor from './components/Cursor';
+import Separator from './components/Separator';
+import ThemeSwitcher from './components/ThemeSwitcher';
+import Loader from './components/Loader';
+import FadeInSection from './components/FadeInSection';
+import { ThemeProvider } from './context/ThemeContext';
+import { AnimatePresence } from 'framer-motion';
 
-// Lazy load non-critical components
-const Projects = lazy(() => import("./components/Projects"));
-const Experience = lazy(() => import("./components/Experience"));
-const Education = lazy(() => import("./components/Education"));
-const Contact = lazy(() => import("./components/Contact"));
-const CursorLight = lazy(() => import("./components/CursorLight"));
-const ParticlesBackground = lazy(() => import("./components/ParticlesBackground"));
+const About = lazy(() => import('./components/About'));
+const TechStack = lazy(() => import('./components/TechStack'));
+const Projects = lazy(() => import('./components/Projects'));
+const Experience = lazy(() => import('./components/Experience'));
+const Achievements = lazy(() => import('./components/Achievements'));
+const Contact = lazy(() => import('./components/Contact'));
 
 const App = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
+  // Optional: Disable loader entirely if user has visited recently in this session
   useEffect(() => {
-    // Function to check if the device is mobile
-    const checkIfMobile = () => setIsMobile(window.innerWidth <= 768);
-
-    // Initial check when component mounts
-    checkIfMobile();
-
-    // Recalculate on window resize or orientation change
-    const handleResize = () => {
-      clearTimeout(window._resizeTimeout);
-      window._resizeTimeout = setTimeout(() => {
-        checkIfMobile();
-        // Manually trigger scroll reset after resize to prevent issues
-        resetSidebarScroll();
-      }, 150); // debounce to prevent too many calls
-    };
-
-    // Listener for resizing
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("orientationchange", handleResize);
-
-    // Cleanup listeners
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("orientationchange", handleResize);
-    };
+    const hasVisited = sessionStorage.getItem('hasBooted');
+    if (hasVisited) {
+      setIsLoading(false);
+    }
   }, []);
 
-  // Function to reset sidebar scroll
-  const resetSidebarScroll = () => {
-    const sidebar = document.querySelector(".sidebar");
-    if (sidebar && !isMobile) {
-      sidebar.scrollTop = 0; // Reset scroll position to top for desktop mode
-    }
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    sessionStorage.setItem('hasBooted', 'true');
   };
 
-  // Handle the scroll behavior for non-mobile screens
-  useEffect(() => {
-    // If not mobile, apply custom scroll behavior
-    if (!isMobile) {
-      const sidebar = document.querySelector(".sidebar");
-      const contentWrapper = document.querySelector(".content-wrapper");
-
-      const handleSidebarScroll = (e) => {
-        e.preventDefault(); // Prevent default sidebar scroll behavior
-        if (contentWrapper) {
-          contentWrapper.scrollTop += e.deltaY; // Scroll content wrapper based on mouse wheel
-        }
-      };
-
-      sidebar?.addEventListener("wheel", handleSidebarScroll, { passive: false });
-
-      // Cleanup scroll behavior listener
-      return () => {
-        sidebar?.removeEventListener("wheel", handleSidebarScroll);
-      };
-    }
-  }, [isMobile]); // Re-run this when isMobile changes
-
   return (
-    <div className="app-container">
-      {/* Only render particles and cursor effects if not mobile */}
-      {!isMobile && (
-        <Suspense fallback={null}>
-          <CursorLight />
-          <ParticlesBackground />
-        </Suspense>
-      )}
+    <ThemeProvider>
+      <div className="min-h-screen text-textMain selection:bg-primary/30 selection:text-white antialiased font-sans flex flex-col pt-safe pb-safe relative isolate">
+        <AnimatePresence mode="wait">
+          {isLoading && <Loader key="loader" onLoadingComplete={handleLoadingComplete} />}
+        </AnimatePresence>
 
-      <aside className="sidebar">
+        <Background />
+        <Cursor />
         <Header />
-      </aside>
 
-      <div className="content-wrapper">
-        <main className="content" role="main">
-          <About />
-          <Suspense fallback={<div>Loading Projects...</div>}>
-            <Projects />
-          </Suspense>
-          <Suspense fallback={<div>Loading Experience...</div>}>
-            <Experience />
-          </Suspense>
-          <Suspense fallback={<div>Loading Education...</div>}>
-            <Education />
-          </Suspense>
-          <Suspense fallback={<div>Loading Contact...</div>}>
-            <Contact />
+        <main className="flex-grow">
+          <Suspense fallback={<div className="h-32 w-full" />}>
+            <FadeInSection><About /></FadeInSection>
+            <Separator />
+            <FadeInSection><TechStack /></FadeInSection>
+            <Separator />
+            <FadeInSection><Projects /></FadeInSection>
+            <Separator />
+            <FadeInSection><Experience /></FadeInSection>
+            <Separator />
+            <FadeInSection><Achievements /></FadeInSection>
+            <Separator />
+            <FadeInSection><Contact /></FadeInSection>
           </Suspense>
         </main>
-      </div>
 
-      <ScrollToTopButton />
-      <Analytics />
-    </div>
+        <Footer />
+        <ThemeSwitcher />
+      </div>
+    </ThemeProvider>
   );
 };
 
