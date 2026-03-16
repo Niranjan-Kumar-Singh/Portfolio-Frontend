@@ -49,17 +49,27 @@ const techCategories = [
 
 const TechStack = () => {
     return (
-        <section id="skills" className="py-24 relative">
+        <section id="skills" className="pt-12 pb-24 relative">
             <div className="container mx-auto px-6 md:px-12">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6 }}
-                    className="flex items-center gap-4 mb-16"
+                    className="flex items-center gap-6 mb-16 relative"
                 >
-                    <h2 className="text-3xl md:text-5xl font-heading font-bold"><span className="text-primary font-mono text-xl md:text-3xl mr-2">02.</span>Tech Stack</h2>
-                    <div className="h-[1px] bg-white/10 flex-grow max-w-sm"></div>
+                    <div className="flex flex-col relative">
+                        <h2 className="text-3xl md:text-5xl font-heading font-bold text-white tracking-wide">
+                            <span className="text-primary font-mono text-lg md:text-2xl mr-4 opacity-70">{'//'} 02</span>
+                            Tech_Stack
+                        </h2>
+                        {/* Cyberpunk Bracket Detail */}
+                        <div className="absolute -left-4 -top-4 w-4 h-4 border-t-2 border-l-2 border-accent/50"></div>
+                    </div>
+                    <div className="h-[1px] bg-gradient-to-r from-primary/50 to-transparent flex-grow max-w-md relative mt-2">
+                        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-[2px] bg-primary shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-primary/50 rotate-45"></div>
+                    </div>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -70,16 +80,22 @@ const TechStack = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
-                            className="glass-card p-6 rounded-none hover:border-primary/50 border-white/5 transition-colors group relative overflow-hidden bg-background/50"
+                            className="p-6 rounded-none border border-primary/20 hover:border-primary/60 transition-colors group relative overflow-hidden bg-[#030712]/60 filter backdrop-blur-md cursor-crosshair shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]"
                         >
-                            {/* Corner HUD framing */}
-                            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary/50"></div>
-                            <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-primary/50"></div>
-                            <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-primary/50"></div>
-                            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-primary/50"></div>
+                            {/* Animated Background Data Pulse */}
+                            <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
-                            <h3 className="text-xl font-heading font-semibold mb-8 flex items-center relative z-10">
-                                <span className="w-8 h-[2px] bg-gradient-premium mr-3 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+                            {/* Advanced Corner HUD framing */}
+                            <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-accent transition-all duration-300 group-hover:w-5 group-hover:h-5"></div>
+                            <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-accent transition-all duration-300 group-hover:w-5 group-hover:h-5"></div>
+                            <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-accent transition-all duration-300 group-hover:w-5 group-hover:h-5"></div>
+                            <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-accent transition-all duration-300 group-hover:w-5 group-hover:h-5"></div>
+
+                            {/* Section Top Border Line */}
+                            <div className="absolute top-0 left-8 right-8 h-[1px] bg-primary/30 group-hover:bg-primary transition-colors duration-300"></div>
+
+                            <h3 className="text-xl font-mono text-white tracking-[0.1em] mb-8 flex items-center relative z-10 uppercase text-sm">
+                                <span className="text-accent mr-3 font-bold group-hover:animate-pulse">{'> '}</span>
                                 {category.title}
                             </h3>
 
@@ -87,18 +103,20 @@ const TechStack = () => {
                                 {category.skills.map((skill) => (
                                     <motion.div
                                         key={skill.name}
-                                        className="relative flex items-center justify-center p-4 rounded-none bg-surfaceLight/30 border border-white/5 cursor-pointer group/item hover:bg-primary/5 transition-colors"
-                                        whileHover={{
-                                            scale: 1.05,
-                                            boxShadow: `0 0 0 1px ${skill.color}50`,
-                                        }}
+                                        className="relative flex items-center justify-center p-4 rounded-none bg-surfaceLight/10 border border-white/5 cursor-crosshair group/item hover:bg-surfaceLight/30 transition-colors overflow-hidden"
+                                        whileHover={{ scale: 1.05 }}
                                         transition={{ type: "tween", duration: 0.2 }}
                                     >
-                                        <skill.icon size={32} style={{ color: skill.color }} className="drop-shadow-none group-hover/item:scale-110 transition-transform duration-300" />
+                                        <skill.icon size={32} style={{ color: skill.color }} className="relative z-10 group-hover/item:scale-110 transition-transform duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] group-hover/item:drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]" />
 
-                                        {/* Cyber Tooltip */}
-                                        <div className="absolute -top-10 bg-background border border-primary/50 px-2 py-1 rounded-none text-[10px] font-mono uppercase tracking-widest text-primary opacity-0 group-hover/item:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap shadow-[0_0_10px_rgba(59,130,246,0.2)] z-20">
-                                            {'>'} {skill.name}
+                                        {/* Targeting Brackets */}
+                                        <div className="absolute top-1 left-1 w-2 h-2 border-t border-l border-primary opacity-0 group-hover/item:opacity-100 transition-opacity duration-200 pointer-events-none"></div>
+                                        <div className="absolute bottom-1 right-1 w-2 h-2 border-b border-r border-primary opacity-0 group-hover/item:opacity-100 transition-opacity duration-200 pointer-events-none"></div>
+
+                                        {/* Cyber Tooltip Data Readout */}
+                                        <div className="absolute -top-10 bg-black/90 border border-primary/50 px-3 py-1.5 rounded-none text-[9px] font-mono uppercase tracking-widest text-primary opacity-0 group-hover/item:opacity-100 transition-opacity duration-200 pointer-events-none w-max shadow-[0_0_15px_rgba(59,130,246,0.5)] z-20 flex flex-col">
+                                            <span className="text-white border-b border-white/20 pb-1 mb-1">{skill.name}</span>
+                                            <span className="text-accent">MODULE_ACTIVE</span>
                                         </div>
                                     </motion.div>
                                 ))}

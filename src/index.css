@@ -87,6 +87,7 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+    /* Perfectly aligns sections just below the scrolled navbar */
   }
 
   body {

@@ -1,4 +1,5 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect } from 'react';
+import Navbar from './components/Navbar';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Background from './components/Background';
@@ -10,12 +11,12 @@ import FadeInSection from './components/FadeInSection';
 import { ThemeProvider } from './context/ThemeContext';
 import { AnimatePresence } from 'framer-motion';
 
-const About = lazy(() => import('./components/About'));
-const TechStack = lazy(() => import('./components/TechStack'));
-const Projects = lazy(() => import('./components/Projects'));
-const Experience = lazy(() => import('./components/Experience'));
-const Achievements = lazy(() => import('./components/Achievements'));
-const Contact = lazy(() => import('./components/Contact'));
+import About from './components/About';
+import TechStack from './components/TechStack';
+import Projects from './components/Projects';
+import Experience from './components/Experience';
+import Achievements from './components/Achievements';
+import Contact from './components/Contact';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,22 +43,21 @@ const App = () => {
 
         <Background />
         <Cursor />
+        <Navbar />
         <Header />
 
         <main className="flex-grow">
-          <Suspense fallback={<div className="h-32 w-full" />}>
-            <FadeInSection><About /></FadeInSection>
-            <Separator />
-            <FadeInSection><TechStack /></FadeInSection>
-            <Separator />
-            <FadeInSection><Projects /></FadeInSection>
-            <Separator />
-            <FadeInSection><Experience /></FadeInSection>
-            <Separator />
-            <FadeInSection><Achievements /></FadeInSection>
-            <Separator />
-            <FadeInSection><Contact /></FadeInSection>
-          </Suspense>
+          <FadeInSection><About /></FadeInSection>
+          <Separator />
+          <FadeInSection><TechStack /></FadeInSection>
+          <Separator />
+          <FadeInSection><Projects /></FadeInSection>
+          <Separator />
+          <FadeInSection><Experience /></FadeInSection>
+          <Separator />
+          <FadeInSection><Achievements /></FadeInSection>
+          <Separator />
+          <FadeInSection><Contact /></FadeInSection>
         </main>
 
         <Footer />

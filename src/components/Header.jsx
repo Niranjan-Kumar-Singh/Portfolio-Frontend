@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FiFileText, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { Typewriter } from 'react-simple-typewriter';
-import Navbar from './Navbar';
 
 const MagneticButton = ({ children, className, href, target, rel, onClick }) => {
   const ref = useRef(null);
@@ -49,8 +48,28 @@ const Header = () => {
 
   return (
     <>
-      <Navbar />
-      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-12 md:pt-20">
+      <style>{`
+        .scanlines {
+          background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.3) 51%);
+          background-size: 100% 4px;
+        }
+        .glitch-text:hover {
+          animation: glitch 0.2s cubic-bezier(.25, .46, .45, .94) both infinite;
+        }
+        @keyframes glitch {
+          0% { transform: translate(0) }
+          20% { transform: translate(-2px, 2px) }
+          40% { transform: translate(-2px, -2px) }
+          60% { transform: translate(2px, 2px) }
+          80% { transform: translate(2px, -2px) }
+          100% { transform: translate(0) }
+        }
+      `}</style>
+      <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-12 md:pt-20">
+        
+        {/* CRT Scanline Overlay */}
+        <div className="absolute inset-0 pointer-events-none z-50 scanlines opacity-50 mix-blend-overlay"></div>
+
         {/* Futuristic Technical Background HUD - Clean & Sharp */}
         <motion.div style={{ y: yShapesBg, willChange: "transform" }} className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center opacity-30">
           <motion.div
@@ -116,11 +135,11 @@ const Header = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-bold font-heading mb-6 leading-tight tracking-tighter"
+            className="text-6xl md:text-8xl lg:text-9xl font-bold font-heading mb-6 leading-tight tracking-tighter cursor-crosshair group"
           >
-            <span className="text-white">Niranjan</span><br />
+            <span className="text-white group-hover:text-primary/90 transition-colors duration-200">Niranjan</span><br />
             <motion.span
-              className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent inline-block"
+              className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent inline-block glitch-text"
               animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
               transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
               style={{ backgroundSize: "200% auto" }}
@@ -161,20 +180,42 @@ const Header = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-6 mb-8 md:mb-0"
+            className="flex flex-col sm:flex-row gap-6 mb-8 md:mb-0 relative z-10"
           >
+            {/* Cyberpunk HUD Button 1 */}
             <MagneticButton
               href="#projects"
-              className="px-8 py-4 bg-transparent border border-primary text-primary hover:bg-primary hover:text-white rounded-none font-mono uppercase tracking-widest text-sm transition-all shadow-[0_0_15px_rgba(59,130,246,0.2)] hover:shadow-[0_0_25px_rgba(59,130,246,0.6)]"
+              className="group relative px-8 py-4 bg-transparent text-primary font-mono uppercase tracking-[0.2em] text-sm overflow-hidden flex items-center justify-center cursor-crosshair min-w-[200px]"
             >
-              View Projects
+              {/* Bracket Left */}
+              <span className="absolute left-4 text-primary font-bold opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">[</span>
+              <span className="relative z-10 group-hover:animate-pulse">View Projects</span>
+              {/* Bracket Right */}
+              <span className="absolute right-4 text-primary font-bold opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">]</span>
+              
+              <div className="absolute inset-0 border border-primary/40 group-hover:border-primary/80 transition-colors"></div>
+              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors"></div>
+              {/* Hardware dots */}
+              <div className="absolute top-1 left-1 w-1 h-1 bg-primary/50 group-hover:bg-primary"></div>
+              <div className="absolute bottom-1 right-1 w-1 h-1 bg-primary/50 group-hover:bg-primary"></div>
             </MagneticButton>
+
+            {/* Cyberpunk HUD Button 2 */}
             <MagneticButton
               href="/resume.pdf"
               target="_blank"
-              className="px-8 py-4 bg-transparent border border-white/20 hover:border-white text-textMain hover:text-white rounded-none font-mono uppercase tracking-widest text-sm transition-all flex items-center justify-center gap-3 group shadow-[0_0_10px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+              className="group relative px-8 py-4 bg-transparent text-textMain hover:text-white font-mono uppercase tracking-[0.2em] text-sm overflow-hidden flex items-center justify-center gap-3 cursor-crosshair min-w-[200px]"
             >
-              <FiFileText className="group-hover:-translate-y-1 transition-transform" /> Download Resume
+              <FiFileText className="relative z-10 group-hover:-translate-y-1 transition-transform" /> 
+              {/* Bracket Left */}
+              <span className="absolute left-2 text-white font-bold opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-xs">{'<'}</span>
+              <span className="relative z-10">Download Resume</span>
+              {/* Bracket Right */}
+              <span className="absolute right-2 text-white font-bold opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-xs">{'>'}</span>
+
+              <div className="absolute inset-0 border border-white/20 group-hover:border-white/60 transition-colors"></div>
+              {/* Glitch slide line */}
+              <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-500"></div>
             </MagneticButton>
           </motion.div>
 

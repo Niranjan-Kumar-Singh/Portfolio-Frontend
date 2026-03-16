@@ -1,20 +1,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import GitHubActivity from './GitHubActivity';
+import profilePic from '../assets/Niranjan.png';
 
 const About = () => {
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
+    <section id="about" className="pt-12 pb-24 relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="flex items-center gap-4 mb-12"
+          className="flex items-center gap-6 mb-16 relative"
         >
-          <h2 className="text-3xl md:text-5xl font-heading font-bold"><span className="text-primary font-mono text-xl md:text-3xl mr-2">01.</span>About Me</h2>
-          <div className="h-[1px] bg-white/10 flex-grow max-w-sm"></div>
+          <div className="flex flex-col relative">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-white tracking-wide">
+              <span className="text-primary font-mono text-lg md:text-2xl mr-4 opacity-70">{'//'} 01</span>
+              About_Me
+            </h2>
+            {/* Cyberpunk Bracket Detail */}
+            <div className="absolute -left-4 -top-4 w-4 h-4 border-t-2 border-l-2 border-accent/50"></div>
+          </div>
+          <div className="h-[1px] bg-gradient-to-r from-primary/50 to-transparent flex-grow max-w-md relative mt-2">
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-[2px] bg-primary shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-primary/50 rotate-45"></div>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
@@ -49,32 +60,52 @@ const About = () => {
 
           {/* Image/Abstract Decorative Side */}
           <motion.div
-            className="lg:col-span-2 relative group w-3/4 lg:w-full max-w-sm mx-auto"
-            initial={{ opacity: 0, x: 30, rotate: -5 }}
-            whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+            className="lg:col-span-2 relative group w-4/5 lg:w-full max-w-sm mx-auto cursor-crosshair"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
+            transition={{ duration: 0.8 }}
           >
-            <div className="relative z-10 rounded-none overflow-hidden glass-card p-2 aspect-square flex items-center justify-center bg-surfaceLight/10 group-hover:-translate-y-3 group-hover:-translate-x-3 transition-transform duration-500 border border-white/5">
-              {/* Decorative Abstract Code/Geometric Element as Placeholder for Portrait */}
-              <div className="absolute inset-0 bg-primary/5 opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <motion.div
-                className="text-primary/70 text-9xl font-mono font-bold select-none z-10"
-                whileHover={{ scale: 1.1, rotate: 10 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >&lt;/&gt;</motion.div>
-              <div className="absolute inset-0 bg-gradient-premium opacity-10 mix-blend-overlay"></div>
-            </div>
-            {/* HUD Outline Box Behind */}
-            <div className="absolute inset-0 border border-primary/50 rounded-none translate-x-4 translate-y-4 -z-10 group-hover:translate-x-6 group-hover:translate-y-6 group-hover:border-primary transition-all duration-500">
-              <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-primary -translate-y-[2px] translate-x-[2px]"></div>
-              <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-primary translate-y-[2px] -translate-x-[2px]"></div>
+            {/* Primary Image Container */}
+            <div className="relative z-10 rounded-sm overflow-hidden p-0 aspect-[4/5] flex items-center justify-center bg-background group-hover:-translate-y-2 group-hover:-translate-x-2 transition-transform duration-500 border border-primary/20 group-hover:border-primary/50 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+              {/* Scanline Overlay over Image */}
+              <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.4)_51%)] bg-[length:100%_4px] pointer-events-none z-20"></div>
+              
+              <div className="absolute inset-0 bg-primary/20 opacity-80 group-hover:opacity-10 transition-opacity duration-500 z-10 mix-blend-color pointer-events-none"></div>
+              <img src={profilePic} alt="Niranjan" className="w-full h-full object-cover filter grayscale contrast-125 sepia-[0.2] hue-rotate-180 group-hover:grayscale-0 group-hover:sepia-0 group-hover:hue-rotate-0 group-hover:contrast-110 transition-all duration-700 relative z-0" />
+              
+              {/* Animated HUD Scanner Line */}
+              <motion.div 
+                className="absolute top-0 left-0 w-full h-[2px] bg-primary/80 shadow-[0_0_15px_rgba(59,130,246,1)] z-30 opacity-0 group-hover:opacity-100"
+                animate={{ y: ["0%", "400%"] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              />
             </div>
 
+            {/* Hardware Outline Box Behind */}
+            <div className="absolute inset-0 border border-accent/40 rounded-sm translate-x-4 translate-y-4 -z-10 group-hover:translate-x-6 group-hover:translate-y-6 group-hover:border-accent transition-all duration-500">
+              {/* Target Corners */}
+              <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-accent"></div>
+              <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-accent"></div>
+              <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-accent"></div>
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-accent"></div>
+              
+              {/* Decorative data block */}
+              <div className="absolute top-4 -right-[2px] w-1 h-12 bg-accent/60"></div>
+              <div className="absolute bottom-4 -left-[2px] w-1 h-8 bg-accent/60"></div>
+            </div>
+
+            {/* Static HUD Stats */}
+            <div className="absolute -bottom-6 -right-6 font-mono text-[10px] text-accent/60 hidden md:flex flex-col text-right">
+              <span>IMG_SRC_VERIFIED</span>
+              <span>RES_4K_OPT</span>
+            </div>
           </motion.div>
         </div>
 
-        <GitHubActivity username="Niranjan-Kumar-Singh" />
+        <div className="mt-16">
+          <GitHubActivity username="Niranjan-Kumar-Singh" />
+        </div>
       </div>
 
       {/* Cyber Section Demarcation */}

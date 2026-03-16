@@ -4,7 +4,7 @@ import { FiAward } from 'react-icons/fi';
 
 const Achievements = () => {
     return (
-        <section id="achievements" className="py-24 relative">
+        <section id="achievements" className="pt-12 pb-24 relative">
             <div className="container mx-auto px-6 md:px-12 max-w-4xl text-center">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9, y: 30 }}

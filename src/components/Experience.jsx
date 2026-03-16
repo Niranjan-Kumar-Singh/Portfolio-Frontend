@@ -23,17 +23,27 @@ const Experience = () => {
   const isLineInView = useInView(lineRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" className="py-24 relative">
+    <section id="experience" className="pt-12 pb-24 relative">
       <div className="container mx-auto px-6 md:px-12 max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="flex items-center gap-4 mb-16"
+          className="flex items-center gap-6 mb-16 relative"
         >
-          <h2 className="text-3xl md:text-5xl font-heading font-bold"><span className="text-primary font-mono text-xl md:text-3xl mr-2">04.</span>Experience</h2>
-          <div className="h-[1px] bg-white/10 flex-grow"></div>
+          <div className="flex flex-col relative">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-white tracking-wide">
+              <span className="text-primary font-mono text-lg md:text-2xl mr-4 opacity-70">{'//'} 04</span>
+              Experience_Log
+            </h2>
+            {/* Cyberpunk Bracket Detail */}
+            <div className="absolute -left-4 -top-4 w-4 h-4 border-t-2 border-l-2 border-accent/50"></div>
+          </div>
+          <div className="h-[1px] bg-gradient-to-r from-primary/50 to-transparent flex-grow max-w-md relative mt-2">
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-[2px] bg-primary shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-primary/50 rotate-45"></div>
+          </div>
         </motion.div>
 
         <div className="relative ml-4 md:ml-6 space-y-16 pb-8" ref={lineRef}>
@@ -56,38 +66,52 @@ const Experience = () => {
             >
               {/* Glowing Timeline Node - Cyber Diamond */}
               <motion.div
-                className="absolute w-4 h-4 bg-background border border-primary rounded-none rotate-45 -left-[7px] top-2 z-10"
+                className="absolute w-4 h-4 bg-background border-2 border-primary rounded-none rotate-45 -left-[7px] top-6 z-10 cursor-crosshair group-hover:bg-primary transition-colors duration-300"
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1, boxShadow: "0 0 10px rgba(59,130,246,0.8)" }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.4, delay: (idx * 0.2) + 0.3 }}
                 whileHover={{ scale: 1.5, rotate: 90 }}
-              />
+              >
+                <div className="absolute inset-0 m-auto w-1 h-1 bg-accent rotate-45 animate-pulse"></div>
+              </motion.div>
 
-              <div className="glass-card p-6 md:p-8 rounded-none border border-white/5 hover:border-primary/50 transition-colors group relative overflow-hidden bg-background/40">
+              <div className="glass-card p-6 md:p-8 rounded-none border border-primary/20 hover:border-primary/60 transition-colors group relative overflow-hidden bg-[#030712]/60 filter backdrop-blur-md cursor-crosshair shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]">
                 {/* Structural corner lines */}
-                <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-primary/50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-accent transition-all duration-300 group-hover:w-6 group-hover:h-6 pointer-events-none z-20"></div>
+                <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-accent transition-all duration-300 group-hover:w-6 group-hover:h-6 pointer-events-none z-20"></div>
 
-                <h3 className="text-xl md:text-2xl font-heading font-bold text-textMain group-hover:text-primary transition-colors">{exp.role}</h3>
-                <h4 className="text-lg text-primary font-medium mb-1">{exp.company}</h4>
-                <p className="font-mono text-sm text-textMuted mb-6">{exp.date}</p>
+                {/* Animated Scanner Focus Line */}
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20"></div>
 
-                <p className="text-textMuted leading-relaxed mb-6">
-                  {exp.description}
-                </p>
+                {/* Animated Background Data Pulse */}
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
-                <ul className="flex flex-wrap gap-3 font-mono text-xs text-textMuted">
-                  {exp.tech.map(tech => (
-                    <motion.li
-                      key={tech}
-                      className="bg-white/5 px-2 py-1 rounded-none border border-white/10 text-[10px] uppercase tracking-wider"
-                      whileHover={{ color: "#3b82f6", borderColor: "rgba(59,130,246,0.5)" }}
-                    >
-                      {tech}
-                    </motion.li>
-                  ))}
-                </ul>
+                <div className="relative z-10">
+                  <h3 className="text-xl md:text-2xl font-heading font-bold text-textMain group-hover:text-primary transition-colors flex items-center">
+                    <span className="text-primary font-mono text-sm mr-2 opacity-0 group-hover:opacity-100 transition-opacity">{'>>'}</span>
+                    {exp.role}
+                  </h3>
+                  <h4 className="text-lg text-primary font-medium mb-1 drop-shadow-[0_0_5px_rgba(59,130,246,0.5)]">{exp.company}</h4>
+                  <p className="font-mono text-xs text-textMuted mb-6 tracking-widest uppercase border-b border-white/5 pb-2 inline-block"><span className="text-accent">TIME:</span> {exp.date}</p>
+
+                  <p className="text-textMuted leading-relaxed mb-6">
+                    {exp.description}
+                  </p>
+
+                  <ul className="flex flex-wrap gap-3 font-mono text-xs text-textMuted">
+                    {exp.tech.map(tech => (
+                      <motion.li
+                        key={tech}
+                        className="bg-primary/5 px-2 py-1 rounded-none border border-primary/20 text-[10px] uppercase tracking-wider relative group/badge overflow-hidden"
+                        whileHover={{ color: "#3b82f6", borderColor: "rgba(59,130,246,0.8)" }}
+                      >
+                        <div className="absolute inset-0 bg-primary/10 -translate-x-full group-hover/badge:translate-x-0 transition-transform duration-300"></div>
+                        <span className="relative z-10">{tech}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </motion.div>
           ))}
