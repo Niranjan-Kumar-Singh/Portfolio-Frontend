@@ -18,7 +18,7 @@ const educationData = [
     ),
     highlights: [
       <>Final Year Project: <span className="highlight">Spicyy Food</span> – a <span className="highlight">full-stack</span> food ordering web app</>,
-      "Finalist of Smart India Hackathon(2022)",
+      "Grand Finale Participant — Smart India Hackathon 2022 (Senior Software Edition)",
       "Built several small projects for hands-on learning (available on GitHub)",
       "Won 2nd prize in a photography competition in 1st year"
     ],

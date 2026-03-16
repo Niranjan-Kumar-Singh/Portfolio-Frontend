@@ -8,6 +8,7 @@ const navItems = [
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
+  { name: "Achievements", href: "#achievements" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -66,7 +67,7 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Nav - Terminal Bracket Style */}
-          <nav className="hidden md:flex gap-6 lg:gap-10 items-center relative z-10">
+          <nav className="hidden md:flex gap-4 lg:gap-7 items-center relative z-10">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}

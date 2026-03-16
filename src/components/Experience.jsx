@@ -5,18 +5,23 @@ const experienceData = [
   {
     role: "Software Consultant",
     company: "Supai Infotech",
-    date: "Current",
+    type: "Product Company",
+    date: "Jan 2025 – Present",
+    status: "active",
     description: "Developing and integrating scalable enterprise-level software solutions. Gaining extensive hands-on exposure to OpenText platforms, designing robust REST APIs using JSON, and working closely with clients to deliver high-performance web applications.",
     tech: ["Java", "OpenText", "REST APIs", "JSON", "JavaScript"]
   },
   {
     role: "React.js Developer Training",
     company: "Euphoria GenX",
+    type: "Training Institute",
     date: "Aug 2024 – Sep 2024",
+    status: "completed",
     description: "Completed an intensive 2-month hands-on training focused on frontend development. Built several mini-projects and reimplemented static applications into dynamic React interfaces using hooks, components, and state management strategies.",
     tech: ["React.js", "JavaScript", "HTML5", "CSS3", "Tailwind CSS"]
   }
 ];
+
 
 const Experience = () => {
   const lineRef = useRef(null);
@@ -64,35 +69,57 @@ const Experience = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: idx * 0.2 }}
             >
-              {/* Glowing Timeline Node - Cyber Diamond */}
+              {/* Glowing Timeline Node - Cyber Diamond: amber for achievements, blue for work */}
               <motion.div
-                className="absolute w-4 h-4 bg-background border-2 border-primary rounded-none rotate-45 -left-[7px] top-6 z-10 cursor-crosshair group-hover:bg-primary transition-colors duration-300"
+                className={`absolute w-4 h-4 bg-background border-2 rounded-none rotate-45 -left-[7px] top-6 z-10 cursor-crosshair transition-colors duration-300 ${exp.badge ? 'border-yellow-400' : 'border-primary'}`}
                 initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1, boxShadow: "0 0 10px rgba(59,130,246,0.8)" }}
+                whileInView={{ scale: 1, opacity: 1, boxShadow: exp.badge ? "0 0 10px rgba(250,204,21,0.8)" : "0 0 10px rgba(59,130,246,0.8)" }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.4, delay: (idx * 0.2) + 0.3 }}
                 whileHover={{ scale: 1.5, rotate: 90 }}
               >
-                <div className="absolute inset-0 m-auto w-1 h-1 bg-accent rotate-45 animate-pulse"></div>
+                <div className={`absolute inset-0 m-auto w-1 h-1 rotate-45 animate-pulse ${exp.badge ? 'bg-yellow-400' : 'bg-accent'}`}></div>
               </motion.div>
 
               <div className="glass-card p-6 md:p-8 rounded-none border border-primary/20 hover:border-primary/60 transition-colors group relative overflow-hidden bg-[#030712]/60 filter backdrop-blur-md cursor-crosshair shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]">
                 {/* Structural corner lines */}
-                <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-accent transition-all duration-300 group-hover:w-6 group-hover:h-6 pointer-events-none z-20"></div>
-                <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-accent transition-all duration-300 group-hover:w-6 group-hover:h-6 pointer-events-none z-20"></div>
+                <div className={`absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 transition-all duration-300 group-hover:w-6 group-hover:h-6 pointer-events-none z-20 ${exp.badge ? 'border-yellow-400/60' : 'border-accent'}`}></div>
+                <div className={`absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 transition-all duration-300 group-hover:w-6 group-hover:h-6 pointer-events-none z-20 ${exp.badge ? 'border-yellow-400/60' : 'border-accent'}`}></div>
 
                 {/* Animated Scanner Focus Line */}
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20"></div>
 
                 {/* Animated Background Data Pulse */}
-                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${exp.badge ? 'bg-yellow-400/5' : 'bg-primary/5'}`}></div>
 
                 <div className="relative z-10">
-                  <h3 className="text-xl md:text-2xl font-heading font-bold text-textMain group-hover:text-primary transition-colors flex items-center">
-                    <span className="text-primary font-mono text-sm mr-2 opacity-0 group-hover:opacity-100 transition-opacity">{'>>'}</span>
-                    {exp.role}
-                  </h3>
-                  <h4 className="text-lg text-primary font-medium mb-1 drop-shadow-[0_0_5px_rgba(59,130,246,0.5)]">{exp.company}</h4>
+                  {/* Role + optional government badge */}
+                  <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
+                    <h3 className="text-xl md:text-2xl font-heading font-bold text-textMain group-hover:text-primary transition-colors flex items-center">
+                      <span className="text-primary font-mono text-sm mr-2 opacity-0 group-hover:opacity-100 transition-opacity">{'>>'}</span>
+                      {exp.role}
+                    </h3>
+                    {exp.badge && (
+                      <span className="text-[9px] font-mono tracking-widest uppercase px-2 py-1 border border-yellow-400/40 text-yellow-400 bg-yellow-400/10 flex-shrink-0">
+                        ★ {exp.badge}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex flex-wrap items-center gap-3 mb-1">
+                    <h4 className="text-lg text-primary font-medium drop-shadow-[0_0_5px_rgba(59,130,246,0.5)]">{ exp.company}</h4>
+                    {exp.type && (
+                      <span className="text-[8px] font-mono tracking-widest uppercase px-2 py-0.5 border border-primary/30 text-primary/60 bg-primary/5">{exp.type}</span>
+                    )}
+                    {exp.status === 'active' && (
+                      <span className="flex items-center gap-1 text-[9px] font-mono tracking-widest uppercase text-emerald-400">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]"/>
+                        ACTIVE
+                      </span>
+                    )}
+                    {exp.status === 'completed' && (
+                      <span className="text-[9px] font-mono tracking-widest uppercase text-white/25">COMPLETED</span>
+                    )}
+                  </div>
                   <p className="font-mono text-xs text-textMuted mb-6 tracking-widest uppercase border-b border-white/5 pb-2 inline-block"><span className="text-accent">TIME:</span> {exp.date}</p>
 
                   <p className="text-textMuted leading-relaxed mb-6">
