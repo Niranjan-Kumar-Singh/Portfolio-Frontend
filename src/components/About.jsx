@@ -68,9 +68,7 @@ const About = () => {
           >
             {/* Primary Image Container */}
             <div className="relative z-10 rounded-sm overflow-hidden p-0 aspect-[4/5] flex items-center justify-center bg-background group-hover:-translate-y-2 group-hover:-translate-x-2 transition-transform duration-500 border border-primary/20 group-hover:border-primary/50 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-              {/* Scanline Overlay over Image */}
-              <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.4)_51%)] bg-[length:100%_4px] pointer-events-none z-20"></div>
-              
+
               <div className="absolute inset-0 bg-primary/20 opacity-80 group-hover:opacity-10 transition-opacity duration-500 z-10 mix-blend-color pointer-events-none"></div>
               <img src={profilePic} alt="Niranjan" className="w-full h-full object-cover filter grayscale contrast-125 sepia-[0.2] hue-rotate-180 group-hover:grayscale-0 group-hover:sepia-0 group-hover:hue-rotate-0 group-hover:contrast-110 transition-all duration-700 relative z-0" />
               
