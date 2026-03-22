@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^2.0.0",
     "axios": "^1.8.4",
     "framer-motion": "^12.35.2",
+    "nodemailer": "^8.0.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-hot-toast": "^2.5.2",

@@ -11,6 +11,7 @@ import Loader from './components/Loader';
 import FadeInSection from './components/FadeInSection';
 import { ThemeProvider } from './context/ThemeContext';
 import { AnimatePresence } from 'framer-motion';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 import About from './components/About';
 import TechStack from './components/TechStack';
@@ -62,6 +63,7 @@ const App = () => {
         <Footer />
         <ThemeSwitcher />
         <ScrollToTop />
+        <SpeedInsights />
       </div>
     </ThemeProvider>
   );

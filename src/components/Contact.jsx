@@ -212,9 +212,10 @@ const Contact = () => {
       return;
     }
     setIsSubmitting(true);
-    const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+    
     try {
-      const response = await axios.post(`${API_BASE}/api/contact`, formData);
+      // Vercel Serverless API Routing
+      const response = await axios.post(`/api/contact`, formData);
       if (response.data.success) {
         toast.success("Message transmitted successfully!");
         setFormData({ name: "", email: "", message: "" });
