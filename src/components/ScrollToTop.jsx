@@ -40,7 +40,7 @@ const ScrollToTop = () => {
                     transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                     onClick={scrollToTop}
                     onMouseEnter={() => playSound('hover')}
-                    className="fixed bottom-24 left-6 md:bottom-8 md:left-8 z-50 w-14 h-14 bg-[#020610]/90 backdrop-blur-xl border border-primary/40 flex flex-col items-center justify-center text-primary hover:text-white hover:bg-primary/20 hover:border-primary hover:shadow-[0_0_25px_rgba(59,130,246,0.6)] transition-all duration-300 group overflow-hidden cursor-crosshair shadow-[0_0_15px_rgba(0,0,0,0.8)] rounded-none"
+                    className="fixed bottom-24 left-6 md:bottom-8 md:left-8 z-50 w-14 h-14 bg-[#020610]/90 backdrop-blur-xl border border-primary/40 hidden md:flex flex-col items-center justify-center text-primary hover:text-white hover:bg-primary/20 hover:border-primary hover:shadow-[0_0_25px_rgba(59,130,246,0.6)] transition-all duration-300 group overflow-hidden cursor-crosshair shadow-[0_0_15px_rgba(0,0,0,0.8)] rounded-none"
                     aria-label="Scroll to top"
                 >
                     {/* Animated Neon Scanner Line */}
