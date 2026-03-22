@@ -6,6 +6,7 @@ import Background from './components/Background';
 import Cursor from './components/Cursor';
 import Separator from './components/Separator';
 import ThemeSwitcher from './components/ThemeSwitcher';
+import ScrollToTop from './components/ScrollToTop';
 import Loader from './components/Loader';
 import FadeInSection from './components/FadeInSection';
 import { ThemeProvider } from './context/ThemeContext';
@@ -21,17 +22,15 @@ import Contact from './components/Contact';
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  // Optional: Disable loader entirely if user has visited recently in this session
+  // Disable sessionStorage cache so the cool boot animation runs on every load
   useEffect(() => {
-    const hasVisited = sessionStorage.getItem('hasBooted');
-    if (hasVisited) {
-      setIsLoading(false);
-    }
+    // const hasVisited = sessionStorage.getItem('hasBooted');
+    // if (hasVisited) setIsLoading(false);
   }, []);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
-    sessionStorage.setItem('hasBooted', 'true');
+    // sessionStorage.setItem('hasBooted', 'true');
   };
 
   return (
@@ -62,6 +61,7 @@ const App = () => {
 
         <Footer />
         <ThemeSwitcher />
+        <ScrollToTop />
       </div>
     </ThemeProvider>
   );

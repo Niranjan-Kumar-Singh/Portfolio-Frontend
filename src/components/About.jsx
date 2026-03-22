@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import GitHubActivity from './GitHubActivity';
 import profilePic from '../assets/Niranjan.png';
 
 const About = () => {
+  const [isColored, setIsColored] = useState(false);
   return (
     <section id="about" className="pt-12 pb-24 relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
@@ -61,22 +62,23 @@ const About = () => {
           {/* Image/Abstract Decorative Side */}
           <motion.div
             className="lg:col-span-2 relative group w-4/5 lg:w-full max-w-sm mx-auto cursor-crosshair"
+            onClick={() => setIsColored(!isColored)}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
             {/* Primary Image Container */}
-            <div className="relative z-10 rounded-sm overflow-hidden p-0 aspect-[4/5] flex items-center justify-center bg-background group-hover:-translate-y-2 group-hover:-translate-x-2 transition-transform duration-500 border border-primary/20 group-hover:border-primary/50 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+            <div className={`relative z-10 rounded-sm overflow-hidden p-0 aspect-[4/5] bg-background transition-transform duration-500 border shadow-[0_0_20px_rgba(0,0,0,0.5)] ${isColored ? '-translate-y-2 -translate-x-2 border-primary/50' : 'border-primary/20 group-hover:-translate-y-2 group-hover:-translate-x-2 group-hover:border-primary/50'}`}>
 
-              <div className="absolute inset-0 bg-primary/20 opacity-80 group-hover:opacity-10 transition-opacity duration-500 z-10 mix-blend-color pointer-events-none"></div>
-              <img src={profilePic} alt="Niranjan" className="w-full h-full object-cover filter grayscale contrast-125 sepia-[0.2] hue-rotate-180 group-hover:grayscale-0 group-hover:sepia-0 group-hover:hue-rotate-0 group-hover:contrast-110 transition-all duration-700 relative z-0" />
+              <div className={`absolute inset-0 bg-primary/20 transition-opacity duration-500 z-10 mix-blend-color pointer-events-none ${isColored ? 'opacity-10' : 'opacity-80 group-hover:opacity-10'}`}></div>
+              <img src={profilePic} alt="Niranjan" className={`w-full h-full object-cover filter transition-all duration-700 relative z-0 ${isColored ? 'grayscale-0 sepia-0 hue-rotate-0 contrast-110' : 'grayscale contrast-125 sepia-[0.2] hue-rotate-180 group-hover:grayscale-0 group-hover:sepia-0 group-hover:hue-rotate-0 group-hover:contrast-110'}`} />
               
               {/* Animated HUD Scanner Line */}
               <motion.div 
-                className="absolute top-0 left-0 w-full h-[2px] bg-primary/80 shadow-[0_0_15px_rgba(59,130,246,1)] z-30 opacity-0 group-hover:opacity-100"
-                animate={{ y: ["0%", "400%"] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                className="absolute top-0 left-0 w-full h-[2px] bg-primary/90 shadow-[0_0_15px_rgba(59,130,246,1)] z-30 opacity-0 group-hover:opacity-100 pointer-events-none"
+                animate={{ top: ["0%", "100%"] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "linear", repeatDelay: 0.3 }}
               />
             </div>
 

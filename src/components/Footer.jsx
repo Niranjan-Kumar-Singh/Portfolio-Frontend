@@ -94,28 +94,12 @@ const HeartbeatLine = () => {
   return (
     <canvas
       ref={canvasRef}
-      width={200}
-      height={32}
-      className="opacity-70"
+      width={300}
+      height={48}
+      className="opacity-70 mt-2"
     />
   );
 };
-
-// ─── Scroll to top ────────────────────────────────────────────────────────────
-const ScrollTop = () => (
-  <motion.button
-    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-    className="group relative w-10 h-10 flex items-center justify-center cursor-crosshair overflow-hidden"
-    whileHover={{ scale: 1.05 }}
-    title="Back to top"
-  >
-    <div className="absolute inset-0 border border-primary/30 group-hover:border-primary/80 transition-colors duration-300" />
-    <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-accent transition-all duration-300 group-hover:w-4 group-hover:h-4" />
-    <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-accent transition-all duration-300 group-hover:w-4 group-hover:h-4" />
-    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
-    <FiArrowUp size={16} className="relative z-10 text-primary group-hover:text-white transition-colors duration-300" />
-  </motion.button>
-);
 
 // ─── Main Footer ──────────────────────────────────────────────────────────────
 const Footer = () => {
@@ -144,7 +128,7 @@ const Footer = () => {
       <div className="container mx-auto px-6 md:px-12">
 
         {/* ── Main footer row ── */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 py-8 relative">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10 py-16 md:py-20 relative">
 
           {/* LEFT — signature block */}
           <motion.div
@@ -155,16 +139,25 @@ const Footer = () => {
             className="flex flex-col items-center md:items-start gap-2"
           >
             {/* Name badge */}
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-primary rounded-none animate-pulse shadow-[0_0_6px_rgba(59,130,246,0.8)]" />
-              <span className="font-mono text-xs text-primary tracking-[0.25em] uppercase">NODE.IDENTITY</span>
+            <div className="flex items-center gap-2 mb-1">
+              <div className="w-2 h-2 bg-primary rounded-none animate-pulse shadow-[0_0_8px_rgba(59,130,246,0.8)]" />
+              <span className="font-mono text-xs text-primary tracking-[0.3em] uppercase">NODE.IDENTITY</span>
             </div>
-            <p className="font-heading font-bold text-xl text-white tracking-wide">
+            <p className="font-heading font-bold text-3xl md:text-4xl text-white tracking-wide">
               Niranjan Kumar Singh
             </p>
-            <p className="text-textMuted font-mono text-[10px] tracking-widest uppercase">
-              Full Stack Developer · MERN Stack
+            <p className="text-textMuted font-mono text-xs tracking-widest uppercase mt-1">
+              Full Stack Software Engineer
             </p>
+            
+            {/* Availability Badge */}
+            <div className="mt-4 flex items-center gap-3 px-4 py-2 bg-green-500/10 border border-green-500/20 backdrop-blur-sm self-center md:self-start">
+              <div className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)]"></span>
+              </div>
+              <span className="text-[11px] font-mono text-green-400 tracking-[0.2em] uppercase">Status: Available for Deployment</span>
+            </div>
           </motion.div>
 
           {/* CENTER — heartbeat / system status */}
@@ -203,7 +196,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="group relative w-9 h-9 flex items-center justify-center cursor-crosshair overflow-hidden"
+                    className="group relative w-12 h-12 flex items-center justify-center cursor-crosshair overflow-hidden"
                     initial={{ opacity: 0, scale: 0.7 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -248,7 +241,7 @@ const Footer = () => {
                       }}
                       className="text-textMuted relative z-10 transition-colors duration-200"
                     >
-                      <Icon size={16} />
+                      <Icon size={20} />
                     </motion.div>
 
                     {/* Tooltip */}
@@ -261,12 +254,6 @@ const Footer = () => {
                   </motion.a>
                 );
               })}
-
-              {/* Divider */}
-              <div className="w-[1px] h-6 bg-white/10" />
-
-              {/* Scroll to top */}
-              <ScrollTop />
             </div>
           </motion.div>
         </div>

@@ -104,7 +104,7 @@ const TiltCard = ({ children, className }) => {
 const Projects = () => {
   return (
     <section id="projects" className="pt-12 pb-24 relative">
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -139,14 +139,13 @@ const Projects = () => {
             >
               <TiltCard className="lg:col-span-7 relative cursor-pointer lg:order-1 order-2">
                 <div className="absolute -inset-[1px] bg-primary/30 border border-primary/50 opacity-0 group-hover/feature:opacity-100 transition duration-300"></div>
-                <div className="w-full h-64 md:h-96 bg-surfaceLight border border-white/10 rounded-none overflow-hidden flex items-center justify-center relative group/image z-10 transition-colors group-hover/feature:border-primary/50">
-                  <div className="absolute inset-0 bg-primary/20 mix-blend-multiply group-hover/image:opacity-0 transition-opacity duration-500 z-10"></div>
+                <div className="w-full h-56 sm:h-64 md:h-96 bg-surfaceLight border border-white/10 rounded-none overflow-hidden flex items-center justify-center relative group/image z-10 transition-colors group-hover/feature:border-primary/50">
                   <motion.div
                     className="absolute inset-0"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover filter brightness-75 contrast-125 group-hover/image:filter-none transition-all duration-500" />
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-all duration-500" />
                   </motion.div>
                 </div>
               </TiltCard>
@@ -155,7 +154,7 @@ const Projects = () => {
                 <p className="text-accent font-mono text-sm mb-2 pointer-events-auto">Featured Project</p>
                 <h3 className="text-2xl md:text-3xl font-heading font-bold mb-6 text-textMain hover:text-primary transition-colors cursor-pointer pointer-events-auto">{project.title}</h3>
 
-                <div className="p-6 rounded-none border border-primary/20 text-textMuted text-sm md:text-base mb-6 shadow-[0_0_15px_rgba(0,0,0,0.5)] leading-relaxed text-left lg:text-right pointer-events-auto relative overflow-hidden group/card bg-[#030712]/80 backdrop-blur-sm transition-colors border-l-2 hover:border-l-primary">
+                <div className="p-4 sm:p-6 rounded-none border border-primary/20 text-textMuted text-sm md:text-base mb-6 shadow-[0_0_15px_rgba(0,0,0,0.5)] leading-relaxed text-left lg:text-right pointer-events-auto relative overflow-hidden group/card bg-[#030712]/80 backdrop-blur-sm transition-colors border-l-2 hover:border-l-primary">
                   {/* Hardware Terminal Corner Accents */}
                   <div className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-primary/50 transition-all duration-300 group-hover/card:border-primary group-hover/card:w-5 group-hover/card:h-5"></div>
                   <div className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-primary/50 transition-all duration-300 group-hover/card:border-primary group-hover/card:w-5 group-hover/card:h-5"></div>
@@ -219,13 +218,11 @@ const Projects = () => {
                 <div className="z-10 flex flex-col h-full">
                   {/* Image Banner */}
                   <div className="w-full h-40 relative overflow-hidden bg-surfaceLight/50 border-b border-primary/20 group-hover:border-primary/60 transition-colors shrink-0">
-                    <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.4)_51%)] bg-[length:100%_4px] pointer-events-none z-20"></div>
-                    <div className="absolute inset-0 bg-primary/20 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-500 z-10"></div>
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover grayscale opacity-70 filter contrast-125 sepia-[0.2] hue-rotate-180 group-hover:grayscale-0 group-hover:sepia-0 group-hover:hue-rotate-0 group-hover:opacity-100 group-hover:contrast-110 transition-all duration-700 transform group-hover:scale-105" />
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-all duration-700 transform group-hover:scale-105" />
                   </div>
                   
                   {/* Content Area */}
-                  <div className="p-6 flex flex-col flex-grow">
+                  <div className="p-4 sm:p-6 flex flex-col flex-grow">
                     <div className="flex justify-between items-center mb-4 text-textMuted">
                       <motion.div className="text-primary text-2xl" whileHover={{ rotate: 10, scale: 1.1 }}>
                         📁

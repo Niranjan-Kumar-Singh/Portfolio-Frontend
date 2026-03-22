@@ -13,7 +13,7 @@
 
 ## 📸 Preview
 
-![Preview of Niranjan Kumar Singh's Portfolio Website](public/images/homepage.png "MERN Stack Developer Portfolio - Homepage Preview")
+![Preview of Niranjan Kumar Singh's Portfolio Website](public/images/homepage.png "Full Stack Software Engineer Portfolio - Homepage Preview")
 
 ---
 
@@ -21,7 +21,7 @@
 
 🎓 I'm **Niranjan Kumar Singh**, a final-year B.Tech CSE student at [Elitte College of Engineering](https://ece.ac.in/) (Graduating June 2025), based in Siliguri, West Bengal.
 
-💻 I'm a passionate **MERN Stack Developer**, actively looking for **Frontend**, **Backend**, or **SDE** roles.
+💻 I'm a passionate **Full Stack Software Engineer**, actively looking for **Frontend**, **Backend**, or **SDE** roles.
 
 🧰 Skilled in React, Node.js, Express, MongoDB, and building intuitive, performant UIs.
 
@@ -57,13 +57,23 @@
 ## 🌟 Features
 
 - ⚡ Blazing fast performance with Vite
-- 📱 Fully responsive design for all screens
+- 📱 Fully responsive design across all viewports
 - 🧩 Modular & reusable React components
-- 🎨 Glassmorphism UI + particle background
-- 🧠 Structured experience/education timeline
-- 📄 Resume download support
+- 🎨 Glassmorphism UI + Dynamic Particle engine
+- 💻 **Interactive UNIX Terminal Simulator**
+- 🔊 **Ambient Cyberpunk Web Audio Engine**
+- 🌈 **Global CSS Root Theme Switcher**
+- 📄 Direct raw PDF Resume download support
 - 🕵️ SEO Optimized with sitemap and robots.txt
 - 📊 Integrated Vercel Analytics
+
+---
+
+## ⚙️ Advanced Modules
+
+- **Interactive Terminal Context (`Terminal.jsx`)**: A highly stylized, fully functional terminal parsing engine that handles filesystem-like inputs. Commands include `matrix`, `about`, `sudo rm -rf /`, `download`, and native theme switching.
+- **Audio Synthesizer (`useSound.js`)**: Leverages the native Web Audio API to actively generate oscillator-based UI feedback (clicks, hovers, matrix boot sequences) giving the system weight without bloated MP3 files.
+- **Live Theme Engine**: Hooks deeply into the CSS `:root` via Tailwind configurations allowing players to instantly swap the entire application's neon color-grade to Hacker Green, Cyber Pink, Warning Orange, or System Blue.
 
 ---
 
@@ -86,8 +96,7 @@ portfolio/
 │   ├── favicon.ico
 │   ├── resume.pdf
 │   ├── robots.txt
-│   ├── sitemap.xml
-│   └── rocket-colorful.svg
+│   └── sitemap.xml
 ├── src/
 │   ├── components/         # Reusable UI components
 │   ├── styles/             # Tailwind/custom styles

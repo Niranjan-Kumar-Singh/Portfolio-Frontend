@@ -55,7 +55,7 @@ const GitHubActivity = ({ username = 'Niranjan-Kumar-Singh' }) => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="w-full mt-16 mb-8 p-6 bg-surfaceLight/10 border border-white/10 relative overflow-hidden group"
+            className="w-full mt-16 mb-8 p-4 sm:p-6 bg-surfaceLight/10 border border-white/10 relative overflow-hidden group"
             onMouseEnter={() => playSound('hover')}
         >
             {/* Cyberpunk Decorative Corners */}
@@ -79,10 +79,10 @@ const GitHubActivity = ({ username = 'Niranjan-Kumar-Singh' }) => {
                         </div>
                     </div>
                     <div>
-                        <h4 className="font-mono text-white text-sm md:text-base flex items-center gap-2">
-                            {profile.login} <span className="text-secondary/80 text-xs px-2 py-0.5 border border-secondary/30 bg-secondary/10">VERIFIED_DEV</span>
+                        <h4 className="font-mono text-white text-sm md:text-base flex flex-wrap items-center gap-2">
+                            {profile.login} <span className="text-secondary/80 text-[10px] sm:text-xs px-2 py-0.5 border border-secondary/30 bg-secondary/10 whitespace-nowrap">VERIFIED_DEV</span>
                         </h4>
-                        <div className="font-mono text-xs text-textMuted mt-1 space-x-4">
+                        <div className="font-mono text-[10px] sm:text-xs text-textMuted mt-2 flex flex-wrap gap-3 sm:gap-4">
                             <span><strong className="text-white">{profile.public_repos}</strong> REPOS</span>
                             <span><strong className="text-white">{profile.followers}</strong> FOLLOWERS</span>
                         </div>
@@ -90,8 +90,8 @@ const GitHubActivity = ({ username = 'Niranjan-Kumar-Singh' }) => {
                 </div>
 
                 {/* Right: Recent Commits/Repos */}
-                <div className="w-full md:w-auto flex-grow max-w-md border-l-2 border-primary/20 pl-4">
-                    <div className="font-mono text-xs text-primary mb-2 flex items-center gap-2">
+                <div className="w-full md:w-auto flex-grow max-w-md border-t-2 md:border-t-0 md:border-l-2 border-primary/20 pt-4 md:pt-0 pl-0 md:pl-4">
+                    <div className="font-mono text-[10px] sm:text-xs text-primary mb-3 flex items-center gap-2">
                         <FiTerminal size={12} /> RECENT_DEPLOYMENTS
                     </div>
                     <div className="space-y-2">

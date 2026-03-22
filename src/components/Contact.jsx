@@ -283,9 +283,9 @@ const Contact = () => {
             <div className="relative p-5 border border-primary/15 bg-primary/5 backdrop-blur-sm">
               <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-accent/60" />
               <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-accent/60" />
-              <p className="text-[10px] font-mono text-primary/70 tracking-widest uppercase mb-2">SYS.STATUS</p>
+              <p className="text-[10px] font-mono text-primary/70 tracking-widest uppercase mb-2">SYS.MESSAGE</p>
               <p className="text-textMuted text-sm leading-relaxed font-mono">
-                Currently <span className="text-green-400">● AVAILABLE</span> for full-time SDE roles. Whether you have a project proposal, a collaboration idea, or just want to say hi — my channels are always open.
+                Whether you have a project proposal, a collaboration idea, or just want to connect — my communication channels are securely open. Feel free to reach out via the terminal form below or through any of my direct channels.
               </p>
             </div>
 
@@ -311,7 +311,7 @@ const Contact = () => {
           >
             <form
               onSubmit={handleSubmit}
-              className="relative p-7 md:p-9 flex flex-col gap-7 bg-[#030712]/70 border border-primary/20 hover:border-primary/50 transition-colors duration-300 backdrop-blur-md group shadow-[0_0_30px_rgba(0,0,0,0.6)]"
+              className="relative p-5 sm:p-7 md:p-9 flex flex-col gap-6 sm:gap-7 bg-[#030712]/70 border border-primary/20 hover:border-primary/50 transition-colors duration-300 backdrop-blur-md group shadow-[0_0_30px_rgba(0,0,0,0.6)]"
             >
               {/* Corner accents */}
               <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-accent/70 group-hover:border-accent transition-colors duration-300" />

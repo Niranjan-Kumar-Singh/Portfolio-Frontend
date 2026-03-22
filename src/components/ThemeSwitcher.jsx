@@ -9,6 +9,25 @@ const ThemeSwitcher = () => {
     const { playSound } = useSound();
     const [isOpen, setIsOpen] = useState(false);
 
+    React.useEffect(() => {
+        const handleOutsideActivity = (e) => {
+            if (!isOpen) return;
+            if (e.type === 'scroll') {
+                setIsOpen(false);
+            } else if (e.type === 'click' && typeof e.target.closest === 'function') {
+                if (!e.target.closest('.theme-switcher-container')) {
+                    setIsOpen(false);
+                }
+            }
+        };
+        window.addEventListener('scroll', handleOutsideActivity, { passive: true });
+        window.addEventListener('click', handleOutsideActivity);
+        return () => {
+            window.removeEventListener('scroll', handleOutsideActivity);
+            window.removeEventListener('click', handleOutsideActivity);
+        };
+    }, [isOpen]);
+
     const themes = [
         { id: 'blue', name: 'NEON_BLUE', hex: '#3b82f6' },
         { id: 'green', name: 'HACKER_GREEN', hex: '#10b981' },
@@ -34,7 +53,7 @@ const ThemeSwitcher = () => {
     };
 
     return (
-        <div className="fixed bottom-6 right-6 z-50">
+        <div className="fixed bottom-6 right-6 z-50 theme-switcher-container">
             <AnimatePresence>
                 {isOpen && (
                     <motion.div

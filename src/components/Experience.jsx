@@ -6,7 +6,7 @@ const experienceData = [
     role: "Software Consultant",
     company: "Supai Infotech",
     type: "Product Company",
-    date: "Jan 2025 – Present",
+    date: "Mar 2026 – Present",
     status: "active",
     description: "Developing and integrating scalable enterprise-level software solutions. Gaining extensive hands-on exposure to OpenText platforms, designing robust REST APIs using JSON, and working closely with clients to deliver high-performance web applications.",
     tech: ["Java", "OpenText", "REST APIs", "JSON", "JavaScript"]
@@ -29,7 +29,7 @@ const Experience = () => {
 
   return (
     <section id="experience" className="pt-12 pb-24 relative">
-      <div className="container mx-auto px-6 md:px-12 max-w-4xl">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,19 +51,20 @@ const Experience = () => {
           </div>
         </motion.div>
 
-        <div className="relative ml-4 md:ml-6 space-y-16 pb-8" ref={lineRef}>
+        <div className="relative ml-2 sm:ml-4 md:ml-6 space-y-12 sm:space-y-16 pb-8" ref={lineRef}>
           {/* Animated Timeline Connector */}
           <motion.div
-            className="absolute left-0 top-2 bottom-0 w-[2px] bg-gradient-to-b from-primary via-secondary to-transparent"
+            className="absolute left-[0px] top-2 bottom-0 w-[2px] bg-gradient-to-b from-primary via-secondary to-transparent"
             initial={{ height: 0 }}
-            animate={isLineInView ? { height: "100%" } : { height: 0 }}
+            whileInView={{ height: "100%" }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
           />
 
           {experienceData.map((exp, idx) => (
             <motion.div
               key={idx}
-              className="relative pl-8 md:pl-12"
+              className="relative pl-6 sm:pl-8 md:pl-12"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -81,7 +82,7 @@ const Experience = () => {
                 <div className={`absolute inset-0 m-auto w-1 h-1 rotate-45 animate-pulse ${exp.badge ? 'bg-yellow-400' : 'bg-accent'}`}></div>
               </motion.div>
 
-              <div className="glass-card p-6 md:p-8 rounded-none border border-primary/20 hover:border-primary/60 transition-colors group relative overflow-hidden bg-[#030712]/60 filter backdrop-blur-md cursor-crosshair shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]">
+              <div className="glass-card p-4 sm:p-6 md:p-8 rounded-none border border-primary/20 hover:border-primary/60 transition-colors group relative overflow-hidden bg-[#030712]/60 filter backdrop-blur-md cursor-crosshair shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]">
                 {/* Structural corner lines */}
                 <div className={`absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 transition-all duration-300 group-hover:w-6 group-hover:h-6 pointer-events-none z-20 ${exp.badge ? 'border-yellow-400/60' : 'border-accent'}`}></div>
                 <div className={`absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 transition-all duration-300 group-hover:w-6 group-hover:h-6 pointer-events-none z-20 ${exp.badge ? 'border-yellow-400/60' : 'border-accent'}`}></div>

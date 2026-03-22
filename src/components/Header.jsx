@@ -65,7 +65,7 @@ const Header = () => {
           100% { transform: translate(0) }
         }
       `}</style>
-      <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-12 md:pt-20">
+      <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 md:pt-32">
         
         {/* CRT Scanline Overlay */}
         <div className="absolute inset-0 pointer-events-none z-50 scanlines opacity-50 mix-blend-overlay"></div>
@@ -116,7 +116,7 @@ const Header = () => {
 
         <motion.div
           style={{ willChange: "transform" }}
-          className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center text-center"
+          className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10 flex flex-col items-center text-center w-full"
         >
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -135,7 +135,7 @@ const Header = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-bold font-heading mb-6 leading-tight tracking-tighter cursor-crosshair group"
+            className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold font-heading mb-6 leading-tight tracking-tighter cursor-crosshair group w-full"
           >
             <span className="text-white group-hover:text-primary/90 transition-colors duration-200">Niranjan</span><br />
             <motion.span
@@ -152,7 +152,7 @@ const Header = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl md:text-3xl text-textMuted font-mono font-light mb-8 h-10"
+            className="text-lg sm:text-xl md:text-3xl text-textMuted font-mono font-light mb-8 h-10 w-full"
           >
             {'>'} <span className="text-white">
               <Typewriter

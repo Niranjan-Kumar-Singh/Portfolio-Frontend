@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { FiCode } from 'react-icons/fi';
 
 const Loader = ({ onLoadingComplete }) => {
     const [progress, setProgress] = useState(0);
@@ -78,8 +79,13 @@ const Loader = ({ onLoadingComplete }) => {
                     className="w-24 h-24 mb-12 border border-primary/50 flex items-center justify-center relative bg-primary/5"
                 >
                     <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-primary -translate-x-[2px] -translate-y-[2px]"></div>
-                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-primary translate-x-[2px] translate-y-[2px]"></div>
-                    <span className="font-mono text-3xl font-bold text-primary">NK</span>
+                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-primary translate-x-[2px] -translate-y-[2px]"></div>
+                    {/* Central User Matrix Portrait */}
+                    <img 
+                        src="/Niranjan.png" 
+                        alt="Node Identity Core" 
+                        className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover rounded-none grayscale opacity-80 mix-blend-screen"
+                    />
                 </motion.div>
 
                 {/* Terminal Output */}

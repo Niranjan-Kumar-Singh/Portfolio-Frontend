@@ -55,73 +55,82 @@ export const useSound = () => {
 
         switch (type) {
             case 'hover':
-                // High, short, subtle blip
+                // Extremely subtle, high-pitched glassy tick for rapid hovering
                 oscillator.type = 'sine';
-                oscillator.frequency.setValueAtTime(800, now);
-                oscillator.frequency.exponentialRampToValueAtTime(1200, now + 0.05);
+                oscillator.frequency.setValueAtTime(1200, now);
                 gainNode.gain.setValueAtTime(0, now);
-                gainNode.gain.linearRampToValueAtTime(0.05, now + 0.01);
-                gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+                gainNode.gain.linearRampToValueAtTime(0.015, now + 0.005);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.03);
                 oscillator.start(now);
-                oscillator.stop(now + 0.05);
+                oscillator.stop(now + 0.03);
                 break;
 
             case 'click':
-                // Deep, mechanical thud/click
-                oscillator.type = 'square';
-                oscillator.frequency.setValueAtTime(150, now);
-                oscillator.frequency.exponentialRampToValueAtTime(40, now + 0.1);
+                // Premium soft UI click (like a high-end clean UI switch)
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(400, now);
+                oscillator.frequency.exponentialRampToValueAtTime(200, now + 0.05);
+                
+                gainNode.gain.setValueAtTime(0, now);
+                gainNode.gain.linearRampToValueAtTime(0.06, now + 0.005);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
 
-                // Filter for mechanical feel
+                // Add a second transient oscillator for a richer "click" snap
+                const osc2 = audioCtx.createOscillator();
+                osc2.type = 'triangle';
+                osc2.frequency.setValueAtTime(800, now);
+                osc2.frequency.exponentialRampToValueAtTime(100, now + 0.03);
+                osc2.connect(gainNode);
+                osc2.start(now);
+                osc2.stop(now + 0.03);
+
+                oscillator.start(now);
+                oscillator.stop(now + 0.08);
+                break;
+
+            case 'open':
+                // Smooth, airy, ambient UI ascent
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(300, now);
+                oscillator.frequency.exponentialRampToValueAtTime(600, now + 0.15);
+                gainNode.gain.setValueAtTime(0, now);
+                gainNode.gain.linearRampToValueAtTime(0.04, now + 0.05);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+                oscillator.start(now);
+                oscillator.stop(now + 0.15);
+                break;
+
+            case 'close':
+                // Smooth, airy, ambient UI descent
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(600, now);
+                oscillator.frequency.exponentialRampToValueAtTime(300, now + 0.15);
+                gainNode.gain.setValueAtTime(0, now);
+                gainNode.gain.linearRampToValueAtTime(0.04, now + 0.05);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+                oscillator.start(now);
+                oscillator.stop(now + 0.15);
+                break;
+
+            case 'error':
+                // Soft, muted, muffled double-thud instead of a harsh piercing buzzer
+                oscillator.type = 'triangle';
+                oscillator.frequency.setValueAtTime(150, now);
+                oscillator.frequency.linearRampToValueAtTime(100, now + 0.1);
+                
                 const filter = audioCtx.createBiquadFilter();
                 filter.type = 'lowpass';
-                filter.frequency.setValueAtTime(1000, now);
-                filter.frequency.exponentialRampToValueAtTime(100, now + 0.1);
+                filter.frequency.setValueAtTime(600, now);
+                filter.frequency.exponentialRampToValueAtTime(150, now + 0.1);
 
                 oscillator.disconnect(gainNode);
                 oscillator.connect(filter);
                 filter.connect(gainNode);
 
                 gainNode.gain.setValueAtTime(0, now);
-                gainNode.gain.linearRampToValueAtTime(0.1, now + 0.02);
-                gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
-                oscillator.start(now);
-                oscillator.stop(now + 0.1);
-                break;
-
-            case 'open':
-                // Ascending sci-fi sweep (for modals/terminal opening)
-                oscillator.type = 'triangle';
-                oscillator.frequency.setValueAtTime(200, now);
-                oscillator.frequency.exponentialRampToValueAtTime(800, now + 0.2);
-                gainNode.gain.setValueAtTime(0, now);
-                gainNode.gain.linearRampToValueAtTime(0.1, now + 0.05);
-                gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
-                oscillator.start(now);
-                oscillator.stop(now + 0.2);
-                break;
-
-            case 'close':
-                // Descending sci-fi sweep (for closing)
-                oscillator.type = 'triangle';
-                oscillator.frequency.setValueAtTime(800, now);
-                oscillator.frequency.exponentialRampToValueAtTime(200, now + 0.2);
-                gainNode.gain.setValueAtTime(0, now);
-                gainNode.gain.linearRampToValueAtTime(0.1, now + 0.05);
-                gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
-                oscillator.start(now);
-                oscillator.stop(now + 0.2);
-                break;
-
-            case 'error':
-                // Harsh double buzz
-                oscillator.type = 'sawtooth';
-                oscillator.frequency.setValueAtTime(100, now);
-                oscillator.frequency.linearRampToValueAtTime(80, now + 0.1);
-                gainNode.gain.setValueAtTime(0, now);
-                gainNode.gain.linearRampToValueAtTime(0.1, now + 0.02);
-                gainNode.gain.linearRampToValueAtTime(0, now + 0.05);
-                gainNode.gain.linearRampToValueAtTime(0.1, now + 0.06);
+                gainNode.gain.linearRampToValueAtTime(0.05, now + 0.02);
+                gainNode.gain.linearRampToValueAtTime(0.01, now + 0.05);
+                gainNode.gain.linearRampToValueAtTime(0.05, now + 0.08);
                 gainNode.gain.linearRampToValueAtTime(0.001, now + 0.15);
                 oscillator.start(now);
                 oscillator.stop(now + 0.15);

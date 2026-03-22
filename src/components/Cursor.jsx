@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const Cursor = () => {
+    // Exact tracking for inner precision core
     const cursorX = useMotionValue(-100);
     const cursorY = useMotionValue(-100);
 
-    // Slightly softer spring for smoother trailing outer ring
-    const springConfig = { damping: 28, stiffness: 650, mass: 0.1 };
+    // Smooth spring physics for trailing outer brackets (extremely responsive and snappy)
+    const springConfig = { damping: 20, stiffness: 2000, mass: 0.05 };
     const cursorXSpring = useSpring(cursorX, springConfig);
     const cursorYSpring = useSpring(cursorY, springConfig);
 
@@ -28,7 +29,8 @@ const Cursor = () => {
                 e.target.closest('button') ||
                 e.target.closest('a') ||
                 e.target.closest('.glass-card') ||
-                e.target.closest('[class*="cursor-crosshair"]')
+                e.target.closest('[class*="cursor-crosshair"]') ||
+                e.target.closest('[class*="cursor-pointer"]')
             ) {
                 setIsHovering(true);
             } else {
@@ -52,16 +54,21 @@ const Cursor = () => {
         };
     }, []);
 
-    // Hide on touch devices
     if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
         return null;
     }
 
     return (
         <>
-            {/* Outer trailing ring */}
+            <style>{`
+                * {
+                    cursor: none !important;
+                }
+            `}</style>
+
+            {/* ── Outer Cyberpunk Targeting Brackets ── */}
             <motion.div
-                className="fixed top-0 left-0 w-6 h-6 border border-white/40 mix-blend-difference pointer-events-none z-[9999]"
+                className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center mix-blend-difference"
                 style={{
                     x: cursorXSpring,
                     y: cursorYSpring,
@@ -69,30 +76,51 @@ const Cursor = () => {
                     translateY: "-50%",
                 }}
                 animate={{
-                    scale: isClicking ? 0.7 : isHovering ? 1.6 : 1,
-                    rotate: isHovering ? 45 : 0,
-                    borderColor: isHovering
-                        ? "rgba(59, 130, 246, 1)"
-                        : "rgba(255, 255, 255, 0.4)",
-                    opacity: isHovering ? 1 : 0.7,
+                    width: isHovering ? 20 : 36,
+                    height: isHovering ? 20 : 36,
+                    rotate: isHovering ? 90 : 0,
+                    opacity: isClicking ? 0.4 : isHovering ? 1 : 0.6,
                 }}
-                transition={{ type: "tween", duration: 0.12 }}
-            />
-            {/* Inner precision dot — no spring, tracks exactly */}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            >
+                {/* 4 Corner Brackets */}
+                <span className={`absolute top-0 left-0 w-2.5 h-2.5 border-t-[1.5px] border-l-[1.5px] transition-colors duration-300 ${isHovering ? 'border-primary' : 'border-white'}`} />
+                <span className={`absolute top-0 right-0 w-2.5 h-2.5 border-t-[1.5px] border-r-[1.5px] transition-colors duration-300 ${isHovering ? 'border-primary' : 'border-white'}`} />
+                <span className={`absolute bottom-0 left-0 w-2.5 h-2.5 border-b-[1.5px] border-l-[1.5px] transition-colors duration-300 ${isHovering ? 'border-primary' : 'border-white'}`} />
+                <span className={`absolute bottom-0 right-0 w-2.5 h-2.5 border-b-[1.5px] border-r-[1.5px] transition-colors duration-300 ${isHovering ? 'border-primary' : 'border-white'}`} />
+                
+                {/* Faint Crosshairs (Appear only on hover to "lock" target) */}
+                <motion.div 
+                    className="absolute top-1/2 left-1/2 w-8 h-[1px] bg-primary/40 -translate-x-1/2 -translate-y-1/2"
+                    initial={{ scaleX: 0, opacity: 0 }}
+                    animate={{ scaleX: isHovering ? 1 : 0, opacity: isHovering ? 1 : 0 }}
+                    transition={{ duration: 0.2 }}
+                />
+                <motion.div 
+                    className="absolute top-1/2 left-1/2 w-[1px] h-8 bg-primary/40 -translate-x-1/2 -translate-y-1/2"
+                    initial={{ scaleY: 0, opacity: 0 }}
+                    animate={{ scaleY: isHovering ? 1 : 0, opacity: isHovering ? 1 : 0 }}
+                    transition={{ duration: 0.2 }}
+                />
+            </motion.div>
+            
+            {/* ── Inner Precision Core (Zero Lag) ── */}
             <motion.div
-                className="fixed top-0 left-0 w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_6px_rgba(59,130,246,0.9)] pointer-events-none z-[10000]"
+                className="fixed top-0 left-0 w-[3px] h-[3px] bg-primary shadow-[0_0_8px_rgba(59,130,246,1)] pointer-events-none z-[10000]"
                 style={{
                     x: cursorX,
                     y: cursorY,
                     translateX: "-50%",
                     translateY: "-50%",
                 }}
-                animate={{ scale: isClicking ? 1.8 : 1 }}
-                transition={{ type: "tween", duration: 0.08 }}
+                animate={{ 
+                    scale: isClicking ? 2.5 : isHovering ? 0 : 1,
+                    rotate: 45 // Sharp diamond shape instead of circle
+                }}
+                transition={{ type: "tween", duration: 0.1 }}
             />
         </>
     );
 };
 
 export default Cursor;
-

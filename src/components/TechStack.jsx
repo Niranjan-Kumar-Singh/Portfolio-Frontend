@@ -148,7 +148,7 @@ const SkillNode = ({ skill, delay = 0 }) => {
               initial={{ top: '-2px', opacity: 1 }}
               animate={{ top: '100%', opacity: 0.6 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.5, ease: 'linear', repeat: Infinity, repeatDelay: 0.2 }}
+              transition={{ duration: 1.5, ease: 'linear', repeat: Infinity, repeatDelay: 0.5 }}
             />
           )}
         </AnimatePresence>
@@ -213,14 +213,22 @@ const CategoryCard = ({ category, cardIndex }) => {
       onMouseLeave={() => setHovered(false)}
       className="relative group overflow-hidden cursor-crosshair"
     >
-      {/* Card background */}
+      {/* Premium Card background with radial hover glow */}
       <motion.div
-        className="absolute inset-0 transition-colors duration-400"
+        className="absolute inset-0"
         animate={{
-          backgroundColor: hovered ? `${category.color}08` : 'rgba(3,7,18,0.6)',
+          background: hovered 
+            ? `radial-gradient(circle at top, ${category.color}15 0%, rgba(3,7,18,0.8) 80%)` 
+            : `radial-gradient(circle at top right, rgba(59,130,246,0.06) 0%, rgba(3,7,18,0.8) 70%)`,
         }}
-        transition={{ duration: 0.35 }}
+        transition={{ duration: 0.5 }}
       />
+      
+      {/* Subtle frost noise texture for premium glass feel */}
+      <div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay z-0" 
+        style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}
+      ></div>
 
       {/* Full border with glow */}
       <motion.div
@@ -253,7 +261,7 @@ const CategoryCard = ({ category, cardIndex }) => {
             initial={{ top: '0%' }}
             animate={{ top: '100%' }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: 'linear', repeat: Infinity, repeatDelay: 0.4 }}
+            transition={{ duration: 2.5, ease: 'linear', repeat: Infinity, repeatDelay: 0.8 }}
           />
         )}
       </AnimatePresence>
@@ -278,7 +286,7 @@ const CategoryCard = ({ category, cardIndex }) => {
       ))}
 
       {/* Card content */}
-      <div className="relative z-10 p-6 flex flex-col gap-6 backdrop-blur-sm">
+      <div className="relative z-10 p-4 sm:p-6 flex flex-col gap-5 sm:gap-6 backdrop-blur-md">
 
         {/* Header row */}
         <div className="flex items-center justify-between">
@@ -321,7 +329,7 @@ const CategoryCard = ({ category, cardIndex }) => {
         />
 
         {/* Skill grid */}
-        <div className={`grid gap-5 ${category.skills.length <= 2 ? 'grid-cols-2' : category.skills.length === 3 ? 'grid-cols-3' : 'grid-cols-4'}`}>
+        <div className={`grid gap-3 sm:gap-5 ${category.skills.length <= 2 ? 'grid-cols-2' : category.skills.length === 3 ? 'grid-cols-3' : 'grid-cols-4'}`}>
           {category.skills.map((skill, si) => (
             <SkillNode
               key={skill.name}
@@ -351,7 +359,7 @@ const CategoryCard = ({ category, cardIndex }) => {
 const TechStack = () => {
   return (
     <section id="skills" className="pt-12 pb-24 relative">
-      <div className="container mx-auto px-6 md:px-12">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12">
 
         {/* Section Header */}
         <motion.div
